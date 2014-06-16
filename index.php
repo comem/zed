@@ -3,7 +3,7 @@
     <head>
 	   <title>ZED</title>
 	   <meta charset="utf-8">
-	   <link rel="stylesheet" type="text/css" href="css/style.css">        
+	   <link rel="stylesheet" type="text/css" href="css/style.css">     
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/jquery-ui.js" type="text/javascript"></script>
        
@@ -17,7 +17,7 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
-           
+           <div>    </div>
            
            <!--  <div id="minimizedSearchSection" >
                 <div id="minimizedSearch">
