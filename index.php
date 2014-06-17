@@ -16,16 +16,10 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
+
+
+
            
-           
-           <!--  <div id="minimizedSearchSection" >
-                <div id="minimizedSearch">
-                    <input type="text" placeholder="search">
-                </div>
-                <div id="searchButton">
-                    <img src="img/icones/searchButton.png">
-                </div>
-            </div> -->
         </header>
         <nav class="normalNav">
             <ul>
@@ -195,7 +189,7 @@
                 
             </div>
         </div>
-        <div id="listMain" class="hidden main">
+        <div id="listMain" class=" main">
             <nav class="normalSecondNav">
                 <ul>
                     <li><a href="listEventForm">list event</a></li>
