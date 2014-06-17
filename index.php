@@ -51,39 +51,12 @@
                            </p>
 
                            <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
+                           <input type='submit' name='Submit' value='
 
                            <p>
                            <input type='submit' name='Submit' value='Submit' />
                        </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
+                       <p
                            Name: <input type='text' name='Name' />
                            </p>
                            <p>
