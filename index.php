@@ -17,8 +17,8 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
-           
-           
+
+          
            <!--  <div id="minimizedSearchSection" >
                 <div id="minimizedSearch">
                     <input type="text" placeholder="search">
@@ -27,6 +27,15 @@
                     <img src="img/icones/searchButton.png">
                 </div>
             </div> -->
+
+
+
+          
+
+
+
+           
+
         </header>
         <nav class="normalNav">
             <ul>
