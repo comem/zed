@@ -30,26 +30,29 @@
 
 
 
+<<<<<<< HEAD
           
 
 
+=======
+>>>>>>> matthieu
 
            
 
         </header>
         <nav class="normalNav">
             <ul>
-                <li><a href="" id="addLi">add</a></li>
-                <li><a href="" id="listLi">list</a></li>
+                <li><a href="add" id="addLi">add</a></li>
+                <li><a href="list" id="listLi">list</a></li>
             </ul>
         </nav>
         <div id="addMain" class="main">
             <nav class="normalSecondNav">
                 <ul>
-                    <li><a href="addEventForm">add event</a></li>
-                    <li><a href="addArtistForm">add artist</a></li>
-                    <li><a href="addMusicianForm">add musician</a></li>
-                    <li><a href="addStuffForm">add stuff</a></li>
+                    <li><a href="addEvent">add event</a></li>
+                    <li><a href="addArtist">add artist</a></li>
+                    <li><a href="addMusician">add musician</a></li>
+                    <li><a href="addStuff">add stuff</a></li>
                 </ul>
             </nav>
             <div id="forms">
@@ -65,126 +68,7 @@
                            <p>
                            <input type='submit' name='Submit' value='Submit' />
                        </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
-                       <p>
-                           Name: <input type='text' name='Name' />
-                           </p>
-                           <p>
-                           Email: <input type='text' name='Email' />
-                           </p>
-
-                           <p>
-                           <input type='submit' name='Submit' value='Submit' />
-                       </p>
+                        
                     </form>
                 </div>
                 <div class="form artist">
@@ -205,13 +89,13 @@
                 
             </div>
         </div>
-        <div id="listMain" class="hidden main">
+        <div id="listMain" class=" main">
             <nav class="normalSecondNav">
                 <ul>
-                    <li><a href="listEventForm">list event</a></li>
-                    <li><a href="listArtistForm">list artist</a></li>
-                    <li><a href="listMusicianForm">list musician</a></li>
-                    <li><a href="listStuffForm">list stuff</a></li>
+                    <li><a href="listEvent">list event</a></li>
+                    <li><a href="listArtist">list artist</a></li>
+                    <li><a href="listMusician">list musician</a></li>
+                    <li><a href="listStuff">list stuff</a></li>
                 </ul>
             </nav>
             <div id="forms">
