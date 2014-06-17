@@ -28,17 +28,6 @@
                 </div>
             </div> -->
 
-
-
-<<<<<<< HEAD
-          
-
-
-=======
->>>>>>> matthieu
-
-           
-
         </header>
         <nav class="normalNav">
             <ul>
