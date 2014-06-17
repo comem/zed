@@ -17,13 +17,6 @@
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
 
-
-         
-
-
-          
-       
-
            
         </header>
         <nav class="normalNav">
