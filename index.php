@@ -19,9 +19,6 @@
             </div>           
 
 
-          
-          <div> Matthieuuu et adam</div>
-
 
            
         </header>
@@ -51,12 +48,39 @@
                            </p>
 
                            <p>
-                           <input type='submit' name='Submit' value='
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
 
                            <p>
                            <input type='submit' name='Submit' value='Submit' />
                        </p>
-                       <p
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
+
+                           <p>
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
+
+                           <p>
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
+                       <p>
                            Name: <input type='text' name='Name' />
                            </p>
                            <p>
@@ -166,7 +190,7 @@
                 
             </div>
         </div>
-        <div id="listMain" class="hidden main">
+        <div id="listMain" class=" main">
             <nav class="normalSecondNav">
                 <ul>
                     <li><a href="listEventForm">list event</a></li>
