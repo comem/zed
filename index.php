@@ -17,8 +17,10 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
+
           
           <div> Matthieuuu</div>
+
            
         </header>
         <nav class="normalNav">
