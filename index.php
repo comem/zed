@@ -17,6 +17,7 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
+<<<<<<< HEAD
            <div>Richard</div>
           
            <!--  <div id="minimizedSearchSection" >
@@ -27,6 +28,15 @@
                     <img src="img/icones/searchButton.png">
                 </div>
             </div> -->
+=======
+
+
+          
+          <div> Matthieuuu et adam</div>
+
+
+           
+>>>>>>> matthieu
         </header>
         <nav class="normalNav">
             <ul>
