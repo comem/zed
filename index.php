@@ -18,8 +18,10 @@
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
 
+
           
-          <div> Matthieuuu</div>
+          <div> Matthieuuu et adam</div>
+
 
            
         </header>
