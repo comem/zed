@@ -18,7 +18,7 @@
 
 /// GENERALITIES ///
 html{
-	
+
 	overflow-x: hidden;
 	background-color: @backgroundColor;
 	height:10000px,
@@ -234,6 +234,23 @@ body{
 		}
 	}
 
+	#addMain{
+		position:relative;
+		right:0%;
+		
+		width:100%;
+		float:left;
+	}
+
+
+	#listMain{
+		float:left;
+		position:relative;
+		right:100%;
+		
+		width:100%;
+		top:-100px;
+	}
 	
 
 	.minimalizeNav{
@@ -255,7 +272,7 @@ body{
 
 		/// GENERAL ///
 		
-		height:50px;
+		//height:50px;
 		background-color: @lightBrown;
 	    -webkit-box-shadow: inset 0px 51px 21px -50px rgba(50, 50, 50, 0.54);
 	    -moz-box-shadow:    inset 0px 51px 21px -50px rgba(50, 50, 50, 0.54);
@@ -440,7 +457,7 @@ body{
 	overflow:hidden;
 	position: absolute;
 	width:100%;
-	top:400px;
+	top:150px;
 
 	.event{
 		position: relative;
@@ -476,7 +493,10 @@ body{
 
 /// LOGIN ///
 
-.header{
+
+
+#login{
+	 
 	background-color: @darkBrown;
 	height: 200px;
 }
