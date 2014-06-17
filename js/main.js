@@ -1,10 +1,13 @@
 var whichForm = "eventForm";
+var addButton = true;
 $(function(){
 
 	$('.main nav ul li a').click(scrollForm);
-	$(window).scroll(showAtScroll);
+	$(window).one().scroll(showAtScroll);
 
 	$('body>nav ul li a').click(showMain);
+
+
 
 
 	
@@ -17,12 +20,21 @@ $(function(){
 function showMain(e){
 
 	if ($(this).attr('id') == "listLi") {
-		console.log('djsao');
-		$('#addMain').css({right: '0%'}).animate({right: '100%'});
-		$('#listMain').css({right: '-100%'}).animate({right: '0%'});
+		if (addButton) {
+			$('#addMain').css({right: '0%'}).animate({right: '100%'});
+			$('#listMain').css({right: '-100%'}).animate({right: '0%'});
+			addButton = false;
+		};
+		
 	}else{
-		$('#listMain').css({right: '0%'}).animate({right: '-100%'});
-		$('#addMain').css({right: '100%'}).animate({right: '0%'});
+
+		if (!addButton) {
+			$('#listMain').css({right: '0%'}).animate({right: '-100%'});
+			$('#addMain').css({right: '100%'}).animate({right: '0%'});
+			addButton = true;
+		};
+		
+
 	};
 	e.preventDefault(); return false;
 }
@@ -36,10 +48,10 @@ function showAtScroll(){
 
 	if (heightLimit > "350") {
 
-		$('#searchToBeSwitched').removeClass('normalSearch');
-		$('#searchToBeSwitched').addClass('minimalizeSearch');
+		$('header>div').removeClass('normalSearch');
+		$('header>div').addClass('minimalizeSearch');
 
-		$('#searchToBeSwitched').switchClass('minimalizeSearch','downSearch',800,'easeOutBounce');
+		$('header>div').switchClass('minimalizeSearch','downSearch',800,'easeOutBounce');
 
 		$('body>nav').removeClass('normalNav');
 		$('body>nav').addClass('minimalizeNav');
@@ -47,21 +59,23 @@ function showAtScroll(){
 		$('body>nav').switchClass('minimalizeNav','downNav',800,'easeOutBounce');
 
 		
-
+		
 
 
 
 	}else{
 
-		$('#searchToBeSwitched').removeClass('minimalizeSearch');
-		$('#searchToBeSwitched').addClass('normalSearch');
+		$('header>div').removeClass('minimalizeSearch');
+		$('header>div').addClass('normalSearch');
 
-		$('#searchToBeSwitched').switchClass('downSearch','normalSearch',0,'linear');
+		$('header>div').switchClass('downSearch','normalSearch',0,'linear');
 
 		$('body>nav').removeClass('minimalizeNav');
 		$('body>nav').addClass('normalNav');
 
 		$('body>nav').switchClass('downNav','normalNav',0,'linear');
+
+		
 
 		
 
@@ -84,7 +98,7 @@ function scrollForm(e){
 
 	
 
-	if (href == "addEventForm") {
+	if (href == "addEvent") {
 		
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
@@ -93,7 +107,7 @@ function scrollForm(e){
 
 	};
 
-	if (href == "addArtistForm") {
+	if (href == "addArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
@@ -101,7 +115,7 @@ function scrollForm(e){
 		
 	};
 
-	if (href == "addMusicianForm") {
+	if (href == "addMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
@@ -109,7 +123,7 @@ function scrollForm(e){
 		
 	};
 
-	if (href == "addStuffForm") {
+	if (href == "addStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
@@ -117,7 +131,7 @@ function scrollForm(e){
 		
 	};
 
-	if (href == "listEventForm") {
+	if (href == "listEvent") {
 		
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
@@ -126,7 +140,7 @@ function scrollForm(e){
 
 	};
 
-	if (href == "listArtistForm") {
+	if (href == "listArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
@@ -134,7 +148,7 @@ function scrollForm(e){
 		
 	};
 
-	if (href == "listMusicianForm") {
+	if (href == "listMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
@@ -142,7 +156,7 @@ function scrollForm(e){
 		
 	};
 
-	if (href == "listStuffForm") {
+	if (href == "listStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
