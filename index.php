@@ -16,7 +16,9 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
+
           <div> adaaam</div> 
+
            
            <!--  <div id="minimizedSearchSection" >
                 <div id="minimizedSearch">
