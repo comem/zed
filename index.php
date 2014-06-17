@@ -16,7 +16,6 @@
             <div  id="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
-
            
         </header>
         <nav class="normalNav">
@@ -187,7 +186,7 @@
                 
             </div>
         </div>
-        <div id="listMain" class="hidden main">
+        <div id="listMain" class=" main">
             <nav class="normalSecondNav">
                 <ul>
                     <li><a href="listEventForm">list event</a></li>

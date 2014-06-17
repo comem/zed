@@ -18,11 +18,11 @@ function showMain(e){
 
 	if ($(this).attr('id') == "listLi") {
 		console.log('djsao');
-		$('#addMain').hide();
-		$('#listMain').show();
+		$('#addMain').css({right: '0%'}).animate({right: '100%'});
+		$('#listMain').css({right: '-100%'}).animate({right: '0%'});
 	}else{
-		$('#listMain').hide();
-		$('#addMain').show();
+		$('#listMain').css({right: '0%'}).animate({right: '-100%'});
+		$('#addMain').css({right: '100%'}).animate({right: '0%'});
 	};
 	e.preventDefault(); return false;
 }
