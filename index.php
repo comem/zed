@@ -14,17 +14,24 @@
     <body>
         <header>
             <img src="img/logo.png"> 
-            <div  id="searchToBeSwitched" class="normalSearch">
+            <div  isd="searchToBeSwitched" class="normalSearch">
                  <input id="searchInput" type="text" placeholder="search">
             </div>           
            
            
-          
+           <!--  <div id="minimizedSearchSection" >
+                <div id="minimizedSearch">
+                    <input type="text" placeholder="search">
+                </div>
+                <div id="searchButton">
+                    <img src="img/icones/searchButton.png">
+                </div>
+            </div> -->
         </header>
         <nav class="normalNav">
             <ul>
-                <li><a href="" id="addLi">add</a></li>
-                <li><a href="" id="listLi">list</a></li>
+                <li><a href="addForm" id="addLi">add</a></li>
+                <li><a href="listForm" id="listLi">list</a></li>
             </ul>
         </nav>
         <div id="addMain" class="main">
