@@ -19,14 +19,7 @@
             </div>           
            
            
-           <!--  <div id="minimizedSearchSection" >
-                <div id="minimizedSearch">
-                    <input type="text" placeholder="search">
-                </div>
-                <div id="searchButton">
-                    <img src="img/icones/searchButton.png">
-                </div>
-            </div> -->
+          
         </header>
         <nav class="normalNav">
             <ul>
