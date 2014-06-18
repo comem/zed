@@ -296,10 +296,10 @@ body .downNav ul li a:hover {
   -webkit-transition: 0.2s;
 }
 #forms {
-  overflow: hidden;
   position: absolute;
   width: 100%;
   top: 150px;
+  height: 500px;
 }
 #forms .event {
   position: relative;
