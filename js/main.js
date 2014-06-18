@@ -5,21 +5,15 @@ var DEFAULT_SECTION = 'addEventForm';
 
 $(function(){
 
-	$('.main nav ul li a').click(function(){
+	$('.main nav ul li a').click(function(e){
 		menuElement =$(this).attr('href')
-		scrollForm(menuElement);
+		scrollForm(e, menuElement);
 	});
 	$(window).scroll(showAtScroll);
 
 	$('body>nav ul li a').click(showMain);
 
 	iniHandler();
-
-	$(function(){
-		$('nav ul li a').on('click', function(e){
-			console.log($(this).attr('href'));
-	});
-
 });
 
 /*****
@@ -64,9 +58,8 @@ function historyHandler() {
 
 
 function goToMenuElement(menuElement){
-	//var nodeIdToShow = '#' + menuElement;
-	//$(nodeIdToShow).show();
-	scrollForm(menuElement);
+
+	//scrollForm(menuElement);
 }
 
 /*******
@@ -135,7 +128,7 @@ function showAtScroll(){
 
 
 
-function scrollForm(menuElement){
+function scrollForm(e, menuElement){
 
 	//var href = $(this).attr('href');
 	var href = menuElement;
@@ -197,5 +190,5 @@ function scrollForm(menuElement){
 		$('.stuff').animate({left: '0%'});
 	};
 
-	//e.preventDefault(); return false;
+	e.preventDefault(); return false;
 }
