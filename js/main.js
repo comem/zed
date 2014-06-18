@@ -6,7 +6,7 @@ var DEFAULT_SECTION = 'addEventForm';
 $(function(){
 
 	$('.main nav ul li a').click(function(e){
-		menuClickHandler($(this))
+		//menuClickHandler($(this))
 		menuElement =$(this).attr('href')
 		scrollForm(e, menuElement);
 	});
@@ -53,7 +53,7 @@ function historyHandler() {
         href = DEFAULT_SECTION;
     }
     //goToMenuElement(href);
-    //console.log(href);
+    console.log(href);
 }
 
 
