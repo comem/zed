@@ -5,8 +5,7 @@
 	   <meta charset="utf-8">
 	   <link rel="stylesheet" type="text/css" href="css/style.css">        
         <script src="js/jquery.js" type="text/javascript"></script>
-        <script src="js/jquery-ui.js" type="text/javascript"></script>
-       
+        <script src="js/jquery-ui.js" type="text/javascript"></script>       
 
         <script src="js/modernizr.js" type="text/javascript"></script>
         <script src="js/main.js"></script>
