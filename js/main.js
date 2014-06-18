@@ -6,6 +6,7 @@ var DEFAULT_SECTION = 'addEventForm';
 $(function(){
 
 	$('.main nav ul li a').click(function(e){
+		menuClickHandler($(this))
 		menuElement =$(this).attr('href')
 		scrollForm(e, menuElement);
 	});
@@ -13,14 +14,14 @@ $(function(){
 
 	$('body>nav ul li a').click(showMain);
 
-	iniHandler();
+	initHandler();
 });
 
 /*****
 * Gestion de l'historique
 ******/
 
-function iniHandler(){
+function initHandler(){
 	// gestion des boutons "back" et "forward" du browser
     $(window).on('popstate', historyHandler);
     // simule un premier changement d'url
@@ -28,16 +29,15 @@ function iniHandler(){
     console.log('initok');
 
     // Gestion du menu (en affichant la <section> approriée)
-    $('nav ul li a').on('click', function(e) {
+    $('nav ul li a').on('click', function() {
         menuClickHandler($(this));
-        e.preventDefault();
-        return false;
     });
 }
 
 
 function menuClickHandler(menuElement) {
     var href = menuElement.attr('href');
+    console.log(href);
     var actualhref = location.pathname.split("/").pop();
     if (href === actualhref) {
     	return;
@@ -52,15 +52,14 @@ function historyHandler() {
     if (href === '') {
         href = DEFAULT_SECTION;
     }
-    goToMenuElement(href);
-    console.log(href);
+    //goToMenuElement(href);
+    //console.log(href);
 }
 
 
-function goToMenuElement(menuElement){
-
-	//scrollForm(menuElement);
-}
+/*function goToMenuElement(menuElement){
+	scrollForm(menuElement);
+}*/
 
 /*******
 * TODO
