@@ -3,15 +3,15 @@
     <head>
 	   <title>ZED</title>
 	   <meta charset="utf-8">
-<<<<<<< HEAD
+
 	   <link rel="stylesheet" type="text/css" href="css/style.css">  
      <link rel="stylesheet" type="text/css" href="css/form.css">        
-=======
+
 	   <link rel="stylesheet" type="text/css" href="css/style.css">
      <link rel="stylesheet" type="text/css" href="css/form.css"> 
      <link rel="stylesheet" type="text/css" href="css/uicss.css"> 
              
->>>>>>> formulaires
+
         <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/jquery-ui.js" type="text/javascript"></script>       
 
@@ -76,10 +76,7 @@
                         
                     </form>
                 </div>
-<<<<<<< HEAD
-                <div class="form artist">
-                    </div>
-=======
+
                 <!-- ARTIST FORM -->
 
                   <div class="form artist">
@@ -168,7 +165,7 @@
                 
                 
                 
->>>>>>> formulaires
+
                 <div class="form musician">
                     <form id="musicianForm">
                         dasdasdasdasdsadasdas
