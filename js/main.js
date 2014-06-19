@@ -1,3 +1,7 @@
+/*
+* Variables globales
+*/
+
 var whichForm = "eventForm";
 var addButton = true;
 var DEFAULT_SECTION = 'addEventForm';
@@ -5,11 +9,6 @@ var DEFAULT_SECTION = 'addEventForm';
 
 $(function(){
 
-	$('.main nav ul li a').click(function(e){
-		//menuClickHandler($(this))
-		menuElement =$(this).attr('href')
-		scrollForm(e, menuElement);
-	});
 	$(window).scroll(showAtScroll);
 
 	$('body>nav ul li a').click(showMain);
@@ -22,27 +21,30 @@ $(function(){
 ******/
 
 function initHandler(){
-	// gestion des boutons "back" et "forward" du browser
     $(window).on('popstate', historyHandler);
-    // simule un premier changement d'url
-    $(window).trigger('popstate');
-    console.log('initok');
 
-    // Gestion du menu (en affichant la <section> approriée)
-    $('nav ul li a').on('click', function() {
+    //Premier changement d'url
+    $(window).trigger('popstate');
+
+    $('nav ul li a').on('click', function(e) {
+    	scrollForm(e, $(this).attr('href'));
         menuClickHandler($(this));
+    });
+
+    $(window).on('popstate', function(e){
+    	var href = location.pathname.split("/").pop();
+    	goToElement(e, href);
     });
 }
 
 
 function menuClickHandler(menuElement) {
     var href = menuElement.attr('href');
-    console.log(href);
+
     var actualhref = location.pathname.split("/").pop();
     if (href === actualhref) {
     	return;
 	}
-	// Simule le changement d'url ver cette section
     history.pushState(null, null, href);
 }
 
@@ -52,14 +54,20 @@ function historyHandler() {
     if (href === '') {
         href = DEFAULT_SECTION;
     }
-    //goToMenuElement(href);
-    console.log(href);
 }
 
+function goToElement(e, href){
+    if(href === 'add' && href === 'list'){
+    	console.log('showMain');
+    	console.log(href);
+      	showMain(e);
+    } else{
+		console.log('scrollForm');
+		console.log(href);
+		scrollForm(e, href);
+    }
+}
 
-/*function goToMenuElement(menuElement){
-	scrollForm(menuElement);
-}*/
 
 /*******
 * TODO
@@ -74,7 +82,7 @@ function historyHandler() {
 
 function showMain(e){
 
-	if ($(this).attr('id') == "listLi") {
+	if ($(this).attr('href') == "list") {
 		if (addButton) {
 			$('#addMain').css({right: '0%'}).animate({right: '100%'});
 			$('#listMain').css({right: '-100%'}).animate({right: '0%'});
@@ -127,62 +135,33 @@ function showAtScroll(){
 
 
 
-function scrollForm(e, menuElement){
+function scrollForm(e, href){
 
-	//var href = $(this).attr('href');
-	var href = menuElement;
+	//var href = $(menuElement).attr('href');
+	console.log(href);
 
-
-	if (href == "addEvent") {
+	if (href == "addEvent" || href == "listEvent") {
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
 		$('.musician').animate({left: '200%'});
 		$('.stuff').animate({left: '300%'});	
 	};
 
-	if (href == "addArtist") {
+	if (href == "addArtist" || href == "listArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
 		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "addMusician") {
+	if (href == "addMusician" || href == "listMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
 		$('.stuff').animate({left: '100%'});
 	};
 
-	if (href == "addStuff") {
-		$('.event').animate({left: '-300%'});	
-		$('.artist').animate({left: '-200%'});
-		$('.musician').animate({left: '-100%'});
-		$('.stuff').animate({left: '0%'});
-	};
-
-	if (href == "listEvent") {
-		$('.event').animate({left: '0%'});	
-		$('.artist').animate({left: '100%'});
-		$('.musician').animate({left: '200%'});
-		$('.stuff').animate({left: '300%'});	
-	};
-
-	if (href == "listArtist") {
-		$('.event').animate({left: '-100%'});	
-		$('.artist').animate({left: '0%'});
-		$('.musician').animate({left: '100%'});
-		$('.stuff').animate({left: '200%'});
-	};
-
-	if (href == "listMusician") {
-		$('.event').animate({left: '-200%'});	
-		$('.artist').animate({left: '-100%'});
-		$('.musician').animate({left: '0%'});
-		$('.stuff').animate({left: '100%'});
-	};
-
-	if (href == "listStuff") {
+	if (href == "addStuff" || href == "listStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
