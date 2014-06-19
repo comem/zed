@@ -84,16 +84,16 @@ function showMain(e){
 
 	if ($(this).attr('href') == "list") {
 		if (addButton) {
-			$('#addMain').css({right: '0%'}).animate({right: '100%'});
-			$('#listMain').css({right: '-100%'}).animate({right: '0%'});
+			$('#addMain').addClass('leftPosAdd').animate({right: '100%'});
+			$('#listMain').addClass('leftPosList').animate({right: '0%'});
 			addButton = false;
 		};
 
 	}else{
 
 		if (!addButton) {
-			$('#listMain').css({right: '0%'}).animate({right: '-100%'});
-			$('#addMain').css({right: '100%'}).animate({right: '0%'});
+			$('#listMain').addClass('rightPosList').animate({right: '-100%'});
+			$('#addMain').addClass('rightPosAdd').animate({right: '0%'});
 			addButton = true;
 		};
 		

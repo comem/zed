@@ -92,7 +92,7 @@
                     <form id="artistForm">
                         Artist
                     </form>
-                </div>f
+                </div>
                 <div class="form musician">
                     <form id="musicianForm">
                         Musician
