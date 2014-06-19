@@ -61,63 +61,7 @@
                     </form>
                 </div>
                 <div class="form artist">
-                    <form id="artistForm">
-                        <h1 class ="addArtistHeader">Create new artist</h1>
-
-                        <div id="artistInfoDiv">
-                          
-                          <h2 class ="addArtistHeader">Informations</h2>
-
-                            <label>Name*</label><input type="text" name="nameArtist" id="nameArtist" required placeholder="artist name"><br>
-                            <label>Lead </label><textarea name="lead" id="lead" maxlength="300" placeholder="artist lead"></textarea><br>
-                            <label>Description</label><textarea  placeholder="artist description" name="desc" id="desc"></textarea><br>
-                        </div>
-
-      <div  id="genreSelect">
-              Genre<input type="text" name="genre" id="genre"/>
-      </div>
-
-
-      <div id= "musicianSelect">
-          Musician    
-              <input type="text" name="musician" id="musician" placeholder="start typing a name"/>   
-          <button id="showAll">show all</button>
-            <button id="createNewMusicianButton" class="noResult add">Create new musician</button>
-
-             <fieldset id="musiciansPlaying">
-                <legend>Musicians playing</legend>
-            </fieldset>
-            <div><h3 id = 'noResultsInfo' >pas de resultat, vous pouvez creer un nouvel artiste</h3> </div>
-      </div>
-
-
-      <div id= "addToEvent">
-        <h2 class ="addArtistHeader">Event</h2>
-        Add to event 
-              <input type="text" name="eventName" id="eventName"/>
-           Arrival hour <input type="time" name="arrivalHour" id="arrivalHour">
-           
-    </div>
-
-
-      <div id="links">
-        <h2 class ="addArtistHeader">Links</h2>
-        Title <input type="text" name="title" id="titleLink" ><br>
-        Name <input type="text" name="nameLink" id="nameLink" ><br>
-        URL <input type="url" name="url" id="url" ><br>
-      </div>
-        
- <div id="artistImageDiv">
-      <h2 class ="addArtistHeader">Image</h2>
-      Browse existing image <input type="file" name="img" multiple id="artistImgBrowse">
-        Upload new image <input id="artistImgUpload" type="file" name="img" multiple>
-        <br>
-</div>
-        <button id="createNewArtistButton">CREATE NEW ARTIST</button>
-
-
-                    </form>
-                </div>
+                    </div>
                 <div class="form musician">
                     <form id="musicianForm">
                         dasdasdasdasdsadasdas
