@@ -73,6 +73,7 @@ function goToElement(e, href){
 * TODO
 * - .htaccess
 * - Bon formulaire s'affiche au back/previous
+* - SwitchClass pour les animations
 */
 
 /*********
@@ -84,24 +85,26 @@ function showMain(e){
 
 	if ($(this).attr('href') == "list") {
 		if (addButton) {
-			$('#addMain').addClass('leftPosAdd').animate({right: '100%'});
-			$('#listMain').addClass('leftPosList').animate({right: '0%'});
+			$('#addMain').addClass('posZero').animate({right: '100%'});
+			$('#listMain').addClass('posMoins').animate({right: '0%'});
+			//$('#addMain').switchClass('posZero','posPlus',100,'swing');
+			//$('#listMain').switchClass('posMoins','posZero',100,'swing');
 			addButton = false;
+			console.log(addButton);
 		};
 
 	}else{
 
 		if (!addButton) {
-			$('#listMain').addClass('rightPosList').animate({right: '-100%'});
-			$('#addMain').addClass('rightPosAdd').animate({right: '0%'});
+			$('#listMain').addClass('posZero').animate({right: '-100%'});
+			$('#addMain').addClass('posPlus').animate({right: '0%'});
+			//$('#listMain').switchClass('posZero','posMoins',100,'swing');
+			//$('#addMain').switchClass('posPlus','posZero',100,'swing');
 			addButton = true;
-		};
-		
-
-	};
-	e.preventDefault(); return false;
+			console.log(addButton);
+		}
+	}
 }
-
 
 function showAtScroll(){
 	var heightLimit = $(document).scrollTop();
