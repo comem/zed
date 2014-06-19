@@ -293,7 +293,7 @@ body .downNav ul li a:hover {
   position: absolute;
   width: 100%;
   top: 150px;
-  height: 1000px;
+  height: 4000px;
 }
 #forms .event {
   position: relative;
@@ -316,13 +316,6 @@ body .downNav ul li a:hover {
   height: 30%;
   float: left;
   margin-top: 0px;
-}
-#forms .form form {
-  display: inline;
-  float: left;
-  width: 75%;
-  margin: 0 0%;
-  margin-left: 6.666666666666667%;
 }
 #login {
   background-color: #7a664c;
