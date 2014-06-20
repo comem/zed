@@ -19,3 +19,30 @@ var MyModelNestedCollection = Backbone.Model.extend({
         );
     }
 });
+
+var Event = MyModel.extend({
+
+});
+
+
+var Artist = MyModel.extend({
+
+});
+
+var Musician = MyModel.extend({
+
+});
+
+var Instrument = MyModel.extend({
+
+});
+
+var Header = MyView.extend({
+    template: _.template(tamplates.indexx)
+});
+
+
+
+$(function(){
+
+});

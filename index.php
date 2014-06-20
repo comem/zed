@@ -49,6 +49,36 @@
                            <p>
                            <input type='submit' name='Submit' value='Submit' />
                        </p>
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
+
+                           <p>
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
+
+                           <p>
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
+                       <p>
+                           Name: <input type='text' name='Name' />
+                           </p>
+                           <p>
+                           Email: <input type='text' name='Email' />
+                           </p>
+
+                           <p>
+                           <input type='submit' name='Submit' value='Submit' />
+                       </p>
                         
                     </form>
                 </div>
@@ -155,6 +185,6 @@
                 </div>
                 
             </div>
-        </main>
+        </div>
     </body>
 </html>
