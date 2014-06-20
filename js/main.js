@@ -111,6 +111,23 @@ var StuffList = MyView.extend({
 });
 
 
+var EventAdd = MyView.extend({
+    template: _.template(templates.add_addEvent),
+    render:function(){
+        this.$el.html(this.template());
+        return this;
+    }
+});
+
+var ArtistAdd = MyView.extend({
+    template: _.template(templates.add_addArtist),
+    render:function(){
+        this.$el.html(this.template());
+        return this;
+    }
+});
+
+
 
 var header = new Header();
 var home = new Home();
@@ -125,6 +142,9 @@ var eventList = new EventList();
 var artistList = new ArtistList();
 var musicianList = new MusicianList();
 var stuffList = new StuffList();
+
+var addEvent = new EventAdd();
+var addArtist = new ArtistAdd();
 
 
 
@@ -142,6 +162,9 @@ $(function(){
     artistList.render().$el.appendTo('#listMain>#forms');
     musicianList.render().$el.appendTo('#listMain>#forms');
     stuffList.render().$el.appendTo('#listMain>#forms');
+
+    addEvent.render().$el.appendTo('#addMain #forms');
+    addArtist.render().$el.appendTo('#addMain #forms');
 
 
 
