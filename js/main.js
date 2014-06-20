@@ -120,7 +120,7 @@ var EventAdd = MyView.extend({
 });
 
 var ArtistAdd = MyView.extend({
-    template: _.template(templates.add_addArtist),
+    template: _.template(templates.add_addArtist_addArtist),
     render:function(){
         this.$el.html(this.template());
         return this;
