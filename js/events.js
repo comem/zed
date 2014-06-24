@@ -7,7 +7,10 @@ $(function(){
 	console.log('loaded');
 
 	var appRouter = new AppRouter();
-	
+	Backbone.history.start({
+       pushState: true,
+       root: "/zed/"
+	});
 
 	$('.normalNav ul li a').click(showMain);
 	$('.main nav ul li a').click(scrollForm);
