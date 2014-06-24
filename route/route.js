@@ -3,8 +3,8 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
   	'': 'index', //url: root
-    'add/': '',
-    'list/': ''
+    'add/': 'index',
+    'list/': 'index'
   },
   initialize: function(){
   	console.log('init router');

@@ -1,3 +1,5 @@
+var ACTIVE_TAB = 'add/';
+var ACTIVE_FORM = "event";
 var whichForm = "eventForm";
 var addButton = true;
 
@@ -12,19 +14,25 @@ $(function(){
        root: "/zed/"
 	});
 
-	//$('.normalNav ul li a').click(showMain);
-	$('.normalNav ul li a').on('click', function(e){
-		showMain(e);
+	$('.normalNav ul li a').click(showMain);
+	$('.normalNav ul li a').on('click', function(){
+		console.log($(this).attr('id'));
+
 		if($(this).attr('id') == "addLi"){
+			ACTIVE_TAB = 'add';
 			appRouter.navigate('add/');
 		}else{
+			ACTIVE_TAB = 'list';
 			appRouter.navigate('list/');
 		}
+		console.log(ACTIVE_TAB);
 	});
 
-	//$('.main nav ul li a').click(scrollForm);
-	$('.main nav ul li a').on('click', function(e){
-		scrollForm(e);
+	$('.main nav ul li a').click(scrollForm);
+	$('.main nav ul li a').on('click', function(){
+		var href = $(this).attr('href');
+		console.log(href);
+		appRouter.navigate(ACTIVE_TAB +'/'+href);
 	});
 
 	$(window).scroll(showAtScroll);
@@ -110,28 +118,28 @@ function scrollForm(e){
 	var href = $(this).attr('href');
 	console.log(href);
 
-	if (href == "#addEvent" || href == "#listEvent") {
+	if (href == "addEvent" || href == "listEvent") {
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
 		$('.musician').animate({left: '200%'});
 		$('.stuff').animate({left: '300%'});	
 	};
 
-	if (href == "#addArtist" || href == "#listArtist") {
+	if (href == "addArtist" || href == "listArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
 		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "#addMusician" || href == "#listMusician") {
+	if (href == "addMusician" || href == "listMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
 		$('.stuff').animate({left: '100%'});
 	};
 
-	if (href == "#addStuff" || href == "#listStuff") {
+	if (href == "addStuff" || href == "listStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
