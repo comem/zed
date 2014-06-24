@@ -1,5 +1,5 @@
-var ACTIVE_TAB = 'add/';
-var ACTIVE_FORM = "event";
+var ACTIVE_TAB = 'add';
+var ACTIVE_FORM = "addEvent";
 var whichForm = "eventForm";
 var addButton = true;
 
@@ -14,25 +14,44 @@ $(function(){
        root: "/zed/"
 	});
 
+	// Navigation de premier niveau (Add/List)
 	$('.normalNav ul li a').click(showMain);
 	$('.normalNav ul li a').on('click', function(){
-		console.log($(this).attr('id'));
-
+		
+		var lastTab = ACTIVE_TAB;
+		
 		if($(this).attr('id') == "addLi"){
 			ACTIVE_TAB = 'add';
-			appRouter.navigate('add/');
 		}else{
 			ACTIVE_TAB = 'list';
-			appRouter.navigate('list/');
 		}
-		console.log(ACTIVE_TAB);
+
+		//console.log('active tab: '+ACTIVE_TAB);
+		//console.log('old tab: '+lastTab);
+		
+		// Gestion du changement URL
+		if(lastTab != ACTIVE_TAB){
+
+			if(ACTIVE_FORM.indexOf('add') > -1){
+				//console.log('dans le if');
+				var newURL = ACTIVE_FORM.replace('add', 'list');
+			}else{
+				//console.log('dans le else');
+				var newURL = ACTIVE_FORM.replace("list", "add");
+			}
+			//console.log('edited URL: '+ACTIVE_TAB+'/'+newURL);
+			appRouter.navigate(ACTIVE_TAB+'/'+newURL);
+			ACTIVE_FORM = newURL;
+		}
 	});
 
+	// Navigation de second niveau (Formulaires)
 	$('.main nav ul li a').click(scrollForm);
 	$('.main nav ul li a').on('click', function(){
 		var href = $(this).attr('href');
-		console.log(href);
+		console.log('href click: '+ACTIVE_TAB +'/'+href);
 		appRouter.navigate(ACTIVE_TAB +'/'+href);
+		ACTIVE_FORM = href;
 	});
 
 	$(window).scroll(showAtScroll);
@@ -40,8 +59,7 @@ $(function(){
 
 
 function showMain(e){
-	console.log('1lvl');
-	
+
 	if ($(this).attr('id') == "listLi") {
 		if (addButton) {
 			$('#addMain').css({right: '0%'}).animate({right: '100%'});
@@ -116,7 +134,7 @@ function showAtScroll(){
 
 function scrollForm(e){
 	var href = $(this).attr('href');
-	console.log(href);
+	//console.log('dans form '+href);
 
 	if (href == "addEvent" || href == "listEvent") {
 		$('.event').animate({left: '0%'});	

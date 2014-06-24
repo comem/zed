@@ -3,14 +3,12 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
   	'': 'index', //url: root
-    'add/': 'index',
-    'list/': 'index'
   },
   initialize: function(){
   	console.log('init router');
   },
   index: function(){
-  	console.log('home');
+  	//console.log('home');
   }
 });
 
@@ -18,8 +16,8 @@ var AppRouter = Backbone.Router.extend({
 
 
 
-	// Artist router
-	// ==================
+//	Artist router
+//	==================
 
 	var ArtistRouter = Backbone.Router.extend({
 	  routes: {
