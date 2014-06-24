@@ -4,7 +4,7 @@ var addButton = true;
 
 $(function(){
 
-	console.log('loaded');
+	console.log('DOM loaded');
 
 	var appRouter = new AppRouter();
 	Backbone.history.start({
@@ -12,8 +12,20 @@ $(function(){
        root: "/zed/"
 	});
 
-	$('.normalNav ul li a').click(showMain);
-	$('.main nav ul li a').click(scrollForm);
+	//$('.normalNav ul li a').click(showMain);
+	$('.normalNav ul li a').on('click', function(e){
+		showMain(e);
+		if($(this).attr('id') == "addLi"){
+			appRouter.navigate('add/');
+		}else{
+			appRouter.navigate('list/');
+		}
+	});
+
+	//$('.main nav ul li a').click(scrollForm);
+	$('.main nav ul li a').on('click', function(e){
+		scrollForm(e);
+	});
 
 	$(window).scroll(showAtScroll);
 });

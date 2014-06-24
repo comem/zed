@@ -3,28 +3,14 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
   	'': 'index', //url: root
-  	'add': 'navfirstlevel', //url: add/
-  	'list': 'navfirstlevel', //url: list/
-  	':branch/:form': 'nav', //url: add/artist,list/event, etc
-  	'search/:query': 'search'
+    'add/': '',
+    'list/': ''
   },
   initialize: function(){
   	console.log('init router');
   },
   index: function(){
   	console.log('home');
-  },
-  navfirstlevel: function(){
-  	console.log('add/list');
-  	showMain();
-  },
-  nav: function(branch, form){
-  	console.log('nav');
-  	showMain();
-  	scrollForm(form);
-  },
-  search: function(query){
-  	console.log('search');
   }
 });
 
