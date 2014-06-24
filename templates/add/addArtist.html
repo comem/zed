@@ -1,0 +1,79 @@
+<div class="form artist">
+
+                      <div class="accordion nextFormArtist">
+                        <h1 class ="addArtistHeader">Create new artist</h1>
+
+                        <div>
+                          <form id="artistForm" >
+                            <div id="artistInfoDiv">
+                                <h2 class ="addArtistHeader">Informations</h2>
+
+                                    <label>Name*</label><input type="text" name="nameArtist" id="nameArtist" required placeholder="artist name"><br>
+                                    <label>Lead</label><textarea name="lead" id="lead" maxlength="300" placeholder="artist lead"></textarea><br>
+                                    <label>Description</label><textarea  placeholder="artist description" name="artistDescription" id="artistDescription"></textarea><br>
+                              
+                                        <div id="links"> 
+                                          <h2 class ="addArtistHeader">Links</h2>
+                                          <label>Title</label><input type="text" name="title" id="titleLink" ><br>
+                                          <label>Name</label><input type="text" name="nameLink" id="nameLink" ><br>
+                                          <label>URL</label><input type="url" name="url" id="linkUrl" required><br>
+                                        </div> 
+                              
+                                        <div id="artistImageDiv">
+                                              <h2 class ="addArtistHeader">Image</h2>
+                                              <label>Browse existing image</label><input type="file" name="img" multiple id="artistImgBrowse">
+                                              <label>Upload new image</label><input id="artistImgUpload" type="file" name="img" multiple>
+                                              <br>
+                                        </div>  
+                                        <button id="createNewArtistButton" type = 'button'>CREATE NEW ARTIST</button>
+
+                              </div>
+                              <div  id="genreSelect">
+                                    <h2 class ="addArtistHeader">Genre</h2>
+                                    <label>Genre</label><input type="text" name="genre" id="genre" placeholder= "start typing"/>
+                                    <button type="button" id="createNewGenreButton" class="noResult addGenre">Create</button>    
+                                    <button  type="button" id="showAllGenres">show all genres</button>
+
+                                    <fieldset id="genresSelected">
+                                        <legend>Genres selected</legend>
+                                    </fieldset>
+                                    
+                                    <h3 id = 'noGenreResultInfo'>pas de resultat, vous pouvez creer un nouveau genre</h3> 
+                                    
+                                    <button type="button" class ="deleteGenre">Delete genre</button>
+
+
+                              </div>
+
+
+                              <div id= "musicianSelect">
+                                    <h2 class ="addArtistHeader">Musician</h2>
+                                    <label>Musician</label><input class= "titleMusicianForm" type="text" name="musician" id="musician" placeholder="start typing a name"/>
+                                    <button type="button" id="createNewMusicianButton" class="noResult add">Create musician</button>    
+                                    <button  type="button" id="showAllMusicians">show all musicians</button>
+
+                                    <fieldset id="musiciansPlaying">
+                                        <legend>Musicians playing</legend>
+                                    </fieldset>
+                                    <div>
+                                    <h3 id = 'noMusicianResultsInfo'>pas de resultat, vous pouvez creer un nouveau musicien</h3> 
+                                    </div>
+                                    
+                              </div>
+
+
+                              <div id= "addToEvent">
+                                   <h2 class ="addArtistHeader">Event</h2>
+                                   <label>Add to event</label><input type="text" name="eventName" id="eventName"/>
+                                   <label>Arrival hour</label><input class ="time" type="text" data-time-format="H:i" name="arrivalHour" id="arrivalHour">
+                 
+                              </div>
+ 
+                              <!-- <button id="createNewArtistButton">CREATE NEW ARTIST</button> -->
+                     </form>
+                        </div>
+                      </div>
+
+ 
+                    
+                  </div> <!--Fin class=form artist-->

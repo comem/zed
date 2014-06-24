@@ -1,0 +1,16 @@
+ 
+    <% _.each(musicians, function (musician, index) { %>
+<div class="musicianResult" id="musicianID-<%- musician.id %>">	
+
+       
+                 <%- musician.name %>
+
+            <button class="deleteMusician" data-indice=
+            "<%- index %>" >Supprimer</button>
+        
+    
+ </div>
+         <% }); %>
+
+                	
+           
