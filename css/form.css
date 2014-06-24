@@ -1,0 +1,149 @@
+@import 'reset.css';
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+form {
+  background-color: #EEE;
+}
+.accordion {
+  background-color: #EEE;
+  border: 1px solid #DADADA;
+  display: inline;
+  float: left;
+  width: 66.66666666666666%;
+  margin: 0 0%;
+  margin-left: 16.666666666666664%;
+  position: relative;
+  display: block;
+  overflow: auto;
+}
+
+
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+  position: absolute;
+  left: .5em;
+  top: 50%;
+  margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+  padding: 1em 2.2em;
+  border-top: 0;
+  overflow: auto;
+}
+
+#artistInfoDiv,
+#genreSelect,
+#musicianSelect,
+#addToEvent,
+#links,
+#artistImageDiv,
+.musicianInfoForm,
+.musicianInstruForm {
+  background-color: #EEE;
+  padding: 20px 30px 20px 30px;
+  font: 12px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
+}
+#artistInfoDiv {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+#genreSelect {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+#musicianSelect {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+#addToEvent {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+.musicianInfoForm {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+.musicianInstruForm {
+  display: inline;
+  float: left;
+  width: 42.083333333333336%;
+  margin: 0 0%;
+}
+h1 {
+  font: 25px Georgia, "Times New Roman", Times, serif;
+  padding: 0px 0px 5px 30px;
+  display: block;
+  margin-top: 20px;
+  color: #888;
+}
+h1:focus {
+  outline: 0 none;
+}
+h2 {
+  margin-bottom: 15px;
+  font: 15px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+  text-decoration: underline;
+  outline: 0 none;
+}
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea,
+select {
+  border: 1px solid #DADADA;
+  color: #888;
+  height: 24px;
+  margin-bottom: 16px;
+  margin-top: 2px;
+  outline: 0 none;
+  padding: 3px 3px 3px 5px;
+  width: 70%;
+  font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  width: 72%;
+  height: 30px;
+}
+textarea {
+  height: 100px;
+}
+button {
+  background: #E48F8F;
+  border: none;
+  color: #FFF;
+  height: 30px;
+  font-size: 8px;
+}
+button:hover {
+  background: #cf7a7a;
+}
