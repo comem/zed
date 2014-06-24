@@ -1,19 +1,23 @@
 var whichForm = "eventForm";
 var addButton = true;
+
+
 $(function(){
 
 	console.log('loaded');
+
+	var appRouter = new AppRouter();
+	
+
 	$('.normalNav ul li a').click(showMain);
 	$('.main nav ul li a').click(scrollForm);
 
 	$(window).scroll(showAtScroll);
-			
-
 });
 
 
 function showMain(e){
-	
+	console.log('1lvl');
 	
 	if ($(this).attr('id') == "listLi") {
 		if (addButton) {
@@ -88,76 +92,35 @@ function showAtScroll(){
 
 
 function scrollForm(e){
-	console.log('clickedsdsd');
 	var href = $(this).attr('href');
 	console.log(href);
 
-	
-
-	if (href == "addEvent") {
-		
+	if (href == "#addEvent" || href == "#listEvent") {
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
 		$('.musician').animate({left: '200%'});
 		$('.stuff').animate({left: '300%'});	
-
 	};
 
-	if (href == "addArtist") {
+	if (href == "#addArtist" || href == "#listArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
-		$('.stuff').animate({left: '200%'});
-		
+		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "addMusician") {
+	if (href == "#addMusician" || href == "#listMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
 		$('.stuff').animate({left: '100%'});
-		
 	};
 
-	if (href == "addStuff") {
+	if (href == "#addStuff" || href == "#listStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
 		$('.stuff').animate({left: '0%'});
-		
-	};
-
-	if (href == "listEvent") {
-		
-		$('.event').animate({left: '0%'});	
-		$('.artist').animate({left: '100%'});
-		$('.musician').animate({left: '200%'});
-		$('.stuff').animate({left: '300%'});	
-
-	};
-
-	if (href == "listArtist") {
-		$('.event').animate({left: '-100%'});	
-		$('.artist').animate({left: '0%'});
-		$('.musician').animate({left: '100%'});
-		$('.stuff').animate({left: '200%'});
-		
-	};
-
-	if (href == "listMusician") {
-		$('.event').animate({left: '-200%'});	
-		$('.artist').animate({left: '-100%'});
-		$('.musician').animate({left: '0%'});
-		$('.stuff').animate({left: '100%'});
-		
-	};
-
-	if (href == "listStuff") {
-		$('.event').animate({left: '-300%'});	
-		$('.artist').animate({left: '-200%'});
-		$('.musician').animate({left: '-100%'});
-		$('.stuff').animate({left: '0%'});
-		
 	};
 
 	e.preventDefault(); return false;
