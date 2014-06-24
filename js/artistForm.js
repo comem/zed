@@ -49,7 +49,7 @@ $(inputParent).on('click',"."+addFormButtClass, addCreateMusicianForm);
 
 //on <typing name> change, update the header too
 function updateHeaderInput(inputParent,updateInput){
-	$('#forms').on('keyup' ,updateInput , function(event) {
+	$('.forms1').on('keyup' ,updateInput , function(event) {
 		var headerName = $(this).val()
 		$(this).parent().parent().parent().parent().find('h1').find('.titleMusicianForm').text(headerName)
 });
@@ -82,7 +82,7 @@ function deleteAccordion(accordionParent){
 		}
 	}
 }
-deleteAccordion('#forms');
+deleteAccordion('.forms1');
 
 function addCreateMusicianForm(){
 	
