@@ -5,12 +5,12 @@
     $driver = 'mysql';
     $host = 'localhost';
     $username = 'root';
-    $password = '';
+    $password = 'root';
     $dbname = 'contrat_assurance2';
 
     $dsn = "$driver:host=$host;dbname=$dbname";
     $db = new PDO($dsn, $username, $password);
-    $dbLink = mysql_connect($host,$username,$password);
+    //$dbLink = mysql_connect($host,$username,$password);
     $db -> exec('SET NAMES utf8');//accents can be returned and not 'null'
 
 

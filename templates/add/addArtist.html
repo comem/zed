@@ -30,9 +30,11 @@
                               </div>
                               <div  id="genreSelect">
                                     <h2 class ="addArtistHeader">Genre</h2>
-                                    <label>Genre</label><input type="text" name="genre" id="genre" placeholder= "start typing"/>
+                                    <label>Style</label><input type="text" name="genre" id="genre" placeholder= "start typing"/>
                                     <button type="button" id="createNewGenreButton" class="noResult addGenre">Create</button>    
-                                    <button  type="button" id="showAllGenres">show all genres</button>
+                                    <button  type="button" class ="showAll"id="showAllGenres"> 
+                                    <img src="img/icones/icone_list2.png"/>
+                                    </button>
 
                                     <fieldset id="genresSelected">
                                         <legend>Genres selected</legend>
@@ -48,15 +50,19 @@
 
                               <div id= "musicianSelect">
                                     <h2 class ="addArtistHeader">Musician</h2>
-                                    <label>Musician</label><input class= "titleMusicianForm" type="text" name="musician" id="musician" placeholder="start typing a name"/>
-                                    <button type="button" id="createNewMusicianButton" class="noResult add">Create musician</button>    
-                                    <button  type="button" id="showAllMusicians">show all musicians</button>
-
+                                    <label>Name</label><input class= "titleMusicianForm" type="text" name="musician" id="musician" placeholder="start typing a name"/>  
+                                    <button  type="button" class ="showAll" id="showAllMusicians">
+                                    <img src="img/icones/icone_list2.png"/>
+                                    </button>
+                                    <button type="button" id="createNewMusicianButton" class="noResult add" alt="create a new artist">
+                                    <img src="img/icones/icone_add.png"/>
+                                    </button>  
+                                    <h3 id = 'noMusicianResultsInfo'>Cet artiste n'existe pas, mais vous pouvez le créer</h3> 
                                     <fieldset id="musiciansPlaying">
                                         <legend>Musicians playing</legend>
                                     </fieldset>
                                     <div>
-                                    <h3 id = 'noMusicianResultsInfo'>pas de resultat, vous pouvez creer un nouveau musicien</h3> 
+                                    
                                     </div>
                                     
                               </div>
