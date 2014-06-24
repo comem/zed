@@ -56,7 +56,7 @@
 
 
          <script src="js/events.js"></script>
-<style > .ui-autocomplete {
+        <style > .ui-autocomplete {
                 max-height: 200px;
                 overflow-y: auto
                 /* prevent horizontal scrollbar */
