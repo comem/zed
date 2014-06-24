@@ -227,3 +227,19 @@ button img:hover {
 .deleteMusicianButton:hover {
   opacity: 1;
 }
+#createNewMusician {
+  border: none;
+  padding: 10px 25px 10px 25px;
+  color: #FFF;
+  height: 30px;
+  font-size: 8px;
+  font-size: 16px;
+  height: 50px;
+  border-radius: 40px;
+  position: relative;
+  left: 10px;
+  margin-top: 50px;
+}
+#createNewMusician:hover {
+  background: #cf7a7a;
+}
