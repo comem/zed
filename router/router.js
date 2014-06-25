@@ -22,6 +22,6 @@ var AppRouter = Backbone.Router.extend({
         tab: function(tab){
 			console.log('route with tab fct');
         	showMain(tab);
+            //this.navigate(tab+'/'+LAST_TAB, {replace:true});
         },
-
     });
