@@ -195,9 +195,9 @@ lastEventView.render().$el.appendTo('#eventForm')
 montreuxView.render().$el.appendTo('#eventForm')
 */
 //multiple render
-multipleArtists.render().$el.appendTo('#eventForm');
-multipleEvents.render().$el.appendTo('#eventForm')
-multipleMusicians.render().$el.appendTo('#eventForm')
+//multipleArtists.render().$el.appendTo('#eventForm');
+//multipleEvents.render().$el.appendTo('#eventForm')
+//multipleMusicians.render().$el.appendTo('#eventForm')
 
 
 $('.allArtistMusicians').accordion({collapsible: true, active: false,heightStyle: "content"})
