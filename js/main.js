@@ -116,6 +116,12 @@ var EventAdd = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
+    },
+    events:{
+        "click #eventImgBrowse" : 'showUp' 
+    },
+    showUp: function(event){
+        console.log('showUp');
     }
 });
 
