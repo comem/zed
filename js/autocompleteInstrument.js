@@ -3,10 +3,10 @@ function autocomplete(){
 var noResultClass = "noResultInstrument";
 var listToBeFilled = $("#instrumentsPlayedMusician");
 var noResButtAppTo = $("#showAllInstruments");
-
+/*
 var source = new Object();
 var sourceIntruments = new InstrumentsNestedCollServer()
-var labelInstruments = new InstrumentsCollServer() 
+//var labelInstruments = array new()
 var instruments = sourceIntruments.get('instruments')
 
 sourceIntruments.get('instruments').fetch({
@@ -14,15 +14,15 @@ sourceIntruments.get('instruments').fetch({
 
          for (var i = sourceIntruments.get('instruments').length - 1; i >= 0; i--) {
 			source.label = instruments.models[i].attributes.name_de 
-			labelInstruments.set({label : instruments.models[i].attributes.name_de})
+			labelInstruments =  instruments.models[i].attributes.name_de 
 			};
     }
 })
 console.log('SOURCE');
 console.log(source);
 console.log('LABEL AFTER');
-
-
+console.log(labelInstruments);
+*/
 $('#instrumentMusician').autocomplete({
 		//source: hello,
 		 messages: {
