@@ -15,8 +15,7 @@
     
     <script src ="js/jquery.timepicker.js"></script>      
        
-    <script src="js/modernizr.js" type="text/javascript"></script>
-    <script type="text/javascript" src="route/route.js"></script>    
+    <script src="js/modernizr.js" type="text/javascript"></script>  
     <!--<script src="js/events.js"></script>-->
     <script src="templates/pack.php"></script>  
     
@@ -34,7 +33,8 @@
     <script src="views/instrumentViews.js"></script>
     <script src="views/genreViews.js"></script>
     <script src="views/musicianViews.js"></script>
-    
+    <script src="route/route.js"></script>  
+
      <script src="js/testBackbone.js"></script> 
     
     <script src="js/main.js"></script>

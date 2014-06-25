@@ -9,15 +9,16 @@ $(function(){
 	console.log('DOM loaded');
 
 	var appRouter = new AppRouter();
-	Backbone.history.start({
-       pushState: true,
-       root: "/zed/"
-	});
+	// Backbone.history.start({
+ //       pushState: true,
+ //       root: "/zed/",
+ //       silent: 'false'
+	// });
 
 	// Navigation de premier niveau (Add/List)
 	$('.normalNav ul li a').click(showMain);
 	$('.normalNav ul li a').on('click', function(){
-		
+		//showMain(e, cible);
 		var lastTab = ACTIVE_TAB;
 		
 		ACTIVE_TAB = ($(this).attr('id') == "addLi") ? 'add' : 'list';
@@ -37,9 +38,11 @@ $(function(){
 	});
 
 	// Navigation de second niveau (Formulaires)
-	$('.main nav ul li a').click(scrollForm);
-	$('.main nav ul li a').on('click', function(){
+	//$('.main nav ul li a').click(scrollForm);
+	$('.main nav ul li a').on('click', function(e){
 		var href = $(this).attr('href');
+		scrollForm(e, href);
+
 		//console.log('href click: '+ACTIVE_TAB +'/'+href);
 		appRouter.navigate(ACTIVE_TAB +'/'+href);
 		ACTIVE_FORM = href;
@@ -123,32 +126,32 @@ function showAtScroll(){
 
 
 
-function scrollForm(e){
-	var href = $(this).attr('href');
+function scrollForm(e, cible){
+	//var cible = $(this).attr('href');
 	//console.log('dans form '+href);
 
-	if (href == "addEvent" || href == "listEvent") {
+	if (cible == "addEvent" || cible == "listEvent") {
 		$('.event').animate({left: '0%'});	
 		$('.artist').animate({left: '100%'});
 		$('.musician').animate({left: '200%'});
 		$('.stuff').animate({left: '300%'});	
 	};
 
-	if (href == "addArtist" || href == "listArtist") {
+	if (cible == "addArtist" || cible == "listArtist") {
 		$('.event').animate({left: '-100%'});	
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
 		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "addMusician" || href == "listMusician") {
+	if (cible == "addMusician" || cible == "listMusician") {
 		$('.event').animate({left: '-200%'});	
 		$('.artist').animate({left: '-100%'});
 		$('.musician').animate({left: '0%'});
 		$('.stuff').animate({left: '100%'});
 	};
 
-	if (href == "addStuff" || href == "listStuff") {
+	if (cible == "addStuff" || cible == "listStuff") {
 		$('.event').animate({left: '-300%'});	
 		$('.artist').animate({left: '-200%'});
 		$('.musician').animate({left: '-100%'});
