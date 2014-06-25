@@ -4,9 +4,9 @@ var noResultClass = "noResultGenre";
 var listToBeFilled = $("#genresSelected");
 var noResButtAppTo = $("#showAllGenres");
 
-		$('#genre').autocomplete({
+$('#genre').autocomplete({
 		source: function(request, response) {
-		    $.getJSON('/projInt/php/searchGenres.php', 
+		    $.getJSON('http://pingouin.heig-vd.ch/gof/genres', 
 		    	{ genre: request.term }, //change GET name
 		    	response);
 		  },
@@ -57,7 +57,7 @@ var noResButtAppTo = $("#showAllGenres");
 					
 				}
 		    }//end select
-		});//end autocomplete
+});//end autocomplete
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
 					//save data in a dom element 
@@ -87,6 +87,7 @@ var noResButtAppTo = $("#showAllGenres");
 		//************************
 }
 
+
 $(document).ready(function() { 
 
 	$("#noGenreResultInfo").hide();
@@ -94,7 +95,6 @@ $(document).ready(function() {
 	$("#createNewGenreButton").hide();
 	$("#genresSelected").hide();
 	autocompleteGenre();
-	console.log('asd');
 	autocompleteShowAll();
 
 	$('body').on('click',"#showAllGenres",autocompleteShowAll)
@@ -105,11 +105,12 @@ $(document).ready(function() {
 });
 
 function autocompleteShowAll(){
-	console.log('asd');
+
 	//show all on click autocomplete
 	$('#showAllGenres').click(function() {
 	   $('#genre').val('')
 	   $('#genre').trigger("focus")
 	   .autocomplete("search"); 
+	   alert('ads')
 });
 }

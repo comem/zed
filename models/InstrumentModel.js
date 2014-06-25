@@ -19,7 +19,7 @@
 
 //*******************INSTRUMENT MODEL//*******************
         var Instrument = Backbone.Model.extend({
-            urlRoot: 'http://chabloz.eu/ws/api/v1/posts',
+            urlRoot: 'http://pingouin.heig-vd.ch/gof/instruments',
             initialize: function(){
             },
             defaults: function(){
@@ -36,7 +36,7 @@
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                console.log(response);
+              
                 return response;
 
             }
@@ -57,13 +57,13 @@
 //*******************//**********SERVER*********//**************
      
         var InstrumentsCollServer = Backbone.Collection.extend({
-            url: 'http://chabloz.eu/ws/api/v1/posts',
+           url: 'http://pingouin.heig-vd.ch/gof/instruments',
             model: Instrument,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-               console.log(response[0].comments[53].text);
+               //console.log(respone);
                 return response;
             }
         });
@@ -71,7 +71,7 @@
 
 
         var InstrumentsNestedCollServer = MyModelNestedCollection.extend({
-            url: 'http://chabloz.eu/ws/api/v1/posts/',
+          url: 'http://pingouin.heig-vd.ch/gof/instruments',
             nested:'instruments',
             defaults: function(){
                 return {
@@ -82,7 +82,7 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response.comments = new Instrument();
+            response = new Instrument();
             //console.log(response.comments);
           
             return response;
@@ -99,6 +99,7 @@
             console.log('istrumentsCollServer');
            console.log(instrumentsCollServer.toJSON())
         }})
+        
 
 
              

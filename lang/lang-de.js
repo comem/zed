@@ -41,7 +41,7 @@ newMusicianInstrument = "Instrument"
 instrumentsPlayed = "Gewählte Instrumente"
 noInstrumentResultInfo = "Kein Instrument wurde gefunden, Sie können ein neues schaffen"
 musicianAddToArtist ="Zu einem Künstler hinzufügen"
-createNewMusicianButton = "Neuen Musiker schaffen"
+
 
 //Menu
 addEventMenu = "Ereignis hinzufügen"
