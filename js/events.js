@@ -15,9 +15,9 @@ $(function(){
 	});
 
 	// Navigation de premier niveau (Add/List)
-	$('.normalNav ul li a').click(showMain);
+	//$('.normalNav ul li a').click(showMain);
 	$('.normalNav ul li a').on('click', function(){
-		
+		showMain();
 		var lastTab = ACTIVE_TAB;
 		
 		ACTIVE_TAB = ($(this).attr('id') == "addLi") ? 'add' : 'list';

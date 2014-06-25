@@ -11,24 +11,3 @@ var AppRouter = Backbone.Router.extend({
   	//console.log('home');
   }
 });
-
-
-
-
-
-//	Artist router
-//	==================
-
-	var ArtistRouter = Backbone.Router.extend({
-	  routes: {
-	    'artist/all': 'allArtistScreen',
-	    'artist/:id': 'artistScreen'
-	  },
-
-	  allArtistScreen: function() {
-	  },
-
-	  artistScreen: function(id) {
-	  }
-	});
-	
