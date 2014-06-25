@@ -15,9 +15,8 @@ $(function(){
 	});
 
 	// Navigation de premier niveau (Add/List)
-	//$('.normalNav ul li a').click(showMain);
-	$('.normalNav ul li a').on('click', function(){
-		showMain();
+	$('.normalNav ul li a').click(showMain);
+	$('.normalNav ul li a').on('click', function(e){
 		var lastTab = ACTIVE_TAB;
 		
 		ACTIVE_TAB = ($(this).attr('id') == "addLi") ? 'add' : 'list';
@@ -37,14 +36,20 @@ $(function(){
 	});
 
 	// Navigation de second niveau (Formulaires)
-	$('.main nav ul li a').click(scrollForm);
-	$('.main nav ul li a').on('click', function(){
+	$('.main nav ul li a').on('click', function(e){
 		var href = $(this).attr('href');
+		scrollForm(e, href);
 		//console.log('href click: '+ACTIVE_TAB +'/'+href);
 		appRouter.navigate(ACTIVE_TAB +'/'+href);
 		ACTIVE_FORM = href;
 	});
 
+	// Gestion de la nav avec Back/Forward
+	$(window).on('popstate', function(){
+		
+	});
+
+	// Scrolling
 	$(window).scroll(showAtScroll);
 });
 
@@ -112,9 +117,9 @@ function showAtScroll(){
 }
 
 
-function scrollForm(e){
-	var href = $(this).attr('href');
-	//console.log('dans form '+href);
+function scrollForm(e, href){
+	//var href = $(this).attr('href');
+	console.log('dans form '+href);
 
 	isFocus(href);
 
