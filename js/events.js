@@ -5,11 +5,20 @@ var addButton = true;
 
 
 $(function(){
-
-	console.log('DOM loaded');
+	var router = new AppRouter ();
+	Backbone.history.start({
+    pushState: true,
+    root: "/zed/"
+	});
 
 	// Scrolling
 	$(window).scroll(showAtScroll);
+
+	$('a').click(function () {
+    router.navigate($(this).attr('href')); 
+    Backbone.history.loadUrl($(this).attr('href'));
+    return false;
+	});
 });
 
 
@@ -69,12 +78,11 @@ function showAtScroll(){
 
 
 function scrollForm(href){
-	//var href = $(this).attr('href');
 	console.log('dans form '+href);
 
 	isFocus(href);
 
-	if (href == "#addEvent" || href == "#listEvent") {
+	if (href == "event") {
 		
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liEvent').css('background-color','#B39C7F');
@@ -84,7 +92,7 @@ function scrollForm(href){
 		$('.stuff').animate({left: '300%'});	
 	};
 
-	if (href == "#addArtist" || href == "#listArtist") {
+	if (href == "artist") {
 
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liArtist ').css('background-color','#B39C7F');
@@ -94,7 +102,7 @@ function scrollForm(href){
 		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "#addMusician" || href == "#listMusician") {
+	if (href == "musician") {
 
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liMusician').css('background-color','#B39C7F');
@@ -104,7 +112,7 @@ function scrollForm(href){
 		$('.stuff').animate({left: '100%'});
 	};
 
-	if (href == "#addStuff" || href == "#listStuff") {
+	if (href == "stuff") {
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liStuff').css('background-color','#B39C7F');
 		$('.event').animate({left: '-300%'});	
@@ -120,7 +128,7 @@ function scrollForm(href){
 function isFocus(href){
 	var clicked = false;
 
-	if (href == 'addArtist' || href == "listArtist") {
+	if (href == 'artist') {
 		$('.addArtist a').css('backgroud-color','red');
 	};
 	console.log('isFocus');
