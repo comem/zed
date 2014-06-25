@@ -255,3 +255,35 @@ button img:hover {
 #createNewMusician:hover {
   background: #cf7a7a;
 }
+#musicianList,
+#eventList,
+#artistList {
+  background-color: #EEE;
+  border: 1px solid #DADADA;
+  display: inline;
+  float: left;
+  width: 66.66666666666666%;
+  margin: 0 0%;
+  margin-left: 16.666666666666664%;
+  position: relative;
+  display: block;
+  overflow: auto;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.musicianTemplate {
+  border-bottom: 1px solid #DADADA;
+  font: 14px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+}
+.musicianTemplate span {
+  font-weight: bold;
+  font: 14px;
+}
+.musicianTemplate h1 span {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+  margin-left: 50px;
+}
