@@ -17,7 +17,7 @@
         });
 //*******************GENRE MODEL//*******************
         var Genre = Backbone.Model.extend({
-          //  urlRoot: 'http://pingouin.heig-vd.ch/gof/instruments',
+          urlRoot: 'http://pingouin.heig-vd.ch/gof/genres',
         	defaults: function (){
         		return{
         			name_de:''
@@ -48,13 +48,12 @@
 //*******************//**********SERVER*********//**************
      
         var GenreCollServer = Backbone.Collection.extend({
-          //  url: 'http://pingouin.heig-vd.ch/gof/instruments',
+            url: 'http://pingouin.heig-vd.ch/gof/genres',
             model: Genre,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                //console.log(response);
                 return response;
             }
         });
@@ -62,7 +61,7 @@
 
 
         var GenreNestedCollServer = MyModelNestedCollection.extend({
-          //  url: 'http://pingouin.heig-vd.ch/gof/instruments',
+            url: 'http://pingouin.heig-vd.ch/gof/genres',
             nested:'genres',
             defaults: function(){
                 return {
@@ -73,8 +72,7 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response = new Genre(response);
-            console.log(response);
+            response.name_de = new Genre();
             return response;
         }
         });
@@ -84,12 +82,12 @@
 
 
 
-     genreCollServer.fetch({dataType: 'jsonp', success: function(){
+     genreCollServer.fetch({ success: function(){
             console.log('genreCollServer');
            console.log(genreCollServer.toJSON())
         }})
 
-     genreNestedCollServer.get('genres').fetch( {dataType: 'jsonp', success: function(){
+     genreNestedCollServer.get('genres').fetch( { success: function(){
         console.log('genreNestedCollServer');
         console.log(genreNestedCollServer.toJSON())
     }})

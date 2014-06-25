@@ -19,11 +19,9 @@ function localise(){
         $("#imageHeader").text(imageHeader)
         $("#browseExistingImage").text(browseExistingImage)
         $("#uploadNewImage").text(uploadNewImage)
-        //$("#showAllMusicians").text(showAllMusicians)
         $("#createNewArtistButton").text(createNewArtistButton)
         $("#createNewGenreButton").text(createNewGenreButton)
         $("#genreHeader").text(genreHeader)
-       // $("#showAllGenres").text(showAllGenres)
         $("#genreLabel").text(genreLabel)
         $("#artistGenresSelected").text(artistGenresSelected)
         $("#noGenreResultInfo").text(noGenreResultInfo)
@@ -32,7 +30,7 @@ function localise(){
         $(".deleteMusician").text(deleteMusician)
         $(".deleteInstrument").text(deleteInstrument)
         $("#artistAddMusicianLabel").text(musicianHeader)
-        $("#createNewMusicianButton").text(createNewMusicianButton)
+        
         $("#musicianField").text(musicianField)
         $("#noMusicianResultsInfo").text(noMusicianResultsInfo)
         $("#addToEventArtist").text(addToEventArtist)
@@ -55,18 +53,18 @@ function localise(){
         $("#newMusicianName").text(newMusicianName)
         $("#newMusicianLastN").text(newMusicianLastN)
         $("#newMusicianStageN").text(newMusicianStageN)
-     //   $("#showAllInstruments").text(showAllInstruments)
+    
         $("#newMusicianInstrument").text(newMusicianInstrument)
         $("#instrumentsPlayed").text(instrumentsPlayed)
         $("#noInstrumentResultInfo").text(noInstrumentResultInfo)
         $("#createNewInstrumentButton").text(createNewInstrumentButton)
         $("#musicianAddToArtist").text(musicianAddToArtist)
-        $("#createNewMusicianButton").text(createNewMusicianButton)
+    
 
         //********Musician add from artist
         $("#musicianNameTemplate").text(musicianNameTemplate)
         $(".musicianHeaderTemplate").text(musicianTitleTemplate)
-        console.log(listMusicianMenu);
+     
 
 
     }).val($.localise.defaultLanguage).change();

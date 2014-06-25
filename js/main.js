@@ -126,11 +126,36 @@ var ArtistAdd = MyView.extend({
         return this;
     },
     events:{
-        "#createNewArtistButton click" : 'createArtist' 
-        },
-    
-    createArtist: function(event){
-        console.log('asd');
+        "keyup input[name='nameLink']" : 'checkLinkName',
+        "keyup input[name='url']" :'checkURL',
+        "keyup input[name='nameArtist']" : 'checkName',
+    },
+    checkName : function(){
+        var input = this.$el.find("input[name='nameArtist']");
+        var artistName = this.$el.find("input[name='nameArtist']").val()
+        if(artistName =='') {
+            input.css('border', 'solid 2px red')
+        }else{
+            input.css('border', 'none')
+        }  
+    },
+    checkURL: function(){
+        var input =this.$el.find("input[name='url']")
+        var url  =this.$el.find("input[name='url']").val()
+        if(url ==''){
+            input.css('border', 'solid 2px red')
+        }else{
+            input.css('border', 'none')
+        }  
+    },
+    checkLinkName: function(){
+        var input = this.$el.find("input[name='nameLink']")
+        var linkNake  =this.$el.find("input[name='nameLink']").val()
+        if(linkNake.length == 0){
+             input.css('border', 'solid 2px red')
+        }else{  
+             input.css('border', 'none')
+        }
     }
 });
 
@@ -141,7 +166,34 @@ var MusicianAdd = MyView.extend({
         return this;
     },
     events:{
-
+        "keyup input[name='nameMusician']" : 'checkFirstname',
+        "keyup input[name='stagename']" :'checkStagename',
+        "keyup input[name='lastNameMusician']" : 'checkLastname',
+    },
+    checkFirstname : function(){
+        var input = this.$el.find("input[class='nameMusician']");
+        var musicianFirstName = this.$el.find("input[class='nameMusician']").val()
+        if(musicianFirstName =='') {
+            input.css('border', 'solid 2px red')
+        }else{
+            input.css('border', 'none')
+        }  
+    },
+    checkStagename: function(){
+        var input =this.$el.find("input[name='stagename']")
+        var stagename  =this.$el.find("input[name='stagename']").val()
+        if(stagename !=''){
+            //tick
+        } 
+    },
+    checkLastname: function(){
+        var input = this.$el.find("input[name='lastNameMusician']")
+        var musicianLastName  =this.$el.find("input[name='lastNameMusician']").val()
+        if(musicianLastName.length == 0){
+             input.css('border', 'solid 2px red')
+        }else{  
+             input.css('border', 'none')
+        }
     }
 
 });
@@ -213,13 +265,7 @@ multipleMusicians.render().$el.appendTo('#musicianList')
 
 
 
-$('.allArtistMusicians').accordion({collapsible: true, active: false,heightStyle: "content"})
-$('.musicianTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
-$('.artistTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
-$('.eventTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
-$('.eventArtists').accordion({collapsible: true, active: false, heightStyle: "content"})
-$('.theArtist').accordion({collapsible: true, active: false, heightStyle: "content"})
-$('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "content"})
+$('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
 
  genresList.render().$el.appendTo('#stufflist');
  instrumentsList.render().$el.appendTo('#stufflist');

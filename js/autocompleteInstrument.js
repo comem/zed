@@ -4,12 +4,27 @@ var noResultClass = "noResultInstrument";
 var listToBeFilled = $("#instrumentsPlayedMusician");
 var noResButtAppTo = $("#showAllInstruments");
 
-		$('#instrumentMusician').autocomplete({
-		source: function(request, response) {
-		    $.getJSON('/projInt/php/searchInstruments.php', 
-		    	{instrument: request.term }, //change GET name
-		    	response);
-		  },
+var source = new Object();
+var sourceIntruments = new InstrumentsNestedCollServer()
+var labelInstruments = new InstrumentsCollServer() 
+var instruments = sourceIntruments.get('instruments')
+
+sourceIntruments.get('instruments').fetch({
+    success:function(){ 
+
+         for (var i = sourceIntruments.get('instruments').length - 1; i >= 0; i--) {
+			source.label = instruments.models[i].attributes.name_de 
+			labelInstruments.set({label : instruments.models[i].attributes.name_de})
+			};
+    }
+})
+console.log('SOURCE');
+console.log(source);
+console.log('LABEL AFTER');
+
+
+$('#instrumentMusician').autocomplete({
+		//source: hello,
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
