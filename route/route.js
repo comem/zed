@@ -21,16 +21,14 @@ var AppRouter = Backbone.Router.extend({
 
 	var ArtistRouter = Backbone.Router.extend({
 	  routes: {
-	    'artist':     'allArtistScreen',
+	    'artist/all': 'allArtistScreen',
 	    'artist/:id': 'artistScreen'
 	  },
 
 	  allArtistScreen: function() {
-	    // Fetch all books and render a list with them.
 	  },
 
 	  artistScreen: function(id) {
-	    // Fetch book with `id` and render it.
 	  }
 	});
 	
