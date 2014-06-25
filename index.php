@@ -6,13 +6,15 @@
 	   <link rel="stylesheet" type="text/css" href="css/style.css">
      <link rel="stylesheet" type="text/css" href="css/form.css"> 
      <link rel="stylesheet" type="text/css" href="css/uicss.css"> 
+     <!-- <link rel="stylesheet" type="text/css" href="css/list.css">  -->
      <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.js" type="text/javascript"></script> 
-
+    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <script src="js/underscore.js" type="text/javascript"></script> 
     <script src="js/backbone.js" type="text/javascript"></script>
     <script src="js/mustache.js" type="text/javascript"></script>         
-    
+    <link rel="stylesheet" href="lib/fancyBox-master/source/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="lib/fancyBox-master/source/jquery.fancybox.pack.js"></script>
     <script src ="js/jquery.timepicker.js"></script>      
        
     <script src="js/modernizr.js" type="text/javascript"></script>

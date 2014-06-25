@@ -30,7 +30,11 @@ function localise(){
         $(".deleteMusician").text(deleteMusician)
         $(".deleteInstrument").text(deleteInstrument)
         $("#artistAddMusicianLabel").text(musicianHeader)
+
         
+
+       // $("#createNewMusicianButton").text(createNewMusicianButton)
+
         $("#musicianField").text(musicianField)
         $("#noMusicianResultsInfo").text(noMusicianResultsInfo)
         $("#addToEventArtist").text(addToEventArtist)
@@ -59,7 +63,9 @@ function localise(){
         $("#noInstrumentResultInfo").text(noInstrumentResultInfo)
         $("#createNewInstrumentButton").text(createNewInstrumentButton)
         $("#musicianAddToArtist").text(musicianAddToArtist)
-    
+
+        //$("#createNewMusicianButton").text(createNewMusicianButton)
+
 
         //********Musician add from artist
         $("#musicianNameTemplate").text(musicianNameTemplate)

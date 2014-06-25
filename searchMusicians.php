@@ -5,7 +5,7 @@
     $driver = 'mysql';
     $host = 'localhost';
     $username = 'root';
-    $password = '';
+    $password = 'root';
     $dbname = 'contrat_assurance2';
 
     $dsn = "$driver:host=$host;dbname=$dbname";
