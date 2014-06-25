@@ -3,7 +3,7 @@
 @import 'grid.less';
 
  
-@columns: 24 ;
+@columns: 24;
 @columns-width: 50;
 @gutter-width: 0;
 
@@ -36,15 +36,15 @@ header{
 	background-color:@darkBrown;
 
     display:block;
-	height: 180px;
+	height: 90px;
 	
 	/// logo ///
 	img{
 
 		float:left;
 		.push(0.5);
-		height: 150px;
-		margin-top: 15px;
+		height: 84px;
+		margin-top: 2px;
 
 	}
 
@@ -53,7 +53,7 @@ header{
 
 		position:absolute;
 		right:40px;
-		top: 60px;
+		top: 7px;
 		width:300px;
 		height:70px;
 		
@@ -410,7 +410,10 @@ body{
 
 		padding-top:50px;
 		
-		
+		.liEvent{
+        	background-color: @lightBrown;
+        }
+        
 		li{
 
 		.column(4);
@@ -421,6 +424,9 @@ body{
 		-webkit-border-radius: 2px;
         -moz-border-radius: 2px;
         border-radius: 2px;
+
+
+
 		a{	
 
            -webkit-box-shadow: 1px 0px 19px 0px rgba(50, 50, 50, 0.35);
@@ -452,12 +458,14 @@ body{
 
 
 
-#forms{
+
+
+.forms1{
 	overflow:hidden;
 	position: absolute;
 	width:100%;
 	top:150px;
-	height: 4000px;
+	height: 4001px;
 
 	.event{
 		position: relative;
@@ -495,7 +503,6 @@ body{
 		}
 	}
 }
-
 
 
 /// LOGIN ///

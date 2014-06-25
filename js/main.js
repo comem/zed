@@ -163,17 +163,17 @@ $(function(){
     nav.render().$el.appendTo('body');
     add.render().$el.insertAfter('.normalNav');
     list.render().$el.insertAfter('#addMain');
-    addSecondNav.render().$el.insertBefore('#forms');
+    addSecondNav.render().$el.insertBefore('#formsAdd');
     listSecondNav.render().$el.appendTo('#listMain');
 
-    eventList.render().$el.appendTo('#listMain>#forms');
-    artistList.render().$el.appendTo('#listMain>#forms');
-    musicianList.render().$el.appendTo('#listMain>#forms');
-    stuffList.render().$el.appendTo('#listMain>#forms');
+    eventList.render().$el.appendTo('#formsList');
+    artistList.render().$el.appendTo('#formsList');
+    musicianList.render().$el.appendTo('#formsList');
+    stuffList.render().$el.appendTo('#formsList');
 
-    addEvent.render().$el.appendTo('#addMain #forms');
-    addArtist.render().$el.appendTo('#addMain #forms');
-    addMusician.render().$el.appendTo('#addMain #forms');
+    addEvent.render().$el.appendTo('#formsAdd');
+    addArtist.render().$el.appendTo('#formsAdd');
+    addMusician.render().$el.appendTo('#formsAdd');
 
 
 //single musician render
@@ -195,9 +195,9 @@ lastEventView.render().$el.appendTo('#eventForm')
 montreuxView.render().$el.appendTo('#eventForm')
 */
 //multiple render
-multipleArtists.render().$el.appendTo('#eventForm');
-multipleEvents.render().$el.appendTo('#eventForm')
-multipleMusicians.render().$el.appendTo('#eventForm')
+multipleArtists.render().$el.appendTo('#artistList');
+multipleEvents.render().$el.appendTo('#eventList')
+multipleMusicians.render().$el.appendTo('#musicianList')
 
 
 $('.allArtistMusicians').accordion({collapsible: true, active: false,heightStyle: "content"})
@@ -208,8 +208,8 @@ $('.eventArtists').accordion({collapsible: true, active: false, heightStyle: "co
 $('.theArtist').accordion({collapsible: true, active: false, heightStyle: "content"})
 $('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "content"})
 
- genresList.render().$el.appendTo('#stuffForm');
- instrumentsList.render().$el.appendTo('body');
+ genresList.render().$el.appendTo('#stufflist');
+ instrumentsList.render().$el.appendTo('#stufflist');
 
 
 
