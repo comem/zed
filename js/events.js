@@ -1,5 +1,5 @@
-var ACTIVE_TAB = 'add';
-var ACTIVE_FORM = "addEvent";
+//var ACTIVE_TAB = 'add';
+//var ACTIVE_FORM = "addEvent";
 var whichForm = "eventForm";
 var addButton = true;
 
@@ -8,60 +8,15 @@ $(function(){
 
 	console.log('DOM loaded');
 
-	var appRouter = new AppRouter();
-	Backbone.history.start({
-       pushState: true,
-       root: "/zed/"
-	});
-
-	// Navigation de premier niveau (Add/List)
-	$('.normalNav ul li a').click(showMain);
-	$('.normalNav ul li a').on('click', function(e){
-		var lastTab = ACTIVE_TAB;
-		
-		ACTIVE_TAB = ($(this).attr('id') == "addLi") ? 'add' : 'list';
-
-		// Gestion du changement URL de la tab+form
-		if(lastTab != ACTIVE_TAB){
-
-			if(ACTIVE_FORM.indexOf('add') > -1){
-				var newURL = ACTIVE_FORM.replace('add', 'list');
-			}else{
-				var newURL = ACTIVE_FORM.replace('list', 'add');
-			}
-			//console.log('edited URL: '+ACTIVE_TAB+'/'+newURL);
-			appRouter.navigate(ACTIVE_TAB+'/'+newURL);
-			ACTIVE_FORM = newURL;
-		}
-	});
-
-	// Navigation de second niveau (Formulaires)
-	$('.main nav ul li a').on('click', function(e){
-		var href = $(this).attr('href');
-		scrollForm(e, href);
-		//console.log('href click: '+ACTIVE_TAB +'/'+href);
-		appRouter.navigate(ACTIVE_TAB +'/'+href);
-		ACTIVE_FORM = href;
-	});
-
-	// Gestion de la nav avec Back/Forward
-	$(window).on('popstate', function(){
-		
-	});
-
 	// Scrolling
 	$(window).scroll(showAtScroll);
 });
 
 
-function showMain(e){
+function showMain(){
 
 	if ($(this).attr('id') == "listLi") {
 		if (addButton) {
-
-			// $('#listLi').css('text-shadow','2px 1px 14px rgba(150, 150, 150, 0)');
-			// $('#addLi').css('text-shadow','2px 1px 14px rgba(150, 150, 150, 1)');
-
 			$('#addMain').css({right: '0%'}).animate({right: '100%'});
 			$('#listMain').css({right: '-100%'}).animate({right: '0%'});
 			addButton = false;
@@ -70,10 +25,6 @@ function showMain(e){
 	}else{
 
 		if (!addButton) {
-
-			// $('#listLi').css('text-shadow','2px 1px 14px rgba(150, 150, 150, 0)');
-			// $('#addLi').css('text-shadow','2px 1px 14px rgba(150, 150, 150, 1list)');
-
 			$('#listMain').css({right: '0%'}).animate({right: '-100%'});
 			$('#addMain').css({right: '100%'}).animate({right: '0%'});
 			addButton = true;
@@ -81,7 +32,7 @@ function showMain(e){
 		
 		
 	};
-	e.preventDefault(); return false;
+	//e.preventDefault(); return false;
 }
 
 
@@ -117,13 +68,13 @@ function showAtScroll(){
 }
 
 
-function scrollForm(e, href){
+function scrollForm(href){
 	//var href = $(this).attr('href');
 	console.log('dans form '+href);
 
 	isFocus(href);
 
-	if (href == "addEvent" || href == "listEvent") {
+	if (href == "#addEvent" || href == "#listEvent") {
 		
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liEvent').css('background-color','#B39C7F');
@@ -133,7 +84,7 @@ function scrollForm(e, href){
 		$('.stuff').animate({left: '300%'});	
 	};
 
-	if (href == "addArtist" || href == "listArtist") {
+	if (href == "#addArtist" || href == "#listArtist") {
 
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liArtist ').css('background-color','#B39C7F');
@@ -143,7 +94,7 @@ function scrollForm(e, href){
 		$('.stuff').animate({left: '200%'});	
 	};
 
-	if (href == "addMusician" || href == "listMusician") {
+	if (href == "#addMusician" || href == "#listMusician") {
 
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liMusician').css('background-color','#B39C7F');
@@ -153,7 +104,7 @@ function scrollForm(e, href){
 		$('.stuff').animate({left: '100%'});
 	};
 
-	if (href == "addStuff" || href == "listStuff") {
+	if (href == "#addStuff" || href == "#listStuff") {
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liStuff').css('background-color','#B39C7F');
 		$('.event').animate({left: '-300%'});	
@@ -162,7 +113,7 @@ function scrollForm(e, href){
 		$('.stuff').animate({left: '0%'});
 	};
 
-	e.preventDefault(); return false;
+	//e.preventDefault(); return false;
 }
 
 
