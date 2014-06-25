@@ -20,23 +20,14 @@ $(function(){
 		
 		var lastTab = ACTIVE_TAB;
 		
-		if($(this).attr('id') == "addLi"){
-			ACTIVE_TAB = 'add';
-		}else{
-			ACTIVE_TAB = 'list';
-		}
+		ACTIVE_TAB = ($(this).attr('id') == "addLi") ? 'add' : 'list';
 
-		//console.log('active tab: '+ACTIVE_TAB);
-		//console.log('old tab: '+lastTab);
-		
-		// Gestion du changement URL
+		// Gestion du changement URL de la tab+form
 		if(lastTab != ACTIVE_TAB){
 
 			if(ACTIVE_FORM.indexOf('add') > -1){
-				//console.log('dans le if');
 				var newURL = ACTIVE_FORM.replace('add', 'list');
 			}else{
-				//console.log('dans le else');
 				var newURL = ACTIVE_FORM.replace("list", "add");
 			}
 			//console.log('edited URL: '+ACTIVE_TAB+'/'+newURL);
@@ -49,7 +40,7 @@ $(function(){
 	$('.main nav ul li a').click(scrollForm);
 	$('.main nav ul li a').on('click', function(){
 		var href = $(this).attr('href');
-		console.log('href click: '+ACTIVE_TAB +'/'+href);
+		//console.log('href click: '+ACTIVE_TAB +'/'+href);
 		appRouter.navigate(ACTIVE_TAB +'/'+href);
 		ACTIVE_FORM = href;
 	});
