@@ -44,10 +44,10 @@ var noResButtAppTo = $("#showAllGenres");
 
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({genre: $(selectedObj).data('originalLabel'), id: selectedObj.id})
+					var genre = new Genre({name_de: $(selectedObj).data('originalLabel'), id: selectedObj.id})
 					
-					genresCollection.add(genre)
-					genresNestedColl.get('genres').add(genre)
+					genresCollection.add(genre);
+					genresNestedColl.get('genres').add(genre);
 
 					console.log(genresNestedColl.toJSON());
 
@@ -87,7 +87,25 @@ var noResButtAppTo = $("#showAllGenres");
 		//************************
 }
 
+$(document).ready(function() { 
+
+	$("#noGenreResultInfo").hide();
+	$(".deleteGenre").hide();
+	$("#createNewGenreButton").hide();
+	$("#genresSelected").hide();
+	autocompleteGenre();
+	console.log('asd');
+	autocompleteShowAll();
+
+	$('body').on('click',"#showAllGenres",autocompleteShowAll)
+
+
+
+
+});
+
 function autocompleteShowAll(){
+	console.log('asd');
 	//show all on click autocomplete
 	$('#showAllGenres').click(function() {
 	   $('#genre').val('')
@@ -95,15 +113,3 @@ function autocompleteShowAll(){
 	   .autocomplete("search"); 
 });
 }
-
-$(document).ready(function() { 
-
-	$("#noGenreResultInfo").hide();
-	$(".deleteGenre").hide();
-	$("#createNewGenreButton").hide();
-	$("#genresSelected").hide();
-
-	autocompleteShowAll;
-	autocompleteGenre();
-
-});

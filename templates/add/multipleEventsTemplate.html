@@ -2,11 +2,11 @@
 
 <% _.each(events, function (event, eventsIndex) { %>
 
-<div  style ="margin-left:20%; border-bottom =2px;" class="eventTemplate ui-accordion">
+<div  style ="margin-left:20%; border-bottom =2px;" class="eventTemplate myAccordion ">
 
-     <h1>Event number <%- eventsIndex +1%> - <%- events[eventsIndex].name %> </h1>
+     <h1>Event number <%- eventsIndex +1%> - <%- events[eventsIndex].title_de %> </h1>
      <div class ="pourQueAccFonctionne">
-            <div class ="infoEventTemp ui-accordion">
+            <div class ="infoEventTemp myAccordion">
 
                
                 <h1>General</h1>
@@ -14,58 +14,60 @@
 
                 <div class="eventInformations">
                   <%- events[eventsIndex].header %>
-                  <p>Event name: <%- events[eventsIndex].name %> </p>
-                  <p>Start hour : <%- events[eventsIndex].startHour %></p>
-                  <p> Opening doors hour: <%- events[eventsIndex].openingDoors %></p>
-                  <p>Ending hour: <%- events[eventsIndex].endingHour %></p>
-                  <p>Ending date: <%- events[eventsIndex].endingDate %></p>
+                  <p>Event name: <%- events[eventsIndex].name_de %> </p>
+                  <p>Start hour : <%- events[eventsIndex].start_date_hour%></p>
+                  <p> Opening doors hour: <%- events[eventsIndex].opening_doors %></p>
+                  <p>Ending hour: <%- events[eventsIndex].ending_date_hour %></p>
+                 >
+
                   <p> Event type: <%- events[eventsIndex].eventType %></p>
+                  <p>Ending date: <%- events[eventsIndex].endingDate %></p
                 </div>
 
                 <div class ="eventTicketInfo">
                   <h1>Ticket Info</h1>
                   <p>Ticket Price: <%- events[eventsIndex].ticketPrice %> per ticket</p>
-                  <p>Ticket type: <%- events[eventsIndex].ticketType %></p>
-                  <p>Ticket note: <%- events[eventsIndex].ticketNote %></p>
-                  <p>Quantity: <%- events[eventsIndex].ticketQt %></p>
+                  <p>Ticket type: <%- events[eventsIndex].name_de %></p>
+                  <p>Ticket note: <%- events[eventsIndex].comment %></p>
+                  <p>Quantity: <%- events[eventsIndex].amount %></p>
 
                 </div>
 
                 <div class="eventMealsInfo">
                   <h1>Meals</h1>
-                  <p>Number of vegan meals: <%- events[eventsIndex].nbVeganMeals %> </p>
-                  <p>Number of normal meals : <%- events[eventsIndex].nbNormalMeals %></p>
-                  <p>Meals note: <%- events[eventsIndex].mealsNote %> </p>
+                  <p>Number of vegan meals: <%- events[eventsIndex].nb_vengans_meal %> </p>
+                  <p>Number of normal meals : <%- events[eventsIndex].nb_meal %></p>
+                  <p>Meals note: <%- events[eventsIndex].meal_notes %> </p>
                   
                 </div>
 
                 <div class ="eventOtherInfo">
                   <h1>Others</h1>
-                  <p>Place numbers : <%- events[eventsIndex].nbPlaces %></p>
+                  <p>Place numbers : <%- events[eventsIndex].nb_places %></p>
                    <p>Publishing? yes, <%- events[eventsIndex].publishing %></p>
                  </p>
-                   <p> Complementary note: <%- events[eventsIndex].compNote %></p>
+                   <p> Complementary note: <%- events[eventsIndex].notes %></p>
                </div>
               </div>
             </div>
-
+        </div>
           	<br>
 
 
-        <div class ="eventArtists ui-accordion" style="margin-left=200%;"> 
+        <div class ="eventArtists myAccordion " style="margin-left=200%;"> 
           <h1>Who will play?</h1>
 
           <div class='pourQueAccFonctionne' >
 
               <% _.each(events[eventsIndex].artists, function (artist, index) { %>
 
-              <div class ="theArtist ui-accordion" style= "margin-bottom:3%; ">
+              <div class ="theArtist myAccordion  " style= "margin-bottom:3%; ">
                  <h1>
                     Artist <%- index+1 %> name :  <%- events[eventsIndex].artists[index].name %>
                   </h1>
                    <div class='pourQueAccFonctionne' >
                 <p style ="font-weight: bold;">Description:</p>
-                  <%- events[eventsIndex].artists[index].description %>
+                  <%- events[eventsIndex].artists[index].short_description %>
 
                 <div class="artistLinks">
                    <p  style ="font-weight: bold;">Links: </p>
@@ -77,7 +79,7 @@
                 <div class="artistStylee"  style ="margin-bottom:1%;"> 
                   <p style ="font-weight: bold;">Artist style</p>
                      <% _.each(events[eventsIndex].artists[index].genres, function (genre, genreIndex) { %>
-                      <%- events[eventsIndex].artists[index].genres[genreIndex].genre %> 
+                      <%- events[eventsIndex].artists[index].genres[genreIndex].name_de %> 
                      <% }); %> <!-- genreLoop -->
                  </div>
              
@@ -87,16 +89,16 @@
                     <% _.each(events[eventsIndex].artists[index].musicians, function (musician, musicianIndex) { %>
                     <div class= "theEventMusician">
 
-                        <p class= "hisName"> Name: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.name %> </p>
-                        <p class="hisLasttName">Last name: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.lastName %> </p> 
-                        <p class ="hisStageName">StageName: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.stageName %></p>
+                        <p class= "hisName"> Name: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.first_name %> </p>
+                        <p class="hisLasttName">Last name: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.last_name %> </p> 
+                        <p class ="hisStageName">StageName: <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.stagename %></p>
 
                         <div class ="hePlays"> Plays instruments :
                           <span class ="instruments">
 
                            <% _.each(events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.instruments, function (instrument, instIndex) { %>
                             
-                            <span class = "theInstrument"><%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.instruments.at(instIndex).attributes.name %> 
+                            <span class = "theInstrument"><%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.instruments.at(instIndex).attributes.name_de %> 
                             </span> <!-- theInstrument -->  
                                 <% }); %> <!-- instrumentsLoop -->
                           </span> <!-- instruments -->
@@ -105,16 +107,18 @@
                   </div> <!-- myMusician -->
                        <% }); %>  <!-- musicianLoop -->
                 </div> <!-- artistMusicians -->
+              </div>
+            </div>
 
-        </div>  <!-- theArtist -->
-         </div>
+         <!-- theArtist -->
+         
           <% }); %> <!-- artistLoop -->
+          </div>
+    </div><!-- eventArtists -->
 
-    </div>
-
-      </div><!-- eventArtists -->
+      </div>
        
 </div>  <!-- pourQueAccFonctionne -->
-</div>
+
 
  <% }); %> 

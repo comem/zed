@@ -1,3 +1,4 @@
+
         var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -88,5 +89,6 @@ console.log('asdas')
 console.log(montreuxJazz.toJSON());
 
 ($function(){
+
 
 })

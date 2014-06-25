@@ -2,32 +2,35 @@
 
           	<h1> <%- name %> </h1>
           	<div class="pourQueAccFonctionne">
-		          		
-		          	<p>Description :  <%- description %></p>
-		          	<p>Lead: <%- lead %></p>
+		          	<p>Name: <%- name %></p>
+		          	<p>Description :  <%- complete_description_de %></p>
+		          	<p>Lead: <%- short_description_de %></p>
 		          	<h2>Genres: </h2>
 		      
 		          		<% _.each(genres, function (thisGenre, index) { %>
-		          			<%- genres[index].genre %> 
+		          			<%- genres[index].name_de %> 
 		          		<% }); %>
 		          	<h2>Links: </h2>
-		          	<p>URL:<%- linkURL %> </p>
-		          	<p>Title: <%- linkTitle %></p>
-		          	<p>Name: <%- linkName %></p>
+		          	<p>URL: </p>
+		          	<p>Title: </p>
+		          	<p>Last name: </p>
 
 		     <div class ="allArtistMusicians">
 		          	<h2>Musicians</h2>
 		          	<div>
 			          <% _.each(musicians, function (musician, index) { %>
-
 			           	<div class ="artistMusician"> 	
-			           		<b style ="font-weight: bold;"> <%- musicians.at(index).get('name') %> </b>
+			           		<b style ="font-weight: bold;"> <%- musicians.at(index).get('first_name') %> </b>
 
+			           		<div class= "plays"> <p>Plays:</p>	
 			           		 <% _.each(musicians.at(index).get('instruments'), function (instrument, index2) { %>
 
-			           			<p>Plays:	<%- musicians.at(index).get('instruments').at(index2).get('name') %> </p>
+			           			<span class ="instruments">
+			           				<%- musicians.at(index).get('instruments').at(index2).get('name_de') %> </span>
+
 
 			           		<% }); %>
+			           		</div>
 			           	</div>
 		 	   	<% }); %>
 		 	   	</div>

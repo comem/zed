@@ -1,3 +1,4 @@
+
         var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -19,20 +20,18 @@
         var Artist = MyModelNestedCollection.extend({
             initialize:function(){
              },
-
+             nested: 'links',
             nested:'musicians',
             nested:'genres',
 
             defaults: function(){
                 return{
                     name:'',
-                    lead :'',
-                    description: '',
+                    short_description_de :'',
+                    complete_description_de: '',
                     genres: new GenresColl(),
                     musicians: new MusiciansColl(),
-                    linkURL: '',
-                    linkTitle: '',
-                    linkName: ''
+                    links : new GenresColl()
                 }
             },
 
@@ -48,7 +47,7 @@
                         }).append('Lead is too long');
                  
                 }
-                if(attrs.name ==0){
+                if(attrs.first_name ==0){
                     $( "<div>").dialog({    
                    title: 'Attention!'      ,  
                           buttons: {
@@ -87,7 +86,6 @@
         });
         var ArtistColl = Backbone.Collection.extend({
             model:Artist
-            
         }) 
         var artistList = new ArtistColl();
 
@@ -103,7 +101,7 @@
                 }
             }
         })
-        var artistList = new ArtistNestedColl();
+        var artistNestedList = new ArtistNestedColl();
  
        
 
@@ -145,3 +143,4 @@
         }
         });
         var artistNestedCollServer = new ArtistNestedCollServer();
+
