@@ -7,8 +7,8 @@ var AppRouter = Backbone.Router.extend({
         	'': 'index',
             'add/:form' : 'formHandler',
             'list/:form' : 'formHandler',
-            'list': 'tab',
-            'add': 'tab'
+            ':list': 'tab',
+            ':add': 'tab'
         },
   		index: function(){
   			console.log('default url -> add/'+LAST_TAB);
@@ -19,9 +19,9 @@ var AppRouter = Backbone.Router.extend({
             scrollForm(form);
             LAST_TAB = form;
         },
-        tab: function(){
-			console.log('router tab');
-        	showMain();
+        tab: function(tab){
+			console.log('route with tab fct');
+        	showMain(tab);
         },
 
     });

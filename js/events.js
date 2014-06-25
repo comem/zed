@@ -22,9 +22,9 @@ $(function(){
 });
 
 
-function showMain(){
-
-	if ($(this).attr('id') == "listLi") {
+function showMain(href){
+	// Btn List
+	if (href == 'list') {
 		if (addButton) {
 			$('#addMain').css({right: '0%'}).animate({right: '100%'});
 			$('#listMain').css({right: '-100%'}).animate({right: '0%'});
@@ -32,14 +32,12 @@ function showMain(){
 		};
 		
 	}else{
-
+		// Btn Add
 		if (!addButton) {
 			$('#listMain').css({right: '0%'}).animate({right: '-100%'});
 			$('#addMain').css({right: '100%'}).animate({right: '0%'});
 			addButton = true;
 		};
-		
-		
 	};
 	//e.preventDefault(); return false;
 }
