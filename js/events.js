@@ -28,7 +28,7 @@ $(function(){
 			if(ACTIVE_FORM.indexOf('add') > -1){
 				var newURL = ACTIVE_FORM.replace('add', 'list');
 			}else{
-				var newURL = ACTIVE_FORM.replace("list", "add");
+				var newURL = ACTIVE_FORM.replace('list', 'add');
 			}
 			//console.log('edited URL: '+ACTIVE_TAB+'/'+newURL);
 			appRouter.navigate(ACTIVE_TAB+'/'+newURL);
@@ -83,8 +83,6 @@ function showMain(e){
 function showAtScroll(){
 	var heightLimit = $(document).scrollTop();
 	//console.log(heightLimit);
-	
-	
 
 	if (heightLimit > "350") {
 
@@ -98,11 +96,6 @@ function showAtScroll(){
 
 		$('body>nav').switchClass('minimalizeNav','downNav',800,'easeOutBounce');
 
-		
-		
-
-
-
 	}else{
 
 		$('header>div').removeClass('minimalizeSearch');
@@ -113,22 +106,10 @@ function showAtScroll(){
 		$('body>nav').removeClass('minimalizeNav');
 		$('body>nav').addClass('normalNav');
 
-		$('body>nav').switchClass('downNav','normalNav',0,'linear');
-
-		
-
-		
-
+		$('body>nav').switchClass('downNav','normalNav',0,'linear');	
 
 	};
-
-	
-
-
-	
 }
-
-
 
 
 function scrollForm(e){
@@ -136,8 +117,6 @@ function scrollForm(e){
 	//console.log('dans form '+href);
 
 	isFocus(href);
-
-	
 
 	if (href == "addEvent" || href == "listEvent") {
 		
@@ -178,15 +157,13 @@ function scrollForm(e){
 		$('.stuff').animate({left: '0%'});
 	};
 
-	
-
 	e.preventDefault(); return false;
 }
 
 
 function isFocus(href){
 	var clicked = false;
-	
+
 	if (href == 'addArtist' || href == "listArtist") {
 		$('.addArtist a').css('backgroud-color','red');
 	};
