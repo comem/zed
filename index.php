@@ -6,6 +6,7 @@
 	   <link rel="stylesheet" type="text/css" href="css/style.css">
      <link rel="stylesheet" type="text/css" href="css/form.css"> 
      <link rel="stylesheet" type="text/css" href="css/uicss.css"> 
+     <!-- <link rel="stylesheet" type="text/css" href="css/list.css">  -->
      <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.js" type="text/javascript"></script> 
     <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
