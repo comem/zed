@@ -5,13 +5,13 @@
 
                         <div>
                           <form id="artistForm" >
-                            <div id="artistInfoDiv">
-                                <h2 class ="addArtistHeader">Informations</h2>
-
+                            <div class ="firstColumn">
+                                <div id="artistInfoDiv">
+                                    <h2 class ="addArtistHeader">Informations</h2>
                                     <label>Name*</label><input type="text" name="nameArtist" id="nameArtist" required placeholder="artist name"><br>
                                     <label>Lead</label><textarea name="lead" id="lead" maxlength="300" placeholder="artist lead"></textarea><br>
                                     <label>Description</label><textarea  placeholder="artist description" name="artistDescription" id="artistDescription"></textarea><br>
-                              
+                                    </div>
                                         <div id="links"> 
                                           <h2 class ="addArtistHeader">Links</h2>
                                           <label>Title</label><input type="text" name="title" id="titleLink" ><br>
@@ -28,6 +28,7 @@
                                         <button id="createNewArtistButton" type = 'button'>CREATE NEW ARTIST</button>
 
                               </div>
+                          <div class="secondColumn">
                               <div  id="genreSelect">
                                     <h2 class ="addArtistHeader">Genre</h2>
                                     <label>Style</label><input type="text" name="genre" id="genre" placeholder= "start typing"/>
@@ -74,6 +75,7 @@
                                    <label>Arrival hour</label><input class ="time" type="text" data-time-format="H:i" name="arrivalHour" id="arrivalHour">
                  
                               </div>
+                          </div>
  
                               <!-- <button id="createNewArtistButton">CREATE NEW ARTIST</button> -->
                      </form>

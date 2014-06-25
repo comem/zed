@@ -68,42 +68,7 @@ form {
   font: 14px Georgia, "Times New Roman", Times, serif;
   color: #888;
   text-shadow: 1px 1px 1px #FFF;
-}
-#artistInfoDiv {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
-}
-#genreSelect {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
-}
-#musicianSelect {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
-}
-#addToEvent {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
-}
-.musicianInfoForm {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
-}
-.musicianInstruForm {
-  display: inline;
-  float: left;
-  width: 42.083333333333336%;
-  margin: 0 0%;
+  border: 1px solid #DADADA;
 }
 h1 {
   font: 25px Georgia, "Times New Roman", Times, serif;
