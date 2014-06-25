@@ -290,30 +290,59 @@ body .downNav ul li a:hover {
 .main .normalSecondNav li a:hover {
   background-color: #b39c7f;
 }
-#forms {
+#formsList {
   overflow: hidden;
   position: absolute;
   width: 100%;
   top: 150px;
   height: 4000px;
 }
-#forms .event {
+#formsList .event {
   position: relative;
   left: 0%;
 }
-#forms .artist {
+#formsList .artist {
   position: absolute;
   left: 100%;
 }
-#forms .musician {
+#formsList .musician {
   position: absolute;
   left: 200%;
 }
-#forms .stuff {
+#formsList .stuff {
   position: absolute;
   left: 300%;
 }
-#forms .form {
+#formsList .form {
+  width: 100%;
+  height: 30%;
+  float: left;
+  margin-top: 0px;
+}
+#formsMain {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 150px;
+  height: 4000px;
+}
+#formsMain .event {
+  position: relative;
+  left: 0%;
+}
+#formsMain .artist {
+  position: absolute;
+  left: 100%;
+}
+#formsMain .musician {
+  position: absolute;
+  left: 200%;
+}
+#formsMain .stuff {
+  position: absolute;
+  left: 300%;
+}
+#formsMain .form {
   width: 100%;
   height: 30%;
   float: left;

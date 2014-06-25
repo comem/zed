@@ -1,3 +1,4 @@
+
 var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -23,17 +24,15 @@ var EventModel = MyModelNestedCollection.extend({
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
-                    name:'',
-                    startDate:'',
-                    startHour: '',
-                    openingDoors: '',
-                    endingDate : '',
-                    endingHour :'',
-                    nbVeganMeals:'',
-                    nbNormalMeals:'',
-                    mealsNote:'',
-                    compNote:'',
-                    nbPlaces :'',
+                    title_De:'',
+                    start_date_hour:'',
+                    opening_doors: '',
+                    ending_date_hour : '',
+                    nb_vegan_meals:'',
+                    nb_meals:'',
+                    meal_notes:'',
+                    notes:'',
+                    nb_places :'',
                     followed:'',
                     ticketType:'',
                     ticketPrice :'',
@@ -78,6 +77,4 @@ var EventsNestedColl = MyModelNestedCollection.extend({
         }
     }
 })
-
-
 

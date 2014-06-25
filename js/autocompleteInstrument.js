@@ -43,7 +43,8 @@ var noResButtAppTo = $("#showAllInstruments");
 
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
-					var instrument = new Instrument({name: $(selectedObj).data('originalLabel')})
+
+					var instrument = new Instrument({name_de: $(selectedObj).data('originalLabel')})
 					
 					instrumentsColl.add(instrument)
 					instrumentsNestedColl.get('instruments').add(instrument)
