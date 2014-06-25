@@ -16,7 +16,7 @@
     <script src ="js/jquery.timepicker.js"></script>      
        
     <script src="js/modernizr.js" type="text/javascript"></script>
-    <script type="text/javascript" src="route/route.js"></script>    
+    <script type="text/javascript" src="router/router.js"></script>    
     <!--<script src="js/events.js"></script>-->
     <script src="templates/pack.php"></script>  
     

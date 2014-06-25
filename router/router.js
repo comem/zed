@@ -5,30 +5,23 @@ var LAST_TAB = 'event';
 var AppRouter = Backbone.Router.extend({
         routes: {
         	'': 'index',
-            'add/:form' : 'addHandler',
-            'list/:form' : 'listHandler',
-            'list': 'list',
-            'add': 'add'
+            'add/:form' : 'formHandler',
+            'list/:form' : 'formHandler',
+            'list': 'tab',
+            'add': 'tab'
         },
   		index: function(){
   			console.log('default url -> add/'+LAST_TAB);
   			//this.navigate('add/'+LAST_TAB);
   		},
-        addHandler: function(form) {
+        formHandler: function(form) {
         	//console.log(form);
             scrollForm(form);
             LAST_TAB = form;
         },
-        listHandler: function(form){
-        	scrollForm(form);
-        	LAST_TAB = form;
-        },
-        list: function(){
-			console.log('router list');
+        tab: function(){
+			console.log('router tab');
         	showMain();
         },
-        add: function(){
-        	console.log('router add');
-        	showMain();
-        }
+
     });
