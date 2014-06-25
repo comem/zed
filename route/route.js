@@ -1,4 +1,4 @@
-// Application router
+// Application router (master)
 // ==================
 var AppRouter = Backbone.Router.extend({
   routes: {
