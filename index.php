@@ -51,6 +51,8 @@
 
     <script src ="lang/jquery.localisation.js"></script> 
     <script src ="js/langChange.js"></script> 
+    <script src ="lang/lang-de.js"></script>
+    <script src ="lang/lang-en.js"></script>
 
     <script>
           $(function() {
