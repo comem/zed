@@ -81,12 +81,12 @@ var MyModelNestedCollection = Backbone.Model.extend({
 
         var artistColl = new ArtistColl()
         artistColl.add([rammstein,chopin,starWars])
-        console.log(artistColl.toJSON());
-        console.log(artistListNested.toJSON())
+       // console.log(artistColl.toJSON());
+       // console.log(artistListNested.toJSON())
 
         var eventsList= new EventsNestedColl();
         eventsList.get('events').add([montreuxJazz, lastEvent,starWarsEvent])
-        console.log(eventsList.toJSON());
+       // console.log(eventsList.toJSON());
 
         var eventColl = new EventColl();
         eventColl.add([montreuxJazz, lastEvent,starWarsEvent])
@@ -149,4 +149,7 @@ $('.eventArtists').accordion({collapsible: true, active: false, heightStyle: "co
 $('.theArtist').accordion({collapsible: true, active: false, heightStyle: "content"})
 $('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "content"})
 */
+
+var chuj = new ArtistFieldInMusician()
+chuj.render().$el.appendTo('#eventList')
 })

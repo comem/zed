@@ -81,7 +81,7 @@
 
 
 
-
+/*
      genreCollServer.fetch({ success: function(){
             console.log('genreCollServer');
            console.log(genreCollServer.toJSON())
@@ -93,3 +93,4 @@
     }})
 
 
+*/

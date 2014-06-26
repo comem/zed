@@ -55,11 +55,11 @@ function showAtScroll(){
 				
            
            
-           			console.log('OKKK');
+           			
            			$(this).switchClass('downNav','normalNav',800,'easeOutBounce');
        		
         } else {
-            console.log('okiiii');
+    
            $('body>nav').switchClass('normalNav','downNav',0,'easeOutBounce');
         };
 
@@ -76,9 +76,9 @@ function showAtScroll(){
 
 
 function scrollForm(e){
-	console.log('clickedsdsd');
+	//console.log('clickedsdsd');
 	var href = $(this).attr('href');
-	console.log(href);
+	//console.log(href);
 
 	isFocus(href);
 
@@ -146,7 +146,7 @@ function isFocus(href){
 
 		$('.addArtist a').css('backgroud-color','red');
 	};
-	console.log('isFocus');
+	//console.log('isFocus');
 
 
 }
