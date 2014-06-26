@@ -300,6 +300,9 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
  instrumentsList.render().$el.appendTo('#stufflist');
 
 
+$(".buttonsListMusician").click(function(event){
+    event.stopPropagation();
+});
 
 
 

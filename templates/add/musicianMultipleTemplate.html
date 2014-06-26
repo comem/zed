@@ -3,20 +3,46 @@
 
           	<h1> Musician <%- musicianIndex+1 %> - <%- musicians[musicianIndex].first_name %> 
           		<span><%- musicians[musicianIndex].stagename %></span>
+
+          		<ul class = "buttonsListMusician">
+          			<li><button type="button">
+          				<img src="img/icones/icone_delete.png"/>
+          				</button>
+          			</li>
+          			<li><button type="button">
+          				<img src="img/icones/icone_edit.png"/>
+          			</button>
+          			</li>
+          		</ul>
+          	
+
           	</h1>
+          	
+          			
+
+          		
+          		
 
           		<div class="musicianInfoTemplate"> 
+
+          			
+       		
 	          	<p><span>Last name : </span><%- musicians[musicianIndex].last_name %> </p>
 	          	<p><span>Stage name : </span><%- musicians[musicianIndex].stagename %> </p>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
-	          		<span>Instruments : </span>
+	          		<p><span>Instruments : </span>
 	          	 <% _.each(musicians[musicianIndex].instruments, function (instrument, index) { %>
 	          	 	<%- musicians[musicianIndex].instruments[index].name_de %>
-	          	  <% }); %>
+	          	  <% }); %> </p>
 	          	</div>
           	</div>
-       
+          	
+          		
 </div>
+
+
+
+
 
  <% }); %>
