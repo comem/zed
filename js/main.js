@@ -223,6 +223,13 @@ var MusicianAdd = MyView.extend({
     }
 
 });
+var StuffAdd = MyView.extend({
+    template: _.template(template.add_addStuff);
+    render:function(){
+        this.$el.html(this.template());
+        return this;
+    }
+});
 
 
 var header = new Header();
@@ -243,7 +250,7 @@ var addEvent = new EventAdd();
 var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
-
+var addStuff = new StuffAdd();
 
 
 $(function(){
@@ -263,7 +270,7 @@ $(function(){
     addEvent.render().$el.appendTo('#formsAdd');
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
-
+    addStuff.render().$el.appendTo('#formsAdd');
 
 //single musician render
 /*
