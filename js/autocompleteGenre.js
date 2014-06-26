@@ -1,15 +1,26 @@
 
+var genres = new Array();
+var sourceGenres = new GenreNestedCollServer()
+
+$.when( sourceGenres.get('genres').fetch({
+		success: function(){
+			
+			$.each(sourceGenres.toJSON().genres, function(i, val){
+				genres[i] = val.name_de
+				 console.log(val.name_de);
+						})
+		}
+	}) //fetch
+	 ).done(autocompleteGenre)
+	
+
 function autocompleteGenre(){
 var noResultClass = "noResultGenre";
 var listToBeFilled = $("#genresSelected");
 var noResButtAppTo = $("#showAllGenres");
 
 $('#genre').autocomplete({
-		source: function(request, response) {
-		    $.getJSON('http://pingouin.heig-vd.ch/gof/genres', 
-		    	{ genre: request.term }, //change GET name
-		    	response);
-		  },
+		source: genres,
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
@@ -95,7 +106,12 @@ $(document).ready(function() {
 	$("#createNewGenreButton").hide();
 	$("#genresSelected").hide();
 	autocompleteGenre();
-	autocompleteShowAll();
+	$('#showAllGenres').click(function() {
+	   $('#genre').val('')
+	   $('#genre').trigger("focus")
+	   .autocomplete("search"); 
+	  
+});
 
 	$('body').on('click',"#showAllGenres",autocompleteShowAll)
 
@@ -111,6 +127,6 @@ function autocompleteShowAll(){
 	   $('#genre').val('')
 	   $('#genre').trigger("focus")
 	   .autocomplete("search"); 
-	   alert('ads')
+	  
 });
 }

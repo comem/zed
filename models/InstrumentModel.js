@@ -85,7 +85,9 @@
             response = new Instrument();
             //console.log(response.comments);
           
-            return response;
+            return {
+                name_de : name_de
+            };
         }
         });
         var instrumentsNestedCollServer = new InstrumentsNestedCollServer();
@@ -99,6 +101,7 @@
             console.log('istrumentsCollServer');
            console.log(instrumentsCollServer.toJSON())
         }})
+
         
 
 
