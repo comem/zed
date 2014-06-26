@@ -289,6 +289,9 @@ multipleArtists.render().$el.appendTo('#artistList');
 multipleEvents.render().$el.appendTo('#eventList');
 multipleMusicians.render().$el.appendTo('#musicianList')
 
+//var chuj = new ArtistFieldInMusician({model: artistNestedList})
+//chuj.render().$el.appendTo('#eventList')
+
 
 
 $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
@@ -297,6 +300,9 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
  instrumentsList.render().$el.appendTo('#stufflist');
 
 
+$(".buttonsListMusician").click(function(event){
+    event.stopPropagation();
+});
 
 
 

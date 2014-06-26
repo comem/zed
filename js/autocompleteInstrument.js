@@ -1,30 +1,29 @@
 
+
+
+var source = new Array();
+
+var sourceIntruments = new InstrumentsNestedCollServer()
+var instruments = sourceIntruments.get('instruments')
+
+$.when( sourceIntruments.get('instruments').fetch({
+		success: function(){
+			$.each(sourceIntruments.toJSON().instruments, function(i, val){
+				source[i] =val.name_de
+						})
+		}
+	}) //fetch
+	 ).done(autocomplete)
+	
+	
+
 function autocomplete(){
 var noResultClass = "noResultInstrument";
 var listToBeFilled = $("#instrumentsPlayedMusician");
 var noResButtAppTo = $("#showAllInstruments");
 
-var source = new Object();
-var sourceIntruments = new InstrumentsNestedCollServer()
-var labelInstruments = new InstrumentsCollServer() 
-var instruments = sourceIntruments.get('instruments')
-
-sourceIntruments.get('instruments').fetch({
-    success:function(){ 
-
-         for (var i = sourceIntruments.get('instruments').length - 1; i >= 0; i--) {
-			source.label = instruments.models[i].attributes.name_de 
-			labelInstruments.set({label : instruments.models[i].attributes.name_de})
-			};
-    }
-})
-console.log('SOURCE');
-console.log(source);
-console.log('LABEL AFTER');
-
-
 $('#instrumentMusician').autocomplete({
-		//source: hello,
+		source:source,
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
@@ -76,16 +75,21 @@ $('#instrumentMusician').autocomplete({
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
 					//save data in a dom element 
-					$(item).data('originalLabel', item.label);
-		            item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
+				
+				
+
+					$(item).data('originalLabel', item);
+		           item = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
 		            	+')', "gi"), 
 		            "<b style='color:red;'>$1</b>");
 
 		            return $("<li></li>")
-		                    .data("item.autocomplete", item)
-		                    .append("<a>" + item.label + "</a>")
+		                    .data("item.autocomplete", item )
+		                    .append("<a>" + item + "</a>")
 		                    .appendTo(ul);
-		        };
+		                    	
+		      	  };
+		        
 		$.ui.autocomplete.prototype._renderMenu=function( ul, items ) {
 		      var that = this,
 		        currentCategory = "";

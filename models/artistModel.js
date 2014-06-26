@@ -117,7 +117,7 @@
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                //console.log(response);
+               // console.log(response);
                 return response;
 
             }
@@ -137,10 +137,11 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response = new Artist(response);
-            //console.log(response);
+            console.log(response);
+            artist = new Artist(response);
+            
           
-            return response;
+            return artist;
         }
         });
         var artistNestedCollServer = new ArtistNestedCollServer();
