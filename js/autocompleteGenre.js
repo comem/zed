@@ -1,12 +1,11 @@
-
 function autocompleteGenre(){
 var noResultClass = "noResultGenre";
 var listToBeFilled = $("#genresSelected");
 var noResButtAppTo = $("#showAllGenres");
 
-		$('#genre').autocomplete({
+$('#genre').autocomplete({
 		source: function(request, response) {
-		    $.getJSON('', 
+		    $.getJSON('http://pingouin.heig-vd.ch/gof/genres', 
 		    	{ genre: request.term }, //change GET name
 		    	response);
 		  },
@@ -44,10 +43,10 @@ var noResButtAppTo = $("#showAllGenres");
 
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({genre: $(selectedObj).data('originalLabel'), id: selectedObj.id})
+					var genre = new Genre({name_de: $(selectedObj).data('originalLabel'), id: selectedObj.id})
 					
-					genresCollection.add(genre)
-					genresNestedColl.get('genres').add(genre)
+					genresCollection.add(genre);
+					genresNestedColl.get('genres').add(genre);
 
 					console.log(genresNestedColl.toJSON());
 
@@ -57,7 +56,7 @@ var noResButtAppTo = $("#showAllGenres");
 					
 				}
 		    }//end select
-		});//end autocomplete
+});//end autocomplete
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
 					//save data in a dom element 
@@ -87,14 +86,6 @@ var noResButtAppTo = $("#showAllGenres");
 		//************************
 }
 
-function autocompleteShowAll(){
-	//show all on click autocomplete
-	$('#showAllGenres').click(function() {
-	   $('#genre').val('')
-	   $('#genre').trigger("focus")
-	   .autocomplete("search"); 
-});
-}
 
 $(document).ready(function() { 
 
@@ -102,8 +93,23 @@ $(document).ready(function() {
 	$(".deleteGenre").hide();
 	$("#createNewGenreButton").hide();
 	$("#genresSelected").hide();
-
-	autocompleteShowAll;
 	autocompleteGenre();
+	autocompleteShowAll();
+
+	$('body').on('click',"#showAllGenres",autocompleteShowAll)
+
+
+
 
 });
+
+function autocompleteShowAll(){
+
+	//show all on click autocomplete
+	$('#showAllGenres').click(function() {
+	   $('#genre').val('')
+	   $('#genre').trigger("focus")
+	   .autocomplete("search"); 
+	   alert('ads')
+});
+}

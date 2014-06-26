@@ -15,7 +15,17 @@
 
 form{
     background-color: #EEE;
+    .column(24);
 }
+
+.firstColumn{
+    .column(12);
+}
+.secondColumn{
+    .column(12);
+}
+
+
 
 
 .accordion{
@@ -26,44 +36,62 @@ background-color: #EEE;
             position: relative;
             display: block;
             overflow: auto;
+
+            -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+
+
 }
 
 
-#artistInfoDiv, #genreSelect, #musicianSelect, #addToEvent, #links, #artistImageDiv, .musicianInfoForm, .musicianInstruForm {  
+#artistInfoDiv, #genreSelect,
+#musicianSelect, #addToEvent,
+#links, #artistImageDiv,
+.musicianInfoForm, .musicianInstruForm,
+#eventInfoDiv, #startTimeDiv,
+#endTimeDiv, #mealsDiv,
+#compInfoDiv, #ticketsDiv, 
+#eventTypeDiv, #plublishingDiv,
+#eventImageDiv, #eventArtistsDiv {  
     background-color: #EEE;
     padding: 20px 30px 20px 30px;
     font: 14px Georgia, "Times New Roman", Times, serif;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
-    //border:1px solid #DADADA;
-
-    
-}
-
- #artistInfoDiv{
-     .column(10.1);
-     
-     
- }
- #genreSelect{
-     .column(10.1);
-    
-
- }
-#musicianSelect{
-    .column(10.1);
-}
-#addToEvent{
-    .column(10.1);
-}
-.musicianInfoForm{
-    .column(10.1);
-}
-.musicianInstruForm{
-    .column(10.1);
+    border:1px solid #DADADA;   
 }
 
 
+
+//  #artistInfoDiv{
+//      .column(10.1);    
+//  }
+//  #genreSelect{
+//      .column(10.1);
+//  }
+// #musicianSelect{
+//     .column(10.1);
+// }
+// #addToEvent{
+//     .column(10.1);
+// }
+// .musicianInfoForm{
+//     .column(10.1);
+// }
+// .musicianInstruForm{
+//     .column(10.1);
+// }
+
+// #eventInfoDiv, #startTimeDiv,
+// #endTimeDiv, #mealsDiv,
+// #compInfoDiv, #ticketsDiv, 
+// #eventTypeDiv, #plublishingDiv,
+// #eventImageDiv, #eventArtistsDiv {  
+
+//     .column(10.1);
+//     position: relative; 
+// }
 
 
 
@@ -104,14 +132,16 @@ label{
 
 }
 
-input[type="text"], input[type="email"],input[type="url"], textarea, select{
+input[type="text"], input[type="email"],input[type="url"],
+input[type="time"], textarea, select, input[type="date"], 
+input[type="number"]{
     border: 1px solid #DADADA;
     color: #888;
     height: 24px;
     margin-bottom: 16px;
     //margin-right: 6px;
     margin-top: 2px;
-    outline: 0 none;
+   // outline: 0 none;
 
     padding: 3px 3px 3px 5px;
     width: 70%;
@@ -183,6 +213,29 @@ button {
                 
 
             }
+
+#submitEvent{
+                border: none;
+                 padding: 10px 25px 10px 25px;
+                 color: #FFF;
+                 height: 30px;
+                 //width: 50px;
+                 font-size: 8px;
+                 font-size: 16px;
+                 height: 50px;
+                 border-radius: 40px;
+                 margin-top: 100px;
+                 margin-left: 40px;
+                 
+                    
+                    &:hover {
+                     background: #CF7A7A
+                     }
+                
+
+            }
+
+
 
 
 
@@ -320,4 +373,51 @@ button {
                      }
 
 }
+
+
+
+
+/// LIST CSS ///
+
+#musicianList, #eventList, #artistList{
+
+    background-color: #EEE;
+    border:1px solid #DADADA;
+    .column(16);
+    .push(4);
+    position: relative;
+    display: block;
+    overflow: auto;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+
+
+
+
+}
+
+.musicianTemplate{
+
+
+    border-bottom:1px solid #DADADA;  
+    font: 14px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+
+    span{
+        font-weight: bold;
+        font: 14px;
+    }
+
+    h1{
+        span{
+            font-size: 14px;
+            font-style: italic;
+            font-weight: normal;
+            margin-left: 50px;
+        }
+    }
+}
+
+
 

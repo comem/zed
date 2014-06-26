@@ -1,4 +1,5 @@
 
+
         var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -23,16 +24,18 @@
                  //this.listenTo(this.model, 'all', this.render);
             },
             nested:'instruments',
+         
             defaults: function(){
                 return {
-                    name :'',
+                    first_name :'',
                     instruments : new InstrumentsColl(),
-                    lastName:'',
-                    stageName:''
+                
+                    last_name:'',
+                    stagename:''
                 }
             },
             validate: function(attributes, options){
-                if(attributes.name == '' || attributes.name.length ==0){
+                if(attributes.first_name == '' || attributes.first_name.length ==0){
                     $( "<div title='Attention!'>").dialog({
                       
                       buttons: {
@@ -112,7 +115,7 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response = new Genre(response);
+            
             console.log(response);
           
             return response;

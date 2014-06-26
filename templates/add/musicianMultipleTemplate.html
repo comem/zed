@@ -1,15 +1,18 @@
 <% _.each(musicians, function (musician, musicianIndex) { %>
-<div style ="margin-left:20%; " class="musicianTemplate" >
+<div class="musicianTemplate" >
 
-          	<h1> Musician <%- musicianIndex+1 %> - <%- musicians[musicianIndex].name %> </h1>
-          	<div class="musicianInfoTemplate"> 
-	          	<p>Last name : <%- musicians[musicianIndex].lastName %> </p>
-	          	<p>Stage name: <%- musicians[musicianIndex].stageName %> </p>
+          	<h1> Musician <%- musicianIndex+1 %> - <%- musicians[musicianIndex].first_name %> 
+          		<span><%- musicians[musicianIndex].stagename %></span>
+          	</h1>
+
+          		<div class="musicianInfoTemplate"> 
+	          	<p><span>Last name : </span><%- musicians[musicianIndex].last_name %> </p>
+	          	<p><span>Stage name : </span><%- musicians[musicianIndex].stagename %> </p>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
-	          		<span>Instruments: </span>
+	          		<span>Instruments : </span>
 	          	 <% _.each(musicians[musicianIndex].instruments, function (instrument, index) { %>
-	          	 	<%- musicians[musicianIndex].instruments[index].name %>
+	          	 	<%- musicians[musicianIndex].instruments[index].name_de %>
 	          	  <% }); %>
 	          	</div>
           	</div>

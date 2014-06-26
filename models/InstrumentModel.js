@@ -1,4 +1,3 @@
-
         var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -19,9 +18,13 @@
 
 //*******************INSTRUMENT MODEL//*******************
         var Instrument = Backbone.Model.extend({
-            urlRoot: '',
+            urlRoot: 'http://pingouin.heig-vd.ch/gof/instruments',
             initialize: function(){
-                
+            },
+            defaults: function(){
+                return {
+                    name_de:''
+                }
             }
         });
 
@@ -31,13 +34,11 @@
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                //console.log(response);
                 return response;
-
             }
         });
-        var instrumentsColl = new InstrumentsColl();
 
+       var instrumentsColl = new InstrumentsColl();
 
         var InstrumentsNestedColl = MyModelNestedCollection.extend({
             nested:'instruments',
@@ -45,38 +46,28 @@
                 return {
                     instruments : new InstrumentsColl() 
                 }
-            },
-            parse: function (response) {
-            if (typeof response.data != "undefined") {
-                response = response.data;
             }
-            response = new Instrument(response);
-          
-            return response;
-
-        }
-        });
+       });
         var instrumentsNestedColl = new InstrumentsNestedColl();
 
 //*******************//**********SERVER*********//**************
      
         var InstrumentsCollServer = Backbone.Collection.extend({
-            url: '',
+           url: 'http://pingouin.heig-vd.ch/gof/instruments',
             model: Instrument,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                //console.log(response);
+               //console.log(respone);
                 return response;
-
             }
         });
         var instrumentsCollServer = new InstrumentsCollServer();
 
 
         var InstrumentsNestedCollServer = MyModelNestedCollection.extend({
-            url: '/projInt/php/allInstruments.php',
+          url: 'http://pingouin.heig-vd.ch/gof/instruments',
             nested:'instruments',
             defaults: function(){
                 return {
@@ -87,35 +78,30 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response = new Instrument(response);
-            console.log(response);
-          
+            response = new Instrument();
+            //console.log(response.comments);
             return response;
         }
         });
         var instrumentsNestedCollServer = new InstrumentsNestedCollServer();
 
 
-
-    
 //*******************//*******************//**************
 //test
 
-  
-        instrumentsCollServer.fetch({success: function(){
+
+        instrumentsCollServer.fetch({ success: function(){
             console.log('istrumentsCollServer');
            console.log(instrumentsCollServer.toJSON())
         }})
+        
 
-              instrumentsNestedCollServer.get('instruments').fetch({success: function(){
-            console.log('istrumentsNestedCollServer');
-            console.log(instrumentsNestedCollServer.toJSON())
-        }})
+
+             
 
 $(document).ready(function(){
-    var hej = new Instrument({name: 'CHUJ!'})
-    hej.save();
-  
+   
+
 })
     
   //  instrumentsCollServer.add(hej)

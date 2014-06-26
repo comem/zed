@@ -1,6 +1,119 @@
 <div class="form event">
-                    <form id="eventForm">
-                      
-                        
-                    </form>
-                </div>
+  <div class= "accordion">
+    <h1 class="addEventHeader">Add new event</h1>
+      <div>
+        <form id="eventForm">
+          <div class="firstColumn">
+            <div id="eventInfoDiv">
+              <h2 class ="addEventHeader">Informations</h1>
+              <label>Name* </label>
+              <input type="text" name="nameEvent" id="nameEvent" required/>
+            </div>
+
+            <div id="startTimeDiv">
+                <h2 class ="addEventHeader">Start time*</h2>
+                <label>Date</label>
+                <input type="date" name="startDate" id="startDate" class="timeCntr" required/>
+                <label>Start hour</label> 
+                <input type="time" name="startTime" id="startTime"  required/>
+                <label>
+                <abbr title="if not filled, 45min before start hour will be set">Opening doors hour</abbr>
+                </label>
+                <input type="time" name="openingDoorsTime" id="openingDoorsTime"/>
+            </div>
+
+            <div id="endTimeDiv">
+                <h2 class ="addEventHeader">Ending time*</h2>
+                <label>Date</label> 
+                <input type="date" name="startDate" id="startDate"  required/>
+                <label>Ending hour</label><input type="time" name="startTime" id="startTime" required/>
+            </div>
+
+
+            <div id="compInfoDiv">
+                <h2 class ="addEventHeader">Complementary informations</h2>
+                <label>Note</label>
+                <textarea placeholder="informations" id="compInfo" ></textarea><br>
+                <label>Number of places*</label>
+                <input type="number" name="placesNumber" id="placesNumber"  required/><br>
+                <label>Followed*</label>
+                <button>Switch</button><br>
+                <label>Contract</label>
+                <input type="file" name="contract" id="contract"/><br>
+            </div>
+
+            <div id="eventTypeDiv">
+                <h2 class ="addEventHeader">Event type</h2>
+                <label>Name</label>
+                <select>
+                  <option>Pussy rockers</option>
+                  <option>bitches on the beach</option>
+                  <option>HEIG is cool</option>
+                </select><br>
+           </div>
+
+            <div id="eventImageDiv">
+                 <h2 class ="addEventHeader">Event image</h2>
+                 <label>Choose existing image</label>
+                 <button type="button" name="eventImg" id="eventImgBrowse">Choose<div id="formImage"> 
+              yeaaaaaah
+          </div></button>
+                 <br>
+                 <label>Upload new image</label>
+                 <input type="file" name="eventImg" id="eventImgUpload"/><br>
+          </div>
+          
+
+        </div>  
+        <div class="secondColumn">
+
+            <div id="mealsDiv">
+                <h2 class ="addEventHeader">Meals</h2>
+                <label>Number of normal meals</label>
+                <input type="number" name="normalMeals" id="normalMeals"  required/><br>
+                <label>Number of vegan(metally ill person) meals</label>
+                <input type="number" name="veganMeals" id="veganMeals"  required/><br>
+                <label>Note </label>
+                <textarea  id="mealNotes "placeholder="meal notes" ></textarea>
+            </div>
+
+           <div id="ticketsDiv">
+                <h2 class ="addEventHeader">Tickets</h2>
+                <label>Name</label>
+                <select>
+                  <option>Frei</option>
+                  <option>AVS</option>
+                  <option>Etudiant</option>
+                </select><br>
+
+                <label>Price</label>
+                <input type="number" name="ticketPrice" id="ticketPrice"/>CHF<br>
+                <label>Quantity</label>
+                <input type="number" name="ticketPrice" id="ticketPrice"/><br>
+                <label>Note</label>
+                <textarea placeholder="informations" id="ticketInfo" ></textarea><br>
+            </div>
+
+           <div id="plublishingDiv">
+                <h2 class ="addEventHeader">Publishing</h2>
+                <input type="checkbox" name="publishingPlatform" value="facebook">Facebook<br>
+           </div>
+
+           <div id="eventArtistsDiv">
+                 <h2 class ="addEventHeader">Artists</h2>
+                 <input type="text" name="artistName" id="artistName"/>
+                 <button type="button"id="addArtistButton" class ="showAll">
+                 <img src="img/icones/icone_list2.png"/>
+                 </button><br>
+          </div>
+
+           
+               
+               <button id="submitEvent">CREATE NEW EVENT</button>
+                          
+        </div>                  
+        
+      </form>
+    </div>  
+  </div>  
+</div>

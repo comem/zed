@@ -54,7 +54,7 @@ var ListInstruments = Backbone.View.extend({
             }
             
         });
-console.log(instrumentsNestedColl);
+
 var instrumentsList = new ListInstruments({model : instrumentsNestedCollServer})
 
 
