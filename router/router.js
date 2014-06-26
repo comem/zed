@@ -1,4 +1,4 @@
-var LAST_TAB = 'event';
+var LAST_FORM = 'event';
 
 // Application router
 // ==================
@@ -11,17 +11,16 @@ var AppRouter = Backbone.Router.extend({
             ':add': 'tab'
         },
   		index: function(){
-  			console.log('default url -> add/'+LAST_TAB);
-  			//this.navigate('add/'+LAST_TAB);
+  			console.log('default url -> add/'+LAST_FORM);
+  			this.navigate('add/'+LAST_FORM);
   		},
         formHandler: function(form) {
-        	//console.log(form);
             scrollForm(form);
-            LAST_TAB = form;
+            LAST_FORM = form;
         },
         tab: function(tab){
-			console.log('route with tab fct');
+			console.log('route with tab '+tab);
         	showMain(tab);
-            //this.navigate(tab+'/'+LAST_TAB, {replace:true});
-        },
+            this.navigate(tab+'/'+LAST_FORM, {replace:true});
+        }
     });
