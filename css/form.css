@@ -273,17 +273,38 @@ button img:hover {
   box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .musicianTemplate {
-  border-bottom: 1px solid #DADADA;
+  border-bottom: 1px solid #7A7A7A;
   font: 14px Georgia, "Times New Roman", Times, serif;
   color: #888;
+}
+.musicianTemplate:last-child {
+  border-bottom: none;
+}
+.musicianTemplate p {
+  margin-top: 10px;
+  margin-left: 40px;
 }
 .musicianTemplate span {
   font-weight: bold;
   font: 14px;
 }
+.musicianTemplate h1 {
+  border-bottom: 1px solid #DADADA;
+  padding: 20px;
+}
 .musicianTemplate h1 span {
+  position: relative;
   font-size: 14px;
   font-style: italic;
   font-weight: normal;
-  margin-left: 50px;
+  left: 50px;
+}
+.musicianTemplate h1 ul {
+  position: absolute;
+  right: -5px;
+  top: -6px;
+}
+.musicianTemplate button {
+  background: transparent;
+  z-index: 4000;
 }

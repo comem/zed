@@ -225,6 +225,9 @@ $('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "c
  instrumentsList.render().$el.appendTo('#stufflist');
 
 
+$(".buttonsListMusician").click(function(event){
+    event.stopPropagation();
+});
 
 
 
