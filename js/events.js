@@ -45,8 +45,6 @@ function showMain(href){
 
 function showAtScroll(){
 	var heightLimit = $(document).scrollTop();
-	//console.log(heightLimit);
-
 	var positionElementInPage = '300';
 	if ($(window).scrollTop() > positionElementInPage) {  
     	console.log('OKKK');
@@ -112,5 +110,4 @@ function isFocus(href){
 	if (href == 'artist') {
 		$('.addArtist a').css('backgroud-color','red');
 	};
-	console.log('isFocus');
 }

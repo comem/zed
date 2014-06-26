@@ -77,7 +77,8 @@
         }
         });
         var genreNestedCollServer = new GenreNestedCollServer();
-    
+
+/*
      genreCollServer.fetch({ success: function(){
             console.log('genreCollServer');
            console.log(genreCollServer.toJSON())
@@ -87,3 +88,8 @@
         console.log('genreNestedCollServer');
         console.log(genreNestedCollServer.toJSON())
     }})
+
+
+
+*/
+

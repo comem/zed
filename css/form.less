@@ -399,23 +399,48 @@ button {
 
 .musicianTemplate{
 
-
-    border-bottom:1px solid #DADADA;  
+    
+    border-bottom:1px solid #7A7A7A;  
     font: 14px Georgia, "Times New Roman", Times, serif;
     color: #888;
 
+        &:last-child{
+            border-bottom: none;
+        }
+
+    p{
+            margin-top: 10px;
+            margin-left: 40px;
+
+
+        }
+
     span{
-        font-weight: bold;
-        font: 14px;
-    }
+            font-weight: bold;
+            font: 14px;
+        }
 
     h1{
+            border-bottom:1px solid #DADADA;   
+            padding: 20px;
         span{
-            font-size: 14px;
-            font-style: italic;
-            font-weight: normal;
-            margin-left: 50px;
+                position: relative;
+                font-size: 14px;
+                font-style: italic;
+                font-weight: normal;
+                left: 50px;
+            }
+
+        ul{
+            position: absolute;
+            right: -5px;
+            top: -6px;
+            }
         }
+
+    button{
+        background: transparent;
+        z-index: 4000;   
     }
 }
 

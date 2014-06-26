@@ -45,6 +45,8 @@
     
     <script src="js/autocompleteGenre.js"></script>
     <script src="js/autocompleteInstrument.js"></script>
+    <script src="js/autocompleteArtist.js"></script>
+
 
     <script src ="js/createMusician.js"></script>
     <script src ="js/createArtist.js"></script> 
