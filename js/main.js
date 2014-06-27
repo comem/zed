@@ -285,14 +285,14 @@ lastEventView.render().$el.appendTo('#eventForm')
 montreuxView.render().$el.appendTo('#eventForm')
 */
 //multiple render
-/*
+
 multipleArtists.render().$el.appendTo('#artistList');
 multipleEvents.render().$el.appendTo('#eventList');
 multipleMusicians.render().$el.appendTo('#musicianList')
 
 //var chuj = new ArtistFieldInMusician({model: artistNestedList})
 //chuj.render().$el.appendTo('#eventList')
-*/
+
 
 
 $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
