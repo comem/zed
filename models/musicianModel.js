@@ -17,19 +17,49 @@
             }
         });
 
+
+
+
+        var ArtistInstruments = MyModelNestedCollection.extend({
+            nested: 'instruments',
+            defaults: function(){
+                return {
+                    artist_id:'',
+                    instruments : new InstrumentsColl()
+                }
+            }
+
+            });
+
+        var PivotMusician = Backbone.Collection.extend({
+         //   nested: 'hejj',
+             defaults: function(){
+                return {
+                    artist_id: '',
+                    instrument_id:'',
+                    musician_id:''
+                }
+            },
+
+            });
+
+
         //Model Musician
         var Musician = MyModelNestedCollection.extend({
+            urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians',
           
             initialize: function(){
                  //this.listenTo(this.model, 'all', this.render);
             },
-            nested:'instruments',
+            nested:'artistInstruments',
+            nested: 'pivot',
          
             defaults: function(){
                 return {
+                    id:'',
                     first_name :'',
-                    instruments : new InstrumentsColl(),
-                
+                    artistInstruments : new ArtistInstruments(),
+                    pivot: new PivotMusician(),
                     last_name:'',
                     stagename:''
                 }
@@ -51,13 +81,17 @@
                     response = response.data;
 
                 }
-                response.comments = new InstrumentsColl(response.comments);
+                musician = new Musician(response);
      
                 return response;
             }
         });
-
-
+/*
+var mus = new Musician({name: 'name', stagename:'qwwqr'})
+var inst = new Instrument({name_de:'piano', id:2})
+mus.get('artistInstruments').get('instruments').add(inst)
+console.log(mus.toJSON());
+*/
         //la collection de tous les musiciens
         var MusiciansColl = Backbone.Collection.extend({
             model: Musician,
@@ -90,13 +124,13 @@
      //*******************//**********SERVER*********//**************
      
         var MusicianCollServer = Backbone.Collection.extend({
-            url: '/projInt/php/urlTest.php',
+            url: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians',
             model: Musician,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-                //console.log(response);
+                musician = new Musician(response)
                 return response;
             }
         });
@@ -104,7 +138,7 @@
 
 
         var MusicianNestedCollServer = MyModelNestedCollection.extend({
-            url: '/projInt/php/urlTest.php',
+            url: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians',
             nested:'musicians',
             defaults: function(){
                 return {
@@ -114,15 +148,19 @@
             parse: function (response) {
             if (typeof response.data != "undefined") {
                 response = response.data;
+
             }
-            
-            console.log(response);
-          
-            return response;
+            musician = new Musician(response)
+            return musician;
         }
         });
         var musicianNestedCollServer = new MusicianNestedCollServer();
 
+    musicianNestedCollServer.get('musicians').fetch({
+        success:function(){
+       
+            var  musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+            musicianList.render().$el.appendTo('#musicianList')
 
-
-   
+        }
+    })

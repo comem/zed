@@ -46,20 +46,24 @@ var MyModelNestedCollection = Backbone.Model.extend({
 
 
         //ARTISTS
-        var rammstein = new Artist({ header :' The artist!', name: 'Rammstein', complete_description:'best metal band ever!', short_description: "are you ready to headbang?"})
-        rammstein.get('musicians').add([musician, musician2])
+        var rammstein = new Artist({  name: 'Rammstein', complete_description:'best metal band ever!', short_description: "are you ready to headbang?"})
+       // rammstein.get('musicians').add([musician, musician2])
         rammstein.get('genres').add([genre,genre2])
         //console.log(rammstein.toJSON());
+        //rammstein.save()
 
-        var chopin = new Artist({ header: 'this is chopin!', name: 'Chopin'})
+        var chopin = new Artist({  name: 'Chopin'})
         chopin.get('musicians').add([musician3, musician4])
         chopin.get('genres').add([genre3, genre4,genre,genre2
             ])
+        //chopin.save()
 
         var starWars = new Artist({name:'Star Wars', linkURL : 'www.bite.ch'})
         starWars.get('musicians').add([musician5,musician,musician3,musician2])
+       // starWars.save()
         
         //EVENTS
+        
         var montreuxJazz = new EventModel({title_de:'montreux jazz', start_date_hour: 20, ticketPrice: '20$',publishing:"facebook",
         ticketQt:'limited to 100 tickets!', nb_places: 1000,  header:"my first event!"})
         montreuxJazz.get('artists').add([chopin,rammstein,starWars])
@@ -71,6 +75,7 @@ var MyModelNestedCollection = Backbone.Model.extend({
         var starWarsEvent = new EventModel({header: 'j\'en ai marre', title_de:'Star Wars event', start_date_hour: 20, ticketPrice: '100$',publishing:"facebook",
         amount: 283928, nb_places: 69, nb_vegan_meals:'0 because fuck you'})
         starWarsEvent.get('artists').add([chopin])
+        
         
         //add  to Collections
         var musicianList = new MusicianNestedColl()
@@ -150,6 +155,4 @@ $('.theArtist').accordion({collapsible: true, active: false, heightStyle: "conte
 $('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "content"})
 */
 
-var chuj = new ArtistFieldInMusician()
-chuj.render().$el.appendTo('#eventList')
 })

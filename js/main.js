@@ -264,7 +264,12 @@ $(function(){
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
 
-
+artistNestedCollServer.get('artists').fetch({
+    success:function(){
+        render = ArtistMultipleView({model:artistNestedCollServer})
+        render.render().$el.appendTo('#artistList')
+    }
+})
 //single musician render
 /*
 musician1view.render().$el.appendTo('#eventForm')
@@ -284,14 +289,14 @@ lastEventView.render().$el.appendTo('#eventForm')
 montreuxView.render().$el.appendTo('#eventForm')
 */
 //multiple render
-
+/*
 multipleArtists.render().$el.appendTo('#artistList');
 multipleEvents.render().$el.appendTo('#eventList');
 multipleMusicians.render().$el.appendTo('#musicianList')
 
 //var chuj = new ArtistFieldInMusician({model: artistNestedList})
 //chuj.render().$el.appendTo('#eventList')
-
+*/
 
 
 $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
