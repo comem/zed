@@ -397,7 +397,9 @@ button {
 
 }
 
-.musicianTemplate{
+/// MUSICIAN LIST
+
+.musicianTemplate {
 
     
     border-bottom:1px solid #7A7A7A;  
@@ -415,9 +417,10 @@ button {
 
         }
 
-    span{
+    label{
             font-weight: bold;
             font: 14px;
+            display: inline;
         }
 
     h1{
@@ -444,5 +447,128 @@ button {
     }
 }
 
+/// ARTIST LIST
 
 
+.musicianPlusInstrument{
+    .column(24);
+}
+.artistMusicianInstrument {
+    .column(12);
+    margin-top: 30px;
+}
+
+.artistMusician{
+    .column(12);
+    margin-top: 30px;
+}
+
+
+
+.artistTemplate{
+    .column(24);
+    border-bottom:1px solid #7A7A7A;  
+    border-bottom-right-radius: 10px; 
+    font: 14px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    
+
+        &:last-child{
+            border-bottom: none;
+        }
+
+        h1{
+            border-bottom:1px solid #DADADA;   
+            padding: 20px;
+            border-bottom-right-radius: 10px; 
+
+            img{
+                opacity: 0.4;
+                position: relative;
+                top: 2px;
+            }
+
+            ul{
+            position: absolute;
+            right: -5px;
+            top: -6px;
+            }
+
+            button{
+            background: transparent;
+            z-index: 4000;   
+            }
+        }
+
+        
+
+        label{
+            
+            font: 15px;
+            display: inline;
+            color: #666;
+        }
+
+        h2{
+            margin-top: 20px;
+            text-decoration: none;
+            text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.54);
+
+            img{
+                position: relative;
+                top: 2px;
+                opacity: 0.6;
+
+            }
+
+            
+        }
+         p{
+            margin-top: 10px;
+            margin-left: 40px;
+
+
+        }
+
+        h3 {
+            font-weight: 600;
+        }
+
+        .artistListInformation{
+            label{
+                display: block;
+            }
+        }
+}
+
+
+/// EVENT LIST
+
+
+
+.infoEventTemp{
+
+    .column(24);
+    label{ 
+            font: 15px;
+            display: inline;
+            color: #666;
+        }
+
+    p{
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+
+    .lineOne{
+        .column(24);
+    }    
+
+}
+
+.eventInformations,
+.eventTicketInfo,
+.eventMealsInfo,
+.eventOtherInfo{
+    .column(12);
+}
