@@ -30,7 +30,7 @@
     
     
    
-
+<script src="models/linksModel.js"></script>
     <script src="models/genreModel.js"></script>   
     <script src="models/instrumentModel.js"></script>   
     <script src="models/musicianModel.js"></script>
@@ -43,7 +43,7 @@
     <script src="views/genreViews.js"></script>
     <script src="views/musicianViews.js"></script>
     
-     <script src="js/testBackbone.js"></script> 
+    
     
     <script src="js/main.js"></script>
     <script src="js/artistForm.js"></script>
@@ -52,6 +52,7 @@
     <script src="js/autocompleteGenre.js"></script>
     <script src="js/autocompleteInstrument.js"></script>
     <script src="js/autocompleteArtist.js"></script>
+    <script src="js/autocompleteMusician.js"></script>
 
 
     <script src ="js/createMusician.js"></script>
@@ -94,14 +95,14 @@
          
     </head>
     <body>
-       
 
 
 
   <div class="app"></div>
 
  
+ 
+<div id="#musicianSuccessfullyAdded"> Musician successfully added!</div>
 
-        
     </body>
 </html>

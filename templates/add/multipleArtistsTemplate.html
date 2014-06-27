@@ -1,51 +1,5 @@
-<% _.each(artists, function (thisGenre, artistIndex) { %>
+<% _.each(artists, function (artist, artistIndex) { %>
 <div class= "artistTemplate">
 
-          	<h1> Artist <%- artistIndex +1 %> - <%- artists[artistIndex].name %> </h1>
-          	<div class="pourQueAccFonctionne">
-		          		
-		          	<p>Description :  <%- artists[artistIndex].complete_description %></p>
-		          	<p>Lead: <%- artists[artistIndex].short_description %></p>
-		          	<h2>Genres: </h2>
-		      
-		          		<% _.each(artists[artistIndex].genres, function (thisGenre, index) { %>
-		          			<%- artists[artistIndex].genres[index].name_de %> 
-		          		<% }); %>
-
-		          	<h2>Links: </h2>
-		          	<p>URL:<%- artists[artistIndex].linkURL %> </p>
-		          	<p>Title: <%- artists[artistIndex].linkTitle %></p>
-		          	<p>Name: <%- artists[artistIndex].linkName %></p>
-
-
-			<div class="allArtistMusicians myAccordion">
-		     
-		          	<h2>Musicians</h2>
-
-		         <div>
- 					<% _.each(artists[artistIndex].musicians, function (musician, index) { %>
-		           	<div class ="artistMusician"> 	
-		           		First name:
-		           		<p class ="artistMusicianName" style ="font-weight: bold;"> <%- artists[artistIndex].musicians.at(index).get('first_name') %> </p>
-		           		Last name:
-		           		<p class ="artistMusicianName" style ="font-weight: bold;"> <%- artists[artistIndex].musicians.at(index).get('last_name') %> </p>
-		           		<div class="artistMusicianInstrument"> 
-			           		 <p>Plays:</p>
-			           		 <% _.each(artists[artistIndex].musicians.at(index).get('instruments'), function (instrument, index2) { %>
-			           			<%- artists[artistIndex].musicians.at(index).get('instruments').at(index2).get('name_de') %> 
-			           		 <% }); %>
-
-		           		</div>
-
-		           	</div>  <!-- artistMusician -->
-		           
-		          
-		 	   	<% }); %>
-
-		 	   	</div>
-          </div> <!-- allArtistMusicians -->
-       </div>
-
-</div>
-
+          	<h1> Artist <%- artistIndex +1 %> - <%- artist.name %> </h1>
         	<% }); %>

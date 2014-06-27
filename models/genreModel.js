@@ -17,7 +17,7 @@
         });
 //*******************GENRE MODEL//*******************
         var Genre = Backbone.Model.extend({
-          urlRoot: 'http://pingouin.heig-vd.ch/gof/genres',
+          urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/genres',
         	defaults: function (){
         		return{
         			name_de:''
@@ -48,7 +48,7 @@
 //*******************//**********SERVER*********//**************
      
         var GenreCollServer = Backbone.Collection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/genres',
+            url: 'http://pingouin.heig-vd.ch/gof/api/v1/genres',
             model: Genre,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
@@ -61,7 +61,7 @@
 
 
         var GenreNestedCollServer = MyModelNestedCollection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/genres',
+            url: 'http://pingouin.heig-vd.ch/gof/api/v1/genres',
             nested:'genres',
             defaults: function(){
                 return {
