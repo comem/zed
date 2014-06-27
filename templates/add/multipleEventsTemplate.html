@@ -2,14 +2,24 @@
 
 <div class="eventTemplate myAccordion ">
 
-     <h1>Event number <%- eventsIndex +1%> - <%- events[eventsIndex].title_de %> </h1>
+     <h1>Event<%- eventsIndex +1%> - <%- events[eventsIndex].title_de %> 
+        <ul class = "buttonsListMusician">
+                <li><button type="button">
+                  <img src="img/icones/icone_delete.png"/>
+                  </button>
+                </li>
+                <li><button type="button">
+                  <img src="img/icones/icone_edit.png"/>
+                </button>
+                </li>
+        </ul>
+     </h1>
      <div class ="pourQueAccFonctionne">
            
            <div class ="infoEventTemp">
                 <div class="lineOne">
                     <div class="eventInformations">
-                      <h2>General</h2>
-                        <%- events[eventsIndex].header %>
+                      <h2><img src="img/icones/icone_information.png"> General informations</h2>
                         <p><label>Event name : </label><%- events[eventsIndex].name_de %></p>
                         <p><label>Start hour : </label><%- events[eventsIndex].start_date_hour%></p>
                         <p><label>Opening doors hour : </label><%- events[eventsIndex].opening_doors %></p>
@@ -19,7 +29,7 @@
                     </div> <!-- eventInformation -->
 
                     <div class ="eventTicketInfo">
-                      <h2>Ticket Info</h2>
+                      <h2><img src="img/icones/icone_price.png"> Ticket Info</h2>
                         <p><label>Ticket Price : </label><%- events[eventsIndex].ticketPrice %> per ticket</p>
                         <p><label>Ticket type : </label><%- events[eventsIndex].name_de %></p>
                         <p><label>Ticket note : </label><%- events[eventsIndex].comment %></p>
@@ -28,14 +38,14 @@
                 </div>
                 <div class="lineOne">  
                     <div class="eventMealsInfo">
-                      <h2>Meals</h2>
+                      <h2><img src="img/icones/icone_food.png"> Meals</h2>
                         <p><label>Number of vegan meals : </label><%- events[eventsIndex].nb_vengans_meal %></p>
                         <p><label>Number of normal meals : </label><%- events[eventsIndex].nb_meal %></p>
                         <p><label>Meals note : </label><%- events[eventsIndex].meal_notes %></p>
                     </div> <!-- eventMealsInfo -->
 
                     <div class ="eventOtherInfo">
-                      <h2>Others</h2>
+                      <h2><img src="img/icones/icone_autre.png"> Others</h2>
                         <p><label>Place numbers : </label><%- events[eventsIndex].nb_places %></p>
                         <p><label>Publishing? yes, </label><%- events[eventsIndex].publishing %></p>
                         <p><label>Complementary note : </label><%- events[eventsIndex].notes %></p>
@@ -46,57 +56,15 @@
 
 
               <div class ="eventArtists"> 
-                <h1>Who will play?</h1>
+                <h2><img src="img/icones/icone_artist_small.png"> Artists playing</h2> 
                     <% _.each(events[eventsIndex].artists, function (artist, index) { %>
 
                     <div class ="theArtist">
-                       <h1>Artist <%- index+1 %> name :  <%- events[eventsIndex].artists[index].name %></h1>
+                       <h3>Artist (<%- index+1 %>) <%- events[eventsIndex].artists[index].name %></h3>
                        <p><label>Description : </label><%- events[eventsIndex].artists[index].short_description %></p>
-
-                      <div class="artistLinks">
-                         <h1>Links: </h1>
-                         <p><label>LinkURL : </label><%- events[eventsIndex].artists[index].linkURL %></p> 
-                         <p><label>Link title : </label><%- events[eventsIndex].artists[index].linkTitle %></p> 
-                         <p><label>Link name : </label><%- events[eventsIndex].artists[index].linkName %></p> 
-                      </div>
-
-                      <div class="artistStylee"  style ="margin-bottom:1%;"> 
-                          <p>
-                            <label>Artist style</label>
-                            <% _.each(events[eventsIndex].artists[index].genres, function (genre, genreIndex) { %>
-                            <%- events[eventsIndex].artists[index].genres[genreIndex].name_de %> 
-                            <% }); %> <!-- genreLoop -->
-                          </p>
-                      </div>
-                   
-                      <div class ="artistMusicians"> 
-                        <span style ="font-weight: bold;">Musicians</span>
-                          <% _.each(events[eventsIndex].artists[index].musicians, function (musician, musicianIndex) { %>
-                          <div class= "theEventMusician">
-                              <p><label>Name : </label><%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.first_name %></p>
-                              <p><label>Last name : </label><%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.last_name %></p> 
-                              <p><label>StageName : </label><%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.stagename %></p>
-                                
-                                <div class ="hePlays"> 
-                                  <p>
-                                   <label>Plays Instruments : </label> 
-                                   <% _.each(events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.instruments, function (instrument, instIndex) { %>
-                                   <%- events[eventsIndex].artists[index].musicians.at(musicianIndex).attributes.instruments.at(instIndex).attributes.name_de %> 
-                                  </p>   
-                                        <% }); %> 
-                                </div>  <!-- hePlays -->
-
-                          </div> <!-- myMusician -->
-                             <% }); %>  <!-- musicianLoop -->
-                      </div> <!-- artistMusicians -->
-
                     </div>
-
-               <!-- theArtist -->
-               
-                <% }); %> <!-- artistLoop -->
-                
-              </div><!-- eventArtists -->
+                <% }); %> 
+              </div>
 
       </div>
        
