@@ -9,6 +9,9 @@ $(function(){
 	$('.main nav ul li a').click(scrollForm);
 
 	$(window).scroll(showAtScroll);
+
+	
+	
 			
 
 });

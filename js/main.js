@@ -21,6 +21,12 @@ var MyModelNestedCollection = Backbone.Model.extend({
 });
 
 
+ // Create a modal view class
+var Modal = Backbone.Modal.extend({
+    template: _.template(templates.add_uploadImage),
+    cancelEl: '.bbm-button'
+});
+
 
 var Header = MyView.extend({
     template: _.template(templates.main_header),
@@ -118,24 +124,21 @@ var EventAdd = MyView.extend({
         return this;
     },
     events:{
-        "click #eventImgBrowse" : 'showUp' 
-    },
-    showUp: function(event){
-        console.log('showUp');
-        
-
-        /* Apply fancybox to multiple items */
-        
-        $("#eventImgBrowse").fancybox({
-            'href'          : "#imageUpload", 
-            'transitionIn'  :   'elastic',
-            'transitionOut' :   'elastic',
-            'speedIn'       :   600, 
-            'speedOut'      :   200, 
-            'overlayShow'   :   false
-        });
+        "click  .popup-with-form" : 'popup' 
+    },  
+    popup: function (e) {
+         e.preventDefault();
+         console.log("yeah");
+         $('.popup-with-form').magnificPopup({
+              disableOn: 700,
+              type: 'inline',
+              removalDelay: 160,
+              preloader: false,
+              fixedContentPos: false
+         });
+      }
     
-    }
+    
 });
 
 var ArtistAdd = MyView.extend({
@@ -242,6 +245,17 @@ $('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "c
 
  genresList.render().$el.appendTo('#stufflist');
  instrumentsList.render().$el.appendTo('#stufflist');
+
+ $('.open').on('click', function(){
+
+        // Render an instance of your modal
+        var modalView = new Modal();
+       
+        $('.app').html(modalView.render().el);
+
+      });
+
+     
 
 
 
