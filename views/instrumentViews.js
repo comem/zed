@@ -23,13 +23,13 @@ var InstrumentView = Backbone.View.extend({
              //remove from nested model
               this.model.get('instruments').remove(instrumentDelete);
               //remove from collection\
-               instrumentsNestedColl.remove(instrumentsNestedColl.at(instrumentIndex));
+               instrumentsColl.remove(instrumentsColl.at(instrumentIndex));
             },
             logDelete: function(){
               console.log('deleted from instruments  list nested =')
-              console.log(aMusiciansList.toJSON())
+              console.log(instrumentsNestedColl.toJSON())
               console.log('deleted from all instruments coll = ');
-              console.log(allMusicians.toJSON())
+              console.log(instrumentsNestedColl.toJSON())
             },
             logAdd: function(){
               console.log('added to allMusicians coll=')

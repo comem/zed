@@ -18,12 +18,13 @@
 
 //*******************INSTRUMENT MODEL//*******************
         var Instrument = Backbone.Model.extend({
-            urlRoot: 'http://pingouin.heig-vd.ch/gof/instruments',
+            urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
             initialize: function(){
             },
             defaults: function(){
                 return {
-                    name_de:''
+                    name_de:'',
+                    instrument_id: '44'
                 }
             }
         });
@@ -53,8 +54,11 @@
 //*******************//**********SERVER*********//**************
      
         var InstrumentsCollServer = Backbone.Collection.extend({
-           url: 'http://pingouin.heig-vd.ch/gof/instruments',
+           url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
             model: Instrument,
+            initialize:function(){
+                Backbone.sync('create', this);
+            },
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
@@ -67,8 +71,11 @@
 
 
         var InstrumentsNestedCollServer = MyModelNestedCollection.extend({
-          url: 'http://pingouin.heig-vd.ch/gof/instruments',
+          url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
             nested:'instruments',
+             initialize:function(){
+                Backbone.sync('create', this);
+            },
             defaults: function(){
                 return {
                     instruments : new InstrumentsCollServer()
@@ -87,16 +94,22 @@
         }
         });
         var instrumentsNestedCollServer = new InstrumentsNestedCollServer();
+            instrumentsCollServer.fetch({
+                success:function(){
+                console.log(instrumentsNestedColl.toJSON());
+            }
+        })
 
 
 //*******************//*******************//**************
 //test
-
+/*
 
         instrumentsCollServer.fetch({ success: function(){
             console.log('istrumentsCollServer');
            console.log(instrumentsCollServer.toJSON())
         }})
+*/
 
         
 

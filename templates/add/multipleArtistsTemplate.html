@@ -1,49 +1,115 @@
-<% _.each(artists, function (thisGenre, artistIndex) { %>
+<% _.each(artists, function (artist, artistIndex) { %>
 <div class= "artistTemplate">
 
-          	<h1> Artist <%- artistIndex +1 %> - <%- artists[artistIndex].name %> </h1>
+
+          	<h1>
+          		<img src="img/icones/icone_artist.png">
+          		Artist <%- artistIndex +1 %> - <%- artists[artistIndex].name %>
+          		<ul class = "buttonsListMusician">
+          			<li><button type="button">
+          				<img src="img/icones/icone_delete.png"/>
+          				</button>
+          			</li>
+          			<li><button type="button">
+          				<img src="img/icones/icone_edit.png"/>
+          			</button>
+          			</li>
+          		</ul>
+          	</h1>
           	<div class="pourQueAccFonctionne">
-		          		
-		          	<p>Description :  <%- artists[artistIndex].complete_description %></p>
-		          	<p>Lead: <%- artists[artistIndex].short_description %></p>
-		          	<h2>Genres: </h2>
-		      
-		          		<% _.each(artists[artistIndex].genres, function (thisGenre, index) { %>
-		          			<%- artists[artistIndex].genres[index].name_de %> 
-		          		<% }); %>
 
-		          	<h2>Links: </h2>
-		          	<p>URL:<%- artists[artistIndex].linkURL %> </p>
-		          	<p>Title: <%- artists[artistIndex].linkTitle %></p>
-		          	<p>Name: <%- artists[artistIndex].linkName %></p>
+          		<div class="firstColumn">
+          			<div class="artistListInformation">
+						<h2>
+							<img src="img/icones/icone_information.png">
+							General Informations
+						</h2>
+			          	<p>
+			          		<label>Description : </label>
+			          		<%- artists[artistIndex].complete_description %>
+			          	</p>
 
+			          	<p>
+			          		<label>Lead : </label>
+			          		<%- artists[artistIndex].short_description %>
+			          	</p>
+		          	</div>
+		          	<div class= "aritisrListGenre">
+			          	<h2>
+			          		<img src="img/icones/icone_genre.png">
+			          		Genres
+			          	</h2>
+				         <% _.each(artists[artistIndex].genres, function (thisGenre, index) { %>
+				         <p>
+				         	<label>Style : </label>
+				         	<%- artists[artistIndex].genres[index].name_de %> 
+				         </p>	
+				         <% }); %>
+		          	</div>
+		          	<div class="artistListLinks">
 
-			<div class="allArtistMusicians myAccordion">
-		     
-		          	<h2>Musicians</h2>
+		          	<h2>
+		          		<img src="img/icones/icone_links.png">
+		          		Links
+		          	</h2>
+		          	<p>
+		          		<label>URL : </label>
+		          		<%- artists[artistIndex].linkURL %> 
+		          	</p>
+		          	<p>
+		          		<label>Title : </label>
+		          		<%- artists[artistIndex].linkTitle %>
+		          	</p>
+		          	<p>
+		          		<label>Name : </label>
+		          		<%- artists[artistIndex].linkName %>
+		          	</p>
+		          	</div>
+		        </div>
 
-		         <div>
+		        <div class="secondColumn">
+					<h2>
+						<img src="img/icones/icone_musician.png">
+						Musicians 
+					</h2>
+
+		         
  					<% _.each(artists[artistIndex].musicians, function (musician, index) { %>
+		           	<div class ="musicianPlusInstrument">
 		           	<div class ="artistMusician"> 	
-		           		First name:
-		           		<p class ="artistMusicianName" style ="font-weight: bold;"> <%- artists[artistIndex].musicians.at(index).get('first_name') %> </p>
-		           		Last name:
-		           		<p class ="artistMusicianName" style ="font-weight: bold;"> <%- artists[artistIndex].musicians.at(index).get('last_name') %> </p>
-		           		<div class="artistMusicianInstrument"> 
-			           		 <p>Plays:</p>
-			           		 <% _.each(artists[artistIndex].musicians.at(index).get('instruments'), function (instrument, index2) { %>
-			           			<%- artists[artistIndex].musicians.at(index).get('instruments').at(index2).get('name_de') %> 
-			           		 <% }); %>
+		           		<h3><%- artists[artistIndex].musicians.at(index).get('first_name') %></h3>
+		           		<p> 
+		           			<label>First name : </label>
+		           			<%- artists[artistIndex].musicians.at(index).get('first_name') %> 
+		           		</p>
+		           		
+		           		<p> 
+		           			<label>Last name : </label>
+		           			<%- artists[artistIndex].musicians.at(index).get('last_name') %> 
+		           		</p>
+		           	</div>	
+			           		
+			           		
+			        <div class="artistMusicianInstrument"> 
+			           			<h3> Instruments</h3>
+				           		 
+				           		 <% _.each(artists[artistIndex].musicians.at(index).get('instruments'), function (instrument, index2) { %>
+				           			<p>
+				           				<label>Play : </label>
+				           				<%- artists[artistIndex].musicians.at(index).get('instruments').at(index2).get('name_de') %> 
+				           			</p>	
+				           		 <% }); %>
 
-		           		</div>
+			        </div>
 
-		           	</div>  <!-- artistMusician -->
+		           	  <!-- artistMusician -->
 		           
-		          
+		        </div>  
 		 	   	<% }); %>
-
+		 	   	
+		 	   	
 		 	   	</div>
-          </div> <!-- allArtistMusicians -->
+          
        </div>
 
 </div>

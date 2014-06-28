@@ -9,13 +9,21 @@
      var arrivalHour = $('#arrivalHour').val();
      console.log(description);
 
-     var artist = new Artist({first_name: artistName, 
+     var artist = new Artist({name: artistName, 
         short_description: lead, complete_description: description,linkURL: linkUrl, 
         linkTitle: linkTitle, linkName: linkName })
 
+     music=allMusicians.where({first_name: addToArtist})
+     console.log(music);
 
-      var musicianNested = aMusiciansList.get('musicians').where({first_name: addToArtist});//nested coll
-      var musician = allMusicians.where({first_name: addToArtist}) //simple coll
+     var musicianList = musicianCollServer.fetch({
+        success:function(){
+          music = musicianList.where({first_name: addToArtist})
+          console.log(music);
+        }
+     })
+
+     where({first_name: addToArtist}) //simple coll
 
        if(artist.get('first_name') != ''){
          if (allMusicians.length != 0 ){
@@ -30,18 +38,14 @@
                   var genre = new Genre({name_de: model.attributes.name_de})
                   artist.get('genres').add(genre)
                  });
-               //add to event
               
-
-               //arrival hour
-               artist.set({arrivalHour: arrivalHour})
-                var render = new ArtistView({model: artist})
-                //console.log($(render.$el[0]).next());
-               // $(render.render().$el[0].children[0]).accordion({collapsible: true, active: false,heightStyle: "content"})
+               console.log(artist.toJSON());
+                
+              //console.log($(render.$el[0]).next());
+              // $(render.render().$el[0].children[0]).accordion({collapsible: true, active: false,heightStyle: "content"})
 
              // $(render.render().$el[0].children[0]).appendTo('#eventForm');
 
-               console.log(artist.toJSON());
                  $( "<div title='Add new artist'>").dialog({            
                           buttons: {
                             Close: function() {
@@ -67,7 +71,7 @@
                                   $(this).dialog( "close" );
                                     },
                               }
-                            }).append('Musician not found');}
+                  }).append('Musician not found');}
         }else{// Musician not complete
             artist.isValid();
          }

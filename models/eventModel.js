@@ -19,11 +19,14 @@ var MyModelNestedCollection = Backbone.Model.extend({
 
 
 var EventModel = MyModelNestedCollection.extend({
+    urlRoot:'http://pingouin.heig-vd.ch/gof/nights',
 
             nested:'artists',
+            nested:'tickets',
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
+                    tickets: new TicketsColl(),
                     title_De:'',
                     start_date_hour:'',
                     opening_doors: '',

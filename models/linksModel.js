@@ -24,10 +24,10 @@
             model: Links
         });
 
-        var linksCollection = new GenresColl();
+        var linksCollection = new LinksColl();
 
 
-        var GenresNestedColl = MyModelNestedCollection.extend({
+        var LinksNestedColl = MyModelNestedCollection.extend({
         	nested: 'links',
         	defaults: function(){
                 return{
@@ -35,5 +35,5 @@
                 }
             }
         })
-        var linksNestedColl = new GenresNestedColl();
+        var linksNestedColl = new LinksNestedColl();
 

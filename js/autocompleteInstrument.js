@@ -1,26 +1,37 @@
-var source = new Array();
 
-var sourceIntruments = new InstrumentsNestedCollServer()
-var instruments = sourceIntruments.get('instruments')
 
-$.when( sourceIntruments.get('instruments').fetch({
-		success: function(){
-			$.each(sourceIntruments.toJSON().instruments, function(i, val){
-				source[i] =val.name_de
-						})
-		}
-	}) //fetch
-	 ).done(autocomplete)
-	
-	
 
 function autocomplete(){
+
 var noResultClass = "noResultInstrument";
 var listToBeFilled = $("#instrumentsPlayedMusician");
 var noResButtAppTo = $("#showAllInstruments");
 
 $('#instrumentMusician').autocomplete({
-		source:source,
+
+		source: function(request,response){
+			$.ajax({
+           	 url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
+				dataType : "json",
+				data:{instrument:request.term},
+				success:function(data){
+					//console.log(data);
+					
+					response($.map(data.data, function(item){
+
+						return{
+							label:item.name_de,
+							value: item.name_de,
+							id: item.id
+						}
+					})
+					)//response
+				},
+				error: function(result) {
+                    alert("Data instruments not found");
+                }
+			})
+		},
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
@@ -42,7 +53,7 @@ $('#instrumentMusician').autocomplete({
 				var selectedObj = ui.item;  
 			
 				//if we have already selected a musician, dont add it twice, dialog box
-				if($().length==1){
+				if($("#instrumentResult"+selectedObj.id).length>0){
 					$( "<div title='Attention!'>").dialog({
 				      modal: true,
 				      buttons: {
@@ -55,7 +66,7 @@ $('#instrumentMusician').autocomplete({
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
 
-					var instrument = new Instrument({name_de: $(selectedObj).data('originalLabel')})
+					var instrument = new Instrument({name_de: selectedObj.value, instrument_id: selectedObj.id})
 					
 					instrumentsColl.add(instrument)
 					instrumentsNestedColl.get('instruments').add(instrument)
@@ -120,7 +131,12 @@ $("#createNewInstrumentButton").hide();
 $("#instrumentsPlayedMusician").hide();
 
 
-autocompleteShowAll();
+$('#showAllInstruments').click(function() {
+	   $('#instrumentMusician').val('')
+	   $('#instrumentMusician').trigger("focus")
+	   .autocomplete("search"); 
+});
 
 autocomplete();
+
 });

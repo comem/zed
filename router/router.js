@@ -5,9 +5,9 @@ var LAST_FORM = 'event';
 var AppRouter = Backbone.Router.extend({
         routes: {
         	'': 'index',
-            'add/:form' : 'formHandler',
-            'list/:form' : 'formHandler',
-            ':tab': 'tabHandler'
+          'add/:form' : 'formHandler',
+          'list/:form' : 'formHandler',
+          ':tab': 'tabHandler'
         },
   		index: function(){
   			console.log('default url -> add/'+LAST_FORM);

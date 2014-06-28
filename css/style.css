@@ -406,6 +406,11 @@ body .downNav ul li a:hover {
   -moz-box-shadow: inset 1px 1px 3px 5px rgba(50, 50, 50, 0.42);
   box-shadow: inset 1px 1px 3px 5px rgba(50, 50, 50, 0.42);
 }
+#login_form .imageUpload {
+  display: block;
+  width: 600px;
+  height: 500px;
+}
 #login_form input {
   border: none;
   height: 40px;
@@ -435,6 +440,22 @@ body .downNav ul li a:hover {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding-left: 5px;
+}
+.bbm-modal {
+  max-width: 1000px;
+}
+.bbm-modal__topbar {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin: 0 0%;
+}
+.bbm-modal__section li {
+  display: inline;
+}
+.bbm-modal__section li img {
+  width: 120px;
+  height: 120px;
 }
 .header {
   height: 100%;

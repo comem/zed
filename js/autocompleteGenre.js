@@ -1,17 +1,4 @@
-var genres = new Array();
-var sourceGenres = new GenreNestedCollServer()
 
-$.when( sourceGenres.get('genres').fetch({
-		success: function(){
-			
-			$.each(sourceGenres.toJSON().genres, function(i, val){
-				genres[i] = val.name_de
-				 console.log(val.name_de);
-						})
-		}
-	}) //fetch
-	 ).done(autocompleteGenre)
-	
 
 function autocompleteGenre(){
 var noResultClass = "noResultGenre";
@@ -19,7 +6,28 @@ var listToBeFilled = $("#genresSelected");
 var noResButtAppTo = $("#showAllGenres");
 
 $('#genre').autocomplete({
-		source: genres,
+		source: function(request,response){
+			$.ajax({
+				url:'http://pingouin.heig-vd.ch/gof/api/v1/genres',
+				dataType : "json",
+				data:{name_de:request.term},
+				success:function(data){
+					console.log(data);
+					response($.map(data.data, function(item){
+					
+						return{
+							label:item.name_de,
+							value: item.name_de,
+							id: item.id
+						
+						}
+					}))
+				},
+				error: function(result) {
+                    alert("Data genre not found");
+                }
+			})
+		},
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
@@ -36,12 +44,13 @@ $('#genre').autocomplete({
 		        }
 		    },
 		minLength: 0, // must be 0 if you want to show all
-		dataType : "json",
+		
 		select: function(event,ui){
-				var selectedObj = ui.item;  
+				var selectedObj = ui.item 
+			console.log(selectedObj.value);
 			
 				//if we have already selected a musician, dont add it twice, dialog box
-				if($().length==1){
+				if($("#genreResult"+selectedObj.id).length>0){
 					$( "<div>").dialog({
 						title: 'Attention!',
 				      modal: true,
@@ -53,8 +62,9 @@ $('#genre').autocomplete({
 					}).append('The genre <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
 
 				}else{
+					//console.log(selectedObj.label.data('originalLabel'));
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({name_de: $(selectedObj).data('originalLabel'), id: selectedObj.id})
+					var genre = new Genre({name_de: selectedObj.value})
 					
 					genresCollection.add(genre);
 					genresNestedColl.get('genres').add(genre);
@@ -70,7 +80,8 @@ $('#genre').autocomplete({
 });//end autocomplete
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
-					//save data in a dom element 
+					
+					console.log(item); 
 					$(item).data('originalLabel', item.label);
 		            item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
 		            	+')', "gi"), 
