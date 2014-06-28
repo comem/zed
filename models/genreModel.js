@@ -17,10 +17,9 @@
         });
 //*******************GENRE MODEL//*******************
         var Genre = Backbone.Model.extend({
-          urlRoot: 'http://pingouin.heig-vd.ch/gof/genres',
         	defaults: function (){
         		return{
-        			name_de:''
+        			genre:''
         		}
         	}
         });
@@ -48,20 +47,22 @@
 //*******************//**********SERVER*********//**************
      
         var GenreCollServer = Backbone.Collection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/genres',
+            url: '',
             model: Genre,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
+                //console.log(response);
                 return response;
+
             }
         });
         var genreCollServer = new GenreCollServer();
 
 
         var GenreNestedCollServer = MyModelNestedCollection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/genres',
+            url: '',
             nested:'genres',
             defaults: function(){
                 return {
@@ -72,24 +73,22 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
-            response.name_de = new Genre();
+            response = new Genre(response.genre);
+            console.log(response);
+          
             return response;
         }
         });
         var genreNestedCollServer = new GenreNestedCollServer();
 
-/*
-     genreCollServer.fetch({ success: function(){
-            console.log('genreCollServer');
-           console.log(genreCollServer.toJSON())
+
+     genreCollServer.fetch({success: function(){
+            console.log('genreNestedCollServer');
+           console.log(genreNestedCollServer.toJSON())
         }})
 
-     genreNestedCollServer.get('genres').fetch( { success: function(){
-        console.log('genreNestedCollServer');
-        console.log(genreNestedCollServer.toJSON())
-    }})
-
-
-
-*/
+             genreNestedCollServer.get('genres').fetch({success: function(){
+            console.log('genreNestedCollServer');
+            console.log(genreNestedCollServer.toJSON())
+        }})
 

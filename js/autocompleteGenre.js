@@ -1,25 +1,15 @@
-var genres = new Array();
-var sourceGenres = new GenreNestedCollServer()
-
-$.when( sourceGenres.get('genres').fetch({
-		success: function(){
-			
-			$.each(sourceGenres.toJSON().genres, function(i, val){
-				genres[i] = val.name_de
-				 console.log(val.name_de);
-						})
-		}
-	}) //fetch
-	 ).done(autocompleteGenre)
-	
 
 function autocompleteGenre(){
 var noResultClass = "noResultGenre";
 var listToBeFilled = $("#genresSelected");
 var noResButtAppTo = $("#showAllGenres");
 
-$('#genre').autocomplete({
-		source: genres,
+		$('#genre').autocomplete({
+		source: function(request, response) {
+		    $.getJSON('', 
+		    	{ genre: request.term }, //change GET name
+		    	response);
+		  },
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
@@ -54,10 +44,10 @@ $('#genre').autocomplete({
 
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({name_de: $(selectedObj).data('originalLabel'), id: selectedObj.id})
+					var genre = new Genre({genre: $(selectedObj).data('originalLabel'), id: selectedObj.id})
 					
-					genresCollection.add(genre);
-					genresNestedColl.get('genres').add(genre);
+					genresCollection.add(genre)
+					genresNestedColl.get('genres').add(genre)
 
 					console.log(genresNestedColl.toJSON());
 
@@ -67,7 +57,7 @@ $('#genre').autocomplete({
 					
 				}
 		    }//end select
-});//end autocomplete
+		});//end autocomplete
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
 					//save data in a dom element 
@@ -97,6 +87,14 @@ $('#genre').autocomplete({
 		//************************
 }
 
+function autocompleteShowAll(){
+	//show all on click autocomplete
+	$('#showAllGenres').click(function() {
+	   $('#genre').val('')
+	   $('#genre').trigger("focus")
+	   .autocomplete("search"); 
+});
+}
 
 $(document).ready(function() { 
 
@@ -104,28 +102,8 @@ $(document).ready(function() {
 	$(".deleteGenre").hide();
 	$("#createNewGenreButton").hide();
 	$("#genresSelected").hide();
+
+	autocompleteShowAll;
 	autocompleteGenre();
-	$('#showAllGenres').click(function() {
-	   $('#genre').val('')
-	   $('#genre').trigger("focus")
-	   .autocomplete("search"); 
-	  
-});
-
-	$('body').on('click',"#showAllGenres",autocompleteShowAll)
-
-
-
 
 });
-
-function autocompleteShowAll(){
-
-	//show all on click autocomplete
-	$('#showAllGenres').click(function() {
-	   $('#genre').val('')
-	   $('#genre').trigger("focus")
-	   .autocomplete("search"); 
-	  
-});
-}

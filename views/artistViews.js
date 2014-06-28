@@ -20,14 +20,4 @@
         });
 
         var multipleArtists = new ArtistMultipleView()
-
-
-        var ArtistFieldInMusician = Backbone.View.extend({
-           template : _.template(templates.add_artistsSelectedFieldMusician),
-            render: function() {
-            //    this.$el.html(this.template(this.model.toJSON()));
-                return this;
-            }
-        });
-
        

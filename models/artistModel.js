@@ -17,22 +17,23 @@
 
 //*******************ARTIST MODEL//*******************
         var Artist = MyModelNestedCollection.extend({
-            urlRoot: 'http://pingouin.heig-vd.ch/gof/artists',
             initialize:function(){
              },
-             nested: 'links',
-           nested:'musicians',
+
+            nested:'musicians',
             nested:'genres',
 
             defaults: function(){
                 return{
                     name:'',
-                    short_description_de :'',
-                    complete_description_de: '',
+                    lead :'',
+                    description: '',
                     genres: new GenresColl(),
                     musicians: new MusiciansColl(),
-                    links : new GenresColl()
-               }
+                    linkURL: '',
+                    linkTitle: '',
+                    linkName: ''
+                }
             },
 
             validate: function(attrs, options){
@@ -47,8 +48,8 @@
                         }).append('Lead is too long');
                  
                 }
-               if(attrs.first_name ==0){
-                   $( "<div>").dialog({    
+                if(attrs.name ==0){
+                    $( "<div>").dialog({    
                    title: 'Attention!'      ,  
                           buttons: {
                             Close: function() {
@@ -86,6 +87,7 @@
         });
         var ArtistColl = Backbone.Collection.extend({
             model:Artist
+            
         }) 
         var artistList = new ArtistColl();
 
@@ -101,7 +103,7 @@
                 }
             }
         })
-        var artistNestedList = new ArtistNestedColl();
+        var artistList = new ArtistNestedColl();
  
        
 
@@ -110,13 +112,13 @@
 //*******************//**********SERVER*********//**************
      
         var ArtistCollServer = Backbone.Collection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/artists',
+            url: '',
             model: Genre,
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
                 }
-               // console.log(response);
+                //console.log(response);
                 return response;
 
             }
@@ -125,7 +127,7 @@
 
 
         var ArtistNestedCollServer = MyModelNestedCollection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/artists',
+            url: '',
             nested:'artists',
             defaults: function(){
                 return {
@@ -136,21 +138,10 @@
             if (typeof response.data != "undefined") {
                 response = response.data;
             }
+            response = new Artist(response);
             console.log(response);
-            artist = new Artist(response);
-            
           
-            return artist;
+            return response;
         }
         });
         var artistNestedCollServer = new ArtistNestedCollServer();
-
-        artistNestedCollServer.get('artists').fetch({success: function(){
-            console.log('artisnestedSERVER');
-            console.log(artistNestedCollServer.toJSON());
-        }})
-
-        artistCollServer.fetch({success: function(){
-            console.log('artistSERVER');
-             console.log(artistCollServer.toJSON());
-        }})

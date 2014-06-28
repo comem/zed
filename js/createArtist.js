@@ -2,32 +2,31 @@
      var artistName = $("#nameArtist").val()
      var lead = $("#lead").val()
      var description = $('#artistDescription').val()
-     console.log(description);
      var linkTitle = $('#titleLink').val()
      var linkName = $('#nameLink').val()
      var linkUrl = $('#linkUrl').val()
      var arrivalHour = $('#arrivalHour').val();
      console.log(description);
 
-     var artist = new Artist({first_name: artistName, 
-        short_description: lead, complete_description: description,linkURL: linkUrl, 
+     var artist = new Artist({name: artistName, 
+        lead: lead, description: description,linkURL: linkUrl, 
         linkTitle: linkTitle, linkName: linkName })
 
 
-      var musicianNested = aMusiciansList.get('musicians').where({first_name: addToArtist});//nested coll
-      var musician = allMusicians.where({first_name: addToArtist}) //simple coll
+      var musicianNested = aMusiciansList.get('musicians').where({name: addToArtist});//nested coll
+      var musician = allMusicians.where({name: addToArtist}) //simple coll
 
-       if(artist.get('first_name') != ''){
+       if(artist.get('name') != ''){
          if (allMusicians.length != 0 ){
           if(linkUrl.length != 0){
               //Add musicians
                allMusicians.each(function( model ) {
-                  var musician = new Musician({first_name: model.attributes.first_name})
+                  var musician = new Musician({name: model.attributes.name})
                   artist.get('musicians').add(musician)
                  });
                //Add genres
                genresCollection.each(function( model ) {
-                  var genre = new Genre({name_de: model.attributes.name_de})
+                  var genre = new Genre({genre: model.attributes.genre})
                   artist.get('genres').add(genre)
                  });
                //add to event
@@ -39,7 +38,7 @@
                 //console.log($(render.$el[0]).next());
                // $(render.render().$el[0].children[0]).accordion({collapsible: true, active: false,heightStyle: "content"})
 
-             // $(render.render().$el[0].children[0]).appendTo('#eventForm');
+              $(render.render().$el[0].children[0]).appendTo('#eventForm');
 
                console.log(artist.toJSON());
                  $( "<div title='Add new artist'>").dialog({            
@@ -77,6 +76,5 @@ $(document).ready(function(){
 
   $('#createNewArtistButton').on('click',createArtist)
   $('.artistTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
-
 
 })

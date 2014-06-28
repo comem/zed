@@ -2,7 +2,7 @@
 //var ACTIVE_FORM = "addEvent";
 var whichForm = "eventForm";
 var addButton = true;
-var one = "1";
+
 
 $(function(){
 	var router = new AppRouter ();
@@ -45,13 +45,32 @@ function showMain(href){
 
 function showAtScroll(){
 	var heightLimit = $(document).scrollTop();
-	var positionElementInPage = '300';
-	if ($(window).scrollTop() > positionElementInPage) {  
-    	console.log('OKKK');
-        $(this).switchClass('downNav','normalNav',800,'easeOutBounce');
-    } else {
-    	console.log('okiiii');
-  		$('body>nav').switchClass('normalNav','downNav',0,'easeOutBounce');
+	//console.log(heightLimit);
+
+	if (heightLimit > "350") {
+
+		$('header>div').removeClass('normalSearch');
+		$('header>div').addClass('minimalizeSearch');
+
+		$('header>div').switchClass('minimalizeSearch','downSearch',800,'easeOutBounce');
+
+		$('body>nav').removeClass('normalNav');
+		$('body>nav').addClass('minimalizeNav');
+
+		$('body>nav').switchClass('minimalizeNav','downNav',800,'easeOutBounce');
+
+	}else{
+
+		$('header>div').removeClass('minimalizeSearch');
+		$('header>div').addClass('normalSearch');
+
+		$('header>div').switchClass('downSearch','normalSearch',0,'linear');
+
+		$('body>nav').removeClass('minimalizeNav');
+		$('body>nav').addClass('normalNav');
+
+		$('body>nav').switchClass('downNav','normalNav',0,'linear');	
+
 	};
 }
 
@@ -110,4 +129,5 @@ function isFocus(href){
 	if (href == 'artist') {
 		$('.addArtist a').css('backgroud-color','red');
 	};
+	console.log('isFocus');
 }

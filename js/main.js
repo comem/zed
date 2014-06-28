@@ -116,32 +116,6 @@ var EventAdd = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
-    },
-    events:{
-        "click #eventImgBrowse" : 'showUp' 
-    },
-    showUp: function(event){
-        console.log('showUp');
-        /* This is basic - uses default settings */
-    
-        $("a#single_image").fancybox();
-        
-        /* Using custom settings */
-        
-        $("a#inline").fancybox({
-            'hideOnContentClick': true
-        });
-
-        /* Apply fancybox to multiple items */
-        
-        $("#eventImgBrowse").fancybox({
-            'transitionIn'  :   'elastic',
-            'transitionOut' :   'elastic',
-            'speedIn'       :   600, 
-            'speedOut'      :   200, 
-            'overlayShow'   :   false
-        });
-    
     }
 });
 
@@ -150,38 +124,6 @@ var ArtistAdd = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
-    },
-    events:{
-        "keyup input[name='nameLink']" : 'checkLinkName',
-        "keyup input[name='url']" :'checkURL',
-        "keyup input[name='nameArtist']" : 'checkName',
-    },
-    checkName : function(){
-        var input = this.$el.find("input[name='nameArtist']");
-        var artistName = this.$el.find("input[name='nameArtist']").val()
-        if(artistName =='') {
-            input.css('border', 'solid 2px red')
-        }else{
-            input.css('border', 'none')
-        }  
-    },
-    checkURL: function(){
-        var input =this.$el.find("input[name='url']")
-        var url  =this.$el.find("input[name='url']").val()
-        if(url ==''){
-            input.css('border', 'solid 2px red')
-        }else{
-            input.css('border', 'none')
-        }  
-    },
-    checkLinkName: function(){
-        var input = this.$el.find("input[name='nameLink']")
-        var linkNake  =this.$el.find("input[name='nameLink']").val()
-        if(linkNake.length == 0){
-             input.css('border', 'solid 2px red')
-        }else{  
-             input.css('border', 'none')
-        }
     }
 });
 
@@ -190,47 +132,9 @@ var MusicianAdd = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
-    },
-    events:{
-        "keyup input[name='nameMusician']" : 'checkFirstname',
-        "keyup input[name='stagename']" :'checkStagename',
-        "keyup input[name='lastNameMusician']" : 'checkLastname',
-    },
-    checkFirstname : function(){
-        var input = this.$el.find("input[class='nameMusician']");
-        var musicianFirstName = this.$el.find("input[class='nameMusician']").val()
-        if(musicianFirstName =='') {
-            input.css('border', 'solid 2px red')
-        }else{
-            input.css('border', 'none')
-        }  
-    },
-    checkStagename: function(){
-        var input =this.$el.find("input[name='stagename']")
-        var stagename  =this.$el.find("input[name='stagename']").val()
-        if(stagename !=''){
-            //tick
-        } 
-    },
-    checkLastname: function(){
-        var input = this.$el.find("input[name='lastNameMusician']")
-        var musicianLastName  =this.$el.find("input[name='lastNameMusician']").val()
-        if(musicianLastName.length == 0){
-             input.css('border', 'solid 2px red')
-        }else{  
-             input.css('border', 'none')
-        }
-    }
-
-});
-
-var StuffAdd = MyView.extend({
-    template: _.template(templates.add_addStuff),
-    render:function(){
-        this.$el.html(this.template());
-        return this;
     }
 });
+
 
 var header = new Header();
 var home = new Home();
@@ -250,7 +154,7 @@ var addEvent = new EventAdd();
 var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
-var addStuff = new StuffAdd();
+
 
 
 $(function(){
@@ -270,7 +174,6 @@ $(function(){
     addEvent.render().$el.appendTo('#formsAdd');
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
-    addStuff.render().$el.appendTo('#formsAdd');
 
 
 //single musician render
@@ -292,25 +195,23 @@ lastEventView.render().$el.appendTo('#eventForm')
 montreuxView.render().$el.appendTo('#eventForm')
 */
 //multiple render
-
 multipleArtists.render().$el.appendTo('#artistList');
-multipleEvents.render().$el.appendTo('#eventList');
+multipleEvents.render().$el.appendTo('#eventList')
 multipleMusicians.render().$el.appendTo('#musicianList')
 
-//var chuj = new ArtistFieldInMusician({model: artistNestedList})
-//chuj.render().$el.appendTo('#eventList')
 
-
-
-$('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+$('.allArtistMusicians').accordion({collapsible: true, active: false,heightStyle: "content"})
+$('.musicianTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
+$('.artistTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
+$('.eventTemplate').accordion({collapsible: true, active: false,heightStyle: "content"})
+$('.eventArtists').accordion({collapsible: true, active: false, heightStyle: "content"})
+$('.theArtist').accordion({collapsible: true, active: false, heightStyle: "content"})
+$('.infoEventTemp').accordion({collapsible: true, active: false, heightStyle: "content"})
 
  genresList.render().$el.appendTo('#stufflist');
  instrumentsList.render().$el.appendTo('#stufflist');
 
 
-$(".buttonsListMusician").click(function(event){
-    event.stopPropagation();
-});
 
 
 

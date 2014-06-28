@@ -1,4 +1,3 @@
-
    function createArtist(){
      var artistName = $("#nameArtist").val()
      var lead = $("#lead").val()
@@ -63,5 +62,4 @@
 
 $(document).ready(function(){
   $('#createNewArtistButton').click(createArtist)
-
 })
