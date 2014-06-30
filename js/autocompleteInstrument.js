@@ -65,7 +65,8 @@ $('#instrumentMusician').autocomplete({
 				}else{
 					$(listToBeFilled).show() //show the div we will append to
 
-					var instrument = new Instrument({name_de: selectedObj.value, instrument_id: selectedObj.id})
+					var instrument = new Instrument({name_de: selectedObj.value, 
+						instrument_id: selectedObj.id})
 					
 					instrumentsColl.add(instrument)
 					instrumentsNestedColl.get('instruments').add(instrument)

@@ -11,7 +11,7 @@ $('#genre').autocomplete({
 				dataType : "json",
 				data:{name_de:request.term},
 				success:function(data){
-					console.log(data);
+					//console.log(data);
 					response($.map(data.data, function(item){
 					
 						return{
@@ -46,7 +46,7 @@ $('#genre').autocomplete({
 		
 		select: function(event,ui){
 				var selectedObj = ui.item 
-			console.log(selectedObj.value);
+			//console.log(selectedObj.value);
 			
 				//if we have already selected a musician, dont add it twice, dialog box
 				if($("#genreResult"+selectedObj.id).length>0){
@@ -63,7 +63,7 @@ $('#genre').autocomplete({
 				}else{
 					//console.log(selectedObj.label.data('originalLabel'));
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({name_de: selectedObj.value})
+					var genre = new Genre({name_de: selectedObj.value, id:selectedObj.id})
 					
 					genresCollection.add(genre);
 					genresNestedColl.get('genres').add(genre);

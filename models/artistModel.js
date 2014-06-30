@@ -16,6 +16,48 @@
             }
         });
 
+var MusicianInstruments = Backbone.Model.extend({
+    defaults: function(){
+                return{
+                    musician_id:'',
+                    instrument_id:''
+                 }
+            }
+
+})
+
+var MusicianInstrumentsColl = Backbone.Collection.extend({
+    model: MusicianInstruments
+})
+
+
+var ArtistNight = Backbone.Model.extend({
+    defaults: function(){
+                return{
+                    order:'',
+                    isSupport:'',
+                    id:'',
+                    artist_hour_arrival:''
+                 }
+            }
+
+})
+
+
+var Images = Backbone.Model.extend({
+    defaults: function(){
+                return{
+               
+                 id:''
+                 }
+            }
+
+})
+var ImagesColl = Backbone.Collection.extend({
+    model: Images
+})
+
+
 //*******************ARTIST MODEL//*******************
         var Artist = MyModelNestedCollection.extend({
             urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/artists',
@@ -25,8 +67,9 @@
             nested:'musicians',
             nested:'genres',
             nested:'links',
-         //   nested: 'nights',
-         //   nested:'images',
+            nested: 'musicianInstruments',
+            nested: 'nights',
+            nested:'images',
 
             defaults: function(){
                 return{
@@ -34,7 +77,10 @@
                     short_description_de :'',
                     complete_description_de: '',
                     genres: new GenresColl(),
+                    night: new ArtistNight(),
+                    images: new ImagesColl(),
                     musicians: new MusiciansColl(),
+                    musicianInstruments: new MusicianInstrumentsColl(),
                     links : new LinksColl()
                 }
             },
@@ -154,8 +200,8 @@
             console.log(artistNestedCollServer.toJSON());
         }})
 
-       
-        artistNestedCollServer.get('artists').fetch({
+       /*
+    artistNestedCollServer.get('artists').fetch({
         success:function(){
        
             var  artistList = new ArtistMultipleView({model:artistNestedCollServer})
@@ -163,3 +209,6 @@
 
         }
     })
+    */
+
+

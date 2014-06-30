@@ -48,7 +48,8 @@
                console.log(artistNestedList.toJSON());
             }
         });
-        artistField = new ArtistFieldInMusician({model :artistNestedList})
+        
+artistField = new ArtistFieldInMusician({model :artistNestedList})
 
 
        

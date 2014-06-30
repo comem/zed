@@ -58,7 +58,7 @@
                                     <button type="button" id="createNewMusicianButton" class="noResult add" alt="create a new artist">
                                     <img src="img/icones/icone_add.png"/>
                                     </button>  
-                                    <h3 id = 'noMusicianResultsInfo'>Cet artiste n'existe pas, mais vous pouvez le créer</h3> 
+                                    <h3 id = 'noMusicianResultsInfo'>Ce musicien n'existe pas, mais vous pouvez le créer</h3> 
                                     <fieldset id="musiciansPlaying">
                                         <legend>Musicians playing</legend>
                                     </fieldset>
@@ -72,7 +72,23 @@
                               <div id= "addToEvent">
                                    <h2 class ="addArtistHeader">Event</h2>
                                    <label>Add to event</label><input type="text" name="eventName" id="eventName"/>
-                                   <label>Arrival hour</label><input class ="time" type="text" data-time-format="H:i" name="arrivalHour" id="arrivalHour">
+
+                                   <button type="button" id="createNewEvent" class="noResult addEvent" alt="create a new event">
+                                    <img src="img/icones/icone_add.png"/>
+                                    </button>  
+                                    <h3 id = 'noEventResultInfo'>Cet event n'existe pas, mais vous pouvez le créer</h3> 
+                                    <fieldset id="artistToEvent">
+                                        <legend>Event selected</legend>
+                                    </fieldset>
+
+
+                                   <label>Arrival date hour*</label><input class ="date" type="text"  name="arrivalHour" id="arrivalHour">
+                                   <label>Order*</label><input  type="number" name="order" id="order">
+                                   <label>Support?*</label>
+                                   <select id="support">
+                                      <option>Yes</option>
+                                      <option>No</option>
+                                   </select> 
                  
                               </div>
                           </div>

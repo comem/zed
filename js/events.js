@@ -59,7 +59,7 @@ function showAtScroll(){
            
            
            			
-           			$(this).switchClass('downNav','normalNav',800,'easeOutBounce');
+           $(this).switchClass('downNav','normalNav',800,'easeOutBounce');
        		
         } else {
     

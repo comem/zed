@@ -19,8 +19,7 @@ $('#addToArtist').autocomplete({
                            return {                    
                                label: item.name,  
                                id: item.id,
-                               category :'Artists',
-                               
+                               category :'Artists',   
                            };  
 					}))
 				},
@@ -66,7 +65,7 @@ $('#addToArtist').autocomplete({
 
 
 								var artist = new Artist({name : selectedObj.value, id: selectedObj.id})
-								console.log(artist);
+								//console.log(artist);
 									artistNestedList.get('artists').add(artist)
 								
 									//console.log(artistNestedList.toJSON());
