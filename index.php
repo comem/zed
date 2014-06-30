@@ -33,6 +33,7 @@
    
 <script src="models/linksModel.js"></script>
     <script src="models/genreModel.js"></script>   
+    <script src="models/ticketsModel.js"></script>
     <script src="models/instrumentModel.js"></script>   
     <script src="models/musicianModel.js"></script>
     <script src="models/artistModel.js"></script>
@@ -54,6 +55,7 @@
     <script src="js/autocompleteInstrument.js"></script>
     <script src="js/autocompleteArtist.js"></script>
     <script src="js/autocompleteMusician.js"></script>
+    <script src="js/autocompleteEvent.js"></script>
 
 
     <script src ="js/createMusician.js"></script>

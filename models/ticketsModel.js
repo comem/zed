@@ -20,11 +20,11 @@
 //*******************INSTRUMENT MODEL//*******************
         var Ticket = Backbone.Model.extend({
            // urlRoot: 'http://pingouin.heig-vd.ch/gof/instruments',
-            initialize: function(){
-            },
+
             defaults: function(){
                 return {
-                    name_de:''
+                    name_de:'',
+                    id:''
                 }
             }
         });
@@ -41,7 +41,7 @@
             nested:'tickets',
             defaults: function(){
                 return {
-                    instruments : new TicketsColl() 
+                    tickets : new TicketsColl() 
                 }
             }
         });

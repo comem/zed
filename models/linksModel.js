@@ -17,7 +17,13 @@
         });
 //*******************GENRE MODEL//*******************
         var Links = Backbone.Model.extend({
-
+           defaults: function(){
+                return{
+                    url:'',
+                    name_de: '',
+                    title_de: ''
+                }
+            } 
         });
 
         var LinksColl = Backbone.Collection.extend({

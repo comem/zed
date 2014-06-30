@@ -47,10 +47,8 @@ function showAtScroll(){
 	var heightLimit = $(document).scrollTop();
 	var positionElementInPage = '300';
 	if ($(window).scrollTop() > positionElementInPage) {  
-    	console.log('OKKK');
         $(this).switchClass('downNav','normalNav',800,'easeOutBounce');
     } else {
-    	console.log('okiiii');
   		$('body>nav').switchClass('normalNav','downNav',0,'easeOutBounce');
 	};
 }

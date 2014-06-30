@@ -117,6 +117,43 @@ var StuffList = MyView.extend({
 });
 
 
+var AddStuff = MyView.extend({
+    template: _.template(templates.add_addStuff),
+    render:function(){
+        this.$el.html(this.template());
+        return this;
+    },
+    events:{
+        "click  #stuffGenreButton" : 'addGenre',
+        "click  #stuffInstrumentButton" : 'addInstrument',
+        "click  #stuffEventButton" : 'addEvent',
+        "click  #stuffTicketButton" : 'addTicket'
+    },
+    addGenre: function(){
+       var name = this.$el.find("input[name='stuffGenre']").val();
+       var genre = new Genre({name_de: name})
+       console.log(genre.toJSON());
+       genre.save()
+    },
+    addInstrument: function(){
+        var name = this.$el.find("input[name='stuffInstrument']").val();
+       var instrument = new Instrument({name_de: name})
+       console.log(instrument.toJSON());
+       instrument.save()
+    },
+    addTicket: function(){
+        var name = this.$el.find("input[name='stuffTicket']").val();
+       var ticket = new Ticket({type: name})
+       ticket.save()
+    },
+    addEvent: function(){
+        var name = this.$el.find("input[name='stuffEvent']").val();
+       var eventType = new EventType({type: name})
+       eventType.save()
+    }
+});
+
+
 var EventAdd = MyView.extend({
     template: _.template(templates.add_addEvent),
     render:function(){
@@ -239,7 +276,7 @@ var addEvent = new EventAdd();
 var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
-
+var addStuff = new AddStuff()
 
 
 $(function(){
@@ -259,13 +296,16 @@ $(function(){
     addEvent.render().$el.appendTo('#formsAdd');
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
+    addStuff.render().$el.appendTo('#stuffForm')
 
+/*
 artistNestedCollServer.get('artists').fetch({
     success:function(){
-        render = ArtistMultipleView({model:artistNestedCollServer})
+       var render = ArtistMultipleView({model:artistNestedCollServer})
         render.render().$el.appendTo('#artistList')
     }
 })
+*/
 //single musician render
 /*
 musician1view.render().$el.appendTo('#eventForm')
@@ -294,6 +334,8 @@ multipleMusicians.render().$el.appendTo('#musicianList')
 //chuj.render().$el.appendTo('#eventList')
 
 
+$("#arrivalHour").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true,
+      changeYear: true})
 
 $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
 
