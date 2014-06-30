@@ -148,7 +148,7 @@ var index = 0;
 		source: function(request,response){
 
 			$.ajax({
-				url:'http://pingouin.heig-vd.ch/gof/api/v1/musician/search',
+				url:'http://pingouin.heig-vd.ch/gof/api/v1/musicians/search',
 				dataType : "json",
 				data:{string:request.term},
 

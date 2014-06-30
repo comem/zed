@@ -22,11 +22,6 @@
          if (allMusicians.length != 0 ){
           if(linkUrl.length != 0){
 
-
-          
-
-            //mus.get('instruments').add([ins,ins2])
-
             musIns2 = new MusicianInstruments({musician_id: 03003, instrument_id:69})
             // img = new Images({id:23})
             //img2 = new Images({id:22992})
@@ -38,10 +33,6 @@
             }
 
             artist.get('night').set({artist_hour_arrival: arrivalHour, order: order})
-            
-           // 
-           // artist.get('musicianInstruments').add([musIns,musIns2])
-          
             
 
               //Add musicians

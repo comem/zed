@@ -58,9 +58,7 @@
         var InstrumentsCollServer = Backbone.Collection.extend({
             url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
             model: Instrument,
-            initialize:function(){
-                Backbone.sync('create', this);
-            },
+          
             parse: function (response) {
                 if (typeof response.data != "undefined") {
                     response = response.data;
@@ -75,9 +73,7 @@
         var InstrumentsNestedCollServer = MyModelNestedCollection.extend({
             url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
             nested:'instruments',
-             initialize:function(){
-                Backbone.sync('create', this);
-            },
+         
             defaults: function(){
                 return {
                     instruments : new InstrumentsCollServer()

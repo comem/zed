@@ -1,4 +1,76 @@
 <% _.each(events, function (event, eventsIndex) { %>
-<h1> <%-  event.title_de %></h1>
+
+
+<div class="eventTemplate myAccordion">
+
+     <h1>Event<%- eventsIndex +1%> - <%- events[eventsIndex].title_de %> 
+        <ul class = "buttonsListMusician">
+                <li><button type="button">
+                  <img src="img/icones/icone_delete.png"/>
+                  </button>
+                </li>
+                <li><button type="button">
+                  <img src="img/icones/icone_edit.png"/>
+                </button>
+                </li>
+        </ul>
+     </h1>
+     <div class ="pourQueAccFonctionne">
+           
+           <div class ="infoEventTemp">
+                <div class="lineOne">
+                    <div class="eventInformations">
+                      <h2><img src="img/icones/icone_information.png"> General informations</h2>
+                        <p><label>Event name : </label><%- events[eventsIndex].name_de %></p>
+                        <p><label>Start hour : </label><%- events[eventsIndex].start_date_hour%></p>
+                        <p><label>Opening doors hour : </label><%- events[eventsIndex].opening_doors %></p>
+                        <p><label>Ending hour : </label><%- events[eventsIndex].ending_date_hour %></p>
+                        <p><label>Event type : </label><%- events[eventsIndex].eventType %></p>
+                        <p><label>Ending date : </label><%- events[eventsIndex].endingDate %></p>
+                    </div> <!-- eventInformation -->
+
+                    <div class ="eventTicketInfo">
+                      <h2><img src="img/icones/icone_price.png"> Ticket Info</h2>
+                        <p><label>Ticket Price : </label><%- events[eventsIndex].ticketPrice %> per ticket</p>
+                        <p><label>Ticket type : </label><%- events[eventsIndex].name_de %></p>
+                        <p><label>Ticket note : </label><%- events[eventsIndex].comment %></p>
+                        <p><label>Quantity : </label><%- events[eventsIndex].amount %></p>
+                    </div> <!-- eventTicketInfo -->
+                </div>
+                <div class="lineOne">  
+                    <div class="eventMealsInfo">
+                      <h2><img src="img/icones/icone_food.png"> Meals</h2>
+                        <p><label>Number of vegan meals : </label><%- events[eventsIndex].nb_vengans_meal %></p>
+                        <p><label>Number of normal meals : </label><%- events[eventsIndex].nb_meal %></p>
+                        <p><label>Meals note : </label><%- events[eventsIndex].meal_notes %></p>
+                    </div> <!-- eventMealsInfo -->
+
+                    <div class ="eventOtherInfo">
+                      <h2><img src="img/icones/icone_autre.png"> Others</h2>
+                        <p><label>Place numbers : </label><%- events[eventsIndex].nb_places %></p>
+                        <p><label>Publishing? yes, </label><%- events[eventsIndex].publishing %></p>
+                        <p><label>Complementary note : </label><%- events[eventsIndex].notes %></p>
+                    </div> <!-- eventOtherInfo -->
+                </div>    
+              </div> <!-- infoEventTemp -->
+           
+
+
+              <div class ="eventArtists"> 
+                <h2><img src="img/icones/icone_artist_small.png"> Artists playing</h2> 
+                    <% _.each(events[eventsIndex].artists, function (artist, index) { %>
+
+                    <div class ="theArtist">
+                       <h3>Artist (<%- index+1 %>) <%- events[eventsIndex].artists[index].name %></h3>
+                       <p><label>Description : </label><%- events[eventsIndex].artists[index].short_description %></p>
+                    </div>
+                <% }); %> 
+              </div>
+
+      </div>
+       
+</div>  <!-- pourQueAccFonctionne -->
+
+
 
  <% }); %>

@@ -8,12 +8,12 @@ var noResButtAppTo = $("#showAllGenres");
 $('#genre').autocomplete({
 		source: function(request,response){
 			$.ajax({
-				url:'http://pingouin.heig-vd.ch/gof/api/v1/genres',
+				url:'http://pingouin.heig-vd.ch/gof/api/v1/genres/search',
 				dataType : "json",
-				data:{name_de:request.term},
+				data:{string:request.term},
 				success:function(data){
 					//console.log(data);
-					response($.map(data.data, function(item){
+					response($.map(data, function(item){
 					
 						return{
 							label:item.name_de,

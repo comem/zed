@@ -1,4 +1,3 @@
-
 var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -16,18 +15,30 @@ var MyModelNestedCollection = Backbone.Model.extend({
             }
         });
 
+var Image = Backbone.Model.extend({
+    defaults: function(){
+                return{
+               
+                 id:''
+                 }
+            }
+
+})
+var ImagesColl = Backbone.Collection.extend({
+    model: Image
+})
 
 
-var EventModel = MyModelNestedCollection.extend({
+var EventModel = Backbone.Model.extend({
     urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 
-            nested:'artists',
-            nested:'ticketcategories',
+
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
                     ticketcategories: new TicketsColl(),
                     title_de:'',
+                    image: new ImagesColl(),
                     start_date_hour:'',
                     opening_doors: '',
                     ending_date_hour : '',
@@ -69,12 +80,22 @@ var EventModel = MyModelNestedCollection.extend({
         });
 
 var EventColl = Backbone.Collection.extend({
-    model:EventModel
-}) 
+    url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 
+    model:EventModel,
+    parse: function (response) {
+        if (typeof response.data != "undefined") {
+            response = response.data;
+        }
+       
+        return response;
+    }
+}) 
 var eventColl = new EventColl()
 
+
 var EventsNestedColl = MyModelNestedCollection.extend({
+      
     nested: 'events',
     defaults: function(){
         return {
@@ -85,42 +106,29 @@ var EventsNestedColl = MyModelNestedCollection.extend({
 
 eventsNestedColl = new EventsNestedColl()
 
-var EventsNestedCollServer = MyModelNestedCollection.extend({
-    url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
-    nested: 'events',
-    defaults: function(){
-        return {
-            events : new EventColl()
+
+ musicianNestedCollServer.get('musicians').fetch({
+        success:function(){
+
+           musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+           musicianList.render().$el.appendTo('#musicianList')
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+
+           
         }
-    },
-    parse: function (response) {
-            if (typeof response.data != "undefined") {
-                response = response.data;
-            }
-            console.log(response);
-            evento = new EventModel(response);
-            
-          
-            return evento;
-        }
-})
+    })
 
 
-eventNestedServer = new EventsNestedCollServer()
+   
 
 
+eventsNestedColl.get('events').fetch({
+    success: function(){
 
-
-eventNestedServer.fetch({
-    success:function(){
-
-        console.log(eventNestedServer.toJSON())
-        var listEvent = new EventMultipleView({model:eventNestedServer})
+        listEvent = new EventMultipleView({model:eventsNestedColl})
         listEvent.render().$el.appendTo("#eventList")
+        $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+
+        console.log(eventsNestedColl.toJSON());
     }
 })
-
-
-
-
-
