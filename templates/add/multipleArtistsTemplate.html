@@ -1,5 +1,5 @@
 <% _.each(artists, function (artist, artistIndex) { %>
-<div class= "artistTemplate">
+<div class= "artistTemplate myAccordion">
 
 
           	<h1>
@@ -26,12 +26,12 @@
 						</h2>
 			          	<p>
 			          		<label>Description : </label>
-			          		<%- artists[artistIndex].complete_description %>
+			          		<%- artist.complete_description_de %>
 			          	</p>
 
 			          	<p>
 			          		<label>Lead : </label>
-			          		<%- artists[artistIndex].short_description %>
+			          		<%- artist.short_description_de %>
 			          	</p>
 		          	</div>
 		          	<div class= "aritisrListGenre">
@@ -42,10 +42,12 @@
 				         <% _.each(artists[artistIndex].genres, function (thisGenre, index) { %>
 				         <p>
 				         	<label>Style : </label>
-				         	<%- artists[artistIndex].genres[index].name_de %> 
+				         	<%- thisGenre.name_de %> 
 				         </p>	
 				         <% }); %>
 		          	</div>
+
+		          	<% _.each(artists[artistIndex].links, function (link, index) { %>
 		          	<div class="artistListLinks">
 
 		          	<h2>
@@ -54,62 +56,57 @@
 		          	</h2>
 		          	<p>
 		          		<label>URL : </label>
-		          		<%- artists[artistIndex].linkURL %> 
+		          		<%- link.title_de%> 
 		          	</p>
 		          	<p>
 		          		<label>Title : </label>
-		          		<%- artists[artistIndex].linkTitle %>
+		          		<%- link.name_de %>
 		          	</p>
 		          	<p>
 		          		<label>Name : </label>
-		          		<%- artists[artistIndex].linkName %>
+		          		<%- link.url %>
 		          	</p>
 		          	</div>
+		          	 <% }); %>
 		        </div>
 
-		        <div class="secondColumn">
-					<h2>
+		      <div class="secondColumn myAccordion">
+					<h1>
 						<img src="img/icones/icone_musician.png">
 						Musicians 
-					</h2>
+					</h1>
 
-		         
+		         <div>
  					<% _.each(artists[artistIndex].musicians, function (musician, index) { %>
 		           	<div class ="musicianPlusInstrument">
 		           	<div class ="artistMusician"> 	
-		           		<h3><%- artists[artistIndex].musicians.at(index).get('first_name') %></h3>
+		           		<h3> <%- musician.stagename  %> </h3>
 		           		<p> 
 		           			<label>First name : </label>
-		           			<%- artists[artistIndex].musicians.at(index).get('first_name') %> 
+		           			<%- musician.first_name %> 
 		           		</p>
 		           		
 		           		<p> 
 		           			<label>Last name : </label>
-		           			<%- artists[artistIndex].musicians.at(index).get('last_name') %> 
+		           			<%- musician.last_name %> 
 		           		</p>
 		           	</div>	
 			           		
 			           		
-			        <div class="artistMusicianInstrument"> 
-			           			<h3> Instruments</h3>
-				           		 
-				           		 <% _.each(artists[artistIndex].musicians.at(index).get('instruments'), function (instrument, index2) { %>
-				           			<p>
-				           				<label>Play : </label>
-				           				<%- artists[artistIndex].musicians.at(index).get('instruments').at(index2).get('name_de') %> 
-				           			</p>	
-				           		 <% }); %>
-
-			        </div>
+			       
 
 		           	  <!-- artistMusician -->
 		           
 		        </div>  
 		 	   	<% }); %>
-		 	   	
+		 	   	</div>
 		 	   	
 		 	   	</div>
           
+
+
+
+
        </div>
 
 </div>
