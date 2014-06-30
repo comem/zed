@@ -165,8 +165,10 @@
             var  musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
             musicianList.render().$el.appendTo('#musicianList')
 
+           //$('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
         }
     })
+
 
 
    
