@@ -30,9 +30,10 @@ var Modal = Backbone.Modal.extend({
        
     },
     imageSelect:function(event){
-        var id = $(this).attr('id');  
-        console.log($(this).attr('id'));
-        console.log(id);
+        var genreIndex = $(event.target).attr('id');
+        var id = $(event.target).attr('id');  
+        console.log($(event.target).attr('id'));
+        console.log(genreIndex);
         $(this).css('border','3px solid red');
     }
 });
