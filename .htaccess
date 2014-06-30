@@ -1,0 +1,3 @@
+#RewriteEngine On
+# RewriteRule ^(.js)$ index.php [L]
+#RewriteRule !\.(js|ico|gif|jpg|png|css|html|htm|pdf|txt|json)$ index.php
