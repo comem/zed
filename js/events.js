@@ -11,9 +11,8 @@ $(function(){
     root: "/zed/"
 	});
 
-	// Navigate to deafult form
+	// Navigate to deafault form
 	console.log("navigate to deafult form");
-
 
 	// Scrolling
 	$(window).scroll(showAtScroll);
