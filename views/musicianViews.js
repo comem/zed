@@ -77,4 +77,6 @@
                 return this;
             }
         });
+
+        musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
    

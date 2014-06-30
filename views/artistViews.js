@@ -53,7 +53,7 @@ var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
         artistField = new ArtistFieldInMusician({model :artistNestedList})
 
        
-       s
+       
 
 
 

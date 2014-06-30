@@ -163,24 +163,12 @@
 
     musicianNestedCollServer.get('musicians').fetch({
         success:function(){
-      
 
-            if ("#musicianList:contains('.musicianTemplate')") {
-                
-                 var  musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-            
-                musicianList.render().$el.appendTo('#musicianList')
-                  $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+            musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+            musicianList.render().$el.appendTo('#musicianList')
+           // $('.bite').accordion({collapsible: true, active: false,heightStyle: "content"})
 
-            }else{
-                 var  musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-            
-                musicianList.render().$el.appendTo('.musicianTemplate:last')
-                  $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-
-            }   
-            
-
+           
         }
     })
 

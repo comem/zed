@@ -1,5 +1,5 @@
 <% _.each(musicians, function (musician, musicianIndex) { %>
-<div class="musicianTemplate bite">
+<div class="musicianTemplate myAccordion">
 
           	<h1> Musician <%- musicianIndex+1 %> - <%- musician.first_name %> 
           		<span><%- musician.stagename %></span>
@@ -26,9 +26,9 @@
 	          	<p><label>Stage name : </label><%- musician.stagename %> </p>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
-	          		<label>Artists : </label>
+	          		<p><label>Artists : </label>
 	          	 <% _.each(musicians[musicianIndex].artists, function (artist, index) { %>
-	          	 	<%- artist.name %>
+	          	 	<%- artist.name %> </p>
 	          	  <% }); %> 
 	          	</div>
           	</div>
