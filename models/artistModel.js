@@ -198,13 +198,16 @@ var ImagesColl = Backbone.Collection.extend({
             console.log(artistNestedCollServer.toJSON());
         }})
 
-       /*
+
+       
     artistNestedCollServer.get('artists').fetch({
         success:function(){
        
-            var  artistList = new ArtistMultipleView({model:artistNestedCollServer})
-            artistList.render().$el.appendTo('#artistList');
+            //ar  artistList = new ArtistMultipleView({model:artistNestedCollServer})
+            multipleArtists.render().$el.appendTo('#artistList');
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+
 
         }
     })
-    */
+    

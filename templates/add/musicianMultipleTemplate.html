@@ -1,40 +1,35 @@
 <% _.each(musicians, function (musician, musicianIndex) { %>
 <div class="musicianTemplate myAccordion">
 
-          	<h1> Musician <%- musicianIndex+1 %> - <%- musicians[musicianIndex].first_name %> 
-          		<span><%- musicians[musicianIndex].stagename %></span>
+          	<h1> Musician <%- musicianIndex+1 %> - <%- musician.first_name %> 
+          		<span><%- musician.stagename %></span>
 
           		<ul class = "buttonsListMusician">
           			<li><button type="button">
-          				<img src="img/icones/icone_delete.png"/>
+          				 <img src="img/icones/icone_delete.png"/>
           				</button>
           			</li>
           			<li><button type="button">
-          				<img src="img/icones/icone_edit.png"/>
-          			</button>
+          				 <img src="img/icones/icone_edit.png"/>
+          			     </button>
           			</li>
           		</ul>
           	
 
           	</h1>
-          	
-          			
-
-          		
-          		
 
           	<div class="musicianInfoTemplate"> 
 
           			
        		
-	          	<p><label>Last name : </label><%- musicians[musicianIndex].last_name %> </p>
-	          	<p><label>Stage name : </label><%- musicians[musicianIndex].stagename %> </p>
+	          	<p><label>Last name : </label><%- musician.last_name %> </p>
+	          	<p><label>Stage name : </label><%- musician.stagename %> </p>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
-	          		<p><label>Instruments : </label>
-	          	 <% _.each(musicians[musicianIndex].instruments, function (instrument, index) { %>
-	          	 	<%- musicians[musicianIndex].instruments[index].name_de %>
-	          	  <% }); %> </p>
+	          		<p><label>Artists : </label>
+	          	 <% _.each(musicians[musicianIndex].artists, function (artist, index) { %>
+	          	 	<%- artist.name %> </p>
+	          	  <% }); %> 
 	          	</div>
           	</div>
           	
