@@ -24,7 +24,17 @@ var MyModelNestedCollection = Backbone.Model.extend({
  // Create a modal view class
 var Modal = Backbone.Modal.extend({
     template: _.template(templates.add_uploadImage),
-    cancelEl: '.bbm-button'
+    cancelEl: '.bbm-button',
+    events:{
+        "click  #selectable>li" : 'imageSelect'
+       
+    },
+    imageSelect:function(event){
+        var id = $(this).attr('id');  
+        console.log($(this).attr('id'));
+        console.log(id);
+        $(this).css('border','3px solid red');
+    }
 });
 
 

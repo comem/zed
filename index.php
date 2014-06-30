@@ -107,7 +107,7 @@
 
  
  
-<div id="#musicianSuccessfullyAdded"> Musician successfully added!</div>
+<div id="#musicianSuccessfullyAdded" class="hidden"> Musician successfully added!</div>
 
     </body>
 </html>

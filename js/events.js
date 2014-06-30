@@ -14,6 +14,8 @@ $(function(){
 	// Navigate to deafault form
 	console.log("navigate to deafult form");
 
+	setTimeout(pageHeight, 4000);
+
 	// Scrolling
 	$(window).scroll(showAtScroll);
 
@@ -110,5 +112,13 @@ function isFocus(href){
 
 	if (href == 'artist') {
 		$('.addArtist a').css('backgroud-color','red');
+	};
+}
+
+function pageHeight(){
+
+	console.log($('#musicianList').height());
+	if (true) {
+
 	};
 }
