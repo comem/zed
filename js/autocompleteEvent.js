@@ -1,14 +1,13 @@
 
-
-function autocompleteGenre(){
-var noResultClass = "noResultGenre";
-var listToBeFilled = $("#genresSelected");
+function autocompleteEvent(){
+var noResultClass = "noResultEvent";
+var listToBeFilled = $("#artistToEvent");
 var noResButtAppTo = $("#showAllGenres");
 
-$('#genre').autocomplete({
+$('#eventName').autocomplete({
 		source: function(request,response){
 			$.ajax({
-				url:'http://pingouin.heig-vd.ch/gof/api/v1/genres',
+				url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 				dataType : "json",
 				data:{name_de:request.term},
 				success:function(data){
@@ -16,23 +15,23 @@ $('#genre').autocomplete({
 					response($.map(data.data, function(item){
 					
 						return{
-							label:item.name_de,
-							value: item.name_de,
+							label:item.title_de,
+							value: item.title_de,
 							id: item.id
 						
 						}
 					}))
 				},
 				error: function(result) {
-                    alert("Data genre not found");
+                    alert("Data event not found");
                 }
 			})
 		},
 		 messages: {
 		        noResults: function(){
 		        	//if the create new artist button doesnt exist, add it once
-		        	$('#noGenreResultInfo').slideDown();
-		        	$('#createNewGenreButton').insertAfter(noResButtAppTo).slideDown()
+		        	$('#noEventResultInfo').slideDown();
+		        	$('#createNewEvent').insertAfter(noResButtAppTo).slideDown()
 		        }, 
 		        results: function(result) {   
 		        	//$(noResultButton).slideUp()
@@ -50,7 +49,7 @@ $('#genre').autocomplete({
 			//console.log(selectedObj.value);
 			
 				//if we have already selected a musician, dont add it twice, dialog box
-				if($("#genreResult"+selectedObj.id).length>0){
+				if($("#eventResult"+selectedObj.id).length>0){
 					$( "<div>").dialog({
 						title: 'Attention!',
 				      modal: true,
@@ -59,21 +58,22 @@ $('#genre').autocomplete({
 				          $(this).dialog( "close" );
 				      		}
 				      }
-					}).append('The genre <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
+					}).append('The ecent <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
 
 				}else{
 					//console.log(selectedObj.label.data('originalLabel'));
 					$(listToBeFilled).show() //show the div we will append to
-					var genre = new Genre({name_de: selectedObj.value, id:selectedObj.id})
+					var evento = new EventModel({title_de: selectedObj.value, id:selectedObj.id})
 					
-					genresCollection.add(genre);
-					genresNestedColl.get('genres').add(genre);
+					eventColl.add(evento);
+					eventsNestedColl.get('events').add(evento);
 
-					console.log(genresNestedColl.toJSON());
+					console.log(eventsNestedColl.toJSON());
 
-					var render = genresAddedToArtist.render().$el
-					$(render[0]).appendTo(listToBeFilled)
-					//console.log(aMusiciansList.toJSON())
+					//var artistToEvent = new EventFieldArtist({model : eventsNestedColl})
+					artistToEvent.render().$el.appendTo(listToBeFilled)
+					
+					
 					
 				}
 		    }//end select
@@ -81,7 +81,7 @@ $('#genre').autocomplete({
 
 		$.ui.autocomplete.prototype._renderItem = function (ul, item) {
 					
-					console.log(item); 
+			 
 					$(item).data('originalLabel', item.label);
 		            item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
 		            	+')', "gi"), 
@@ -111,32 +111,22 @@ $('#genre').autocomplete({
 
 $(document).ready(function() { 
 
-	$("#noGenreResultInfo").hide();
+	$("#artistToEvent").hide();
 	$(".deleteGenre").hide();
-	$("#createNewGenreButton").hide();
+	$("#createNewEvent").hide();
 	$("#genresSelected").hide();
-	autocompleteGenre();
-	$('#showAllGenres').click(function() {
-	   $('#genre').val('')
-	   $('#genre').trigger("focus")
+
+	$('#showAllEvents').click(function() {
+	   $('#eventName').val('')
+	   $('#eventName').trigger("focus")
 	   .autocomplete("search"); 
 	  
 });
 
-	$('body').on('click',"#showAllGenres",autocompleteShowAll)
 
 
 
+autocompleteEvent()
 
 });
 
-function autocompleteShowAll(){
-
-	//show all on click autocomplete
-	$('#showAllGenres').click(function() {
-	   $('#genre').val('')
-	   $('#genre').trigger("focus")
-	   .autocomplete("search"); 
-	  
-});
-}

@@ -19,8 +19,7 @@
 
 
 
-
-        var ArtistInstruments = MyModelNestedCollection.extend({
+        var ArtistInstruments = Backbone.Model.extend({
             nested: 'instruments',
             defaults: function(){
                 return {
@@ -29,7 +28,12 @@
                 }
             }
 
-            });
+        });
+
+        var ArtistInstrumentsColl = Backbone.Collection.extend({
+            model: ArtistInstruments
+            
+        })
 
         var PivotMusician = Backbone.Collection.extend({
          //   nested: 'hejj',
@@ -51,15 +55,17 @@
             initialize: function(){
                  //this.listenTo(this.model, 'all', this.render);
             },
-            nested:'artistInstruments',
+            nested:'artistsInstruments',
             nested: 'pivot',
+            nested: 'instruments',
          
             defaults: function(){
                 return {
-                    id:'',
+                    
                     first_name :'',
-                    artistInstruments : new ArtistInstruments(),
+                    artistsInstruments : new ArtistInstrumentsColl(),
                     pivot: new PivotMusician(),
+                    instruments: new InstrumentsColl(),
                     last_name:'',
                     stagename:''
                 }
@@ -86,12 +92,9 @@
                 return response;
             }
         });
-/*
-var mus = new Musician({name: 'name', stagename:'qwwqr'})
-var inst = new Instrument({name_de:'piano', id:2})
-mus.get('artistInstruments').get('instruments').add(inst)
-console.log(mus.toJSON());
-*/
+
+
+
         //la collection de tous les musiciens
         var MusiciansColl = Backbone.Collection.extend({
             model: Musician,
@@ -180,3 +183,6 @@ console.log(mus.toJSON());
 
         }
     })
+
+
+   

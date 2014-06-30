@@ -22,12 +22,12 @@ var EventModel = MyModelNestedCollection.extend({
     urlRoot:'http://pingouin.heig-vd.ch/gof/nights',
 
             nested:'artists',
-            nested:'tickets',
+            nested:'ticketcategories',
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
-                    tickets: new TicketsColl(),
-                    title_De:'',
+                    ticketcategories: new TicketsColl(),
+                    title_de:'',
                     start_date_hour:'',
                     opening_doors: '',
                     ending_date_hour : '',
@@ -72,6 +72,8 @@ var EventColl = Backbone.Collection.extend({
     model:EventModel
 }) 
 
+var eventColl = new EventColl()
+
 var EventsNestedColl = MyModelNestedCollection.extend({
     nested: 'events',
     defaults: function(){
@@ -81,3 +83,4 @@ var EventsNestedColl = MyModelNestedCollection.extend({
     }
 })
 
+eventsNestedColl = new EventsNestedColl()

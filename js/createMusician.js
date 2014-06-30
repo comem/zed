@@ -2,35 +2,29 @@
   var musicianName = $("#nameMusician").val()
      var musicianLastName = $("#lastNameMusician").val()
      var stageName = $('#stagename').val()
-     var addedEvent = $('.addToEvent').val()
+    
      var addToArtist = $('#addToArtist').val()
 
-     var sourceArtists = new ArtistNestedCollServer()
+    
+   
 
-  
-     var musician = new Musician({first_name: musicianName, 
-        stagename: stageName, last_name: musicianLastName})
-
-
-      var artistNested = sourceArtists.get('artists').where({name: addToArtist});//nested coll
-      //var artist = artistColl.where({name: addToArtist}) //simple coll
-
-
-      if(( musician.get('first_name') != '' || artistNested.length != 0 )){ 
+      if(( musicianName != '' || artistNestedList.toJSON().length != 0 )){ 
         
-        if(musician.get('first_name') != ''){
-             if (artistNestedList.length != 0 ){
-                  //Add instruments
-                  console.log('createMusician');
-                  
-
-                   instrumentsColl.each(function( model ) {
-
-                      var instrument = new Instrument({name_de: model.attributes.name_de, 
-                        instrument_id: model.attributes.instrument_id})
-                         musician.get('artistInstruments').get('instruments').add(instrument)
-                     
+        if(musicianName != ''){
+             if (artistNestedList.toJSON().length != 0 ){
+                 //new musician
+                    var musician = new Musician({first_name: musicianName, 
+                    stagename: stageName, last_name: musicianLastName})
+                
+                  //add the artist id
+                    var artistId = artistNestedList.get('artists').at(0).get('id');
+                    var artistInstruments = new ArtistInstruments({artist_id: artistId})
+                   //Add instruments to the artist from this musician
+                    instrumentsColl.each(function( model ) {
+                      var instrument = new Instrument({ instrument_id: model.attributes.instrument_id})
+                         artistInstruments.get('instruments').add(instrument)
                      });
+
                     //Add to artist collections
 
                   var artistId = artistNestedList.get('artists').at(0).get('id')
@@ -40,6 +34,23 @@
                  
                     console.log(musician.toJSON());
                     //musician.save();
+
+                    //add the data to musician (must fit to what the application needs to receive)
+                    musician.get('artistsInstruments').add(artistInstruments)
+                  
+
+                    console.log(JSON.stringify(musician));
+                    musician.save();
+                    // put the inputs to nothing
+                    $("#nameMusician").val('')
+                    $("#lastNameMusician").val('')
+                    $("#addToArtist").val('')
+                    $("#stagename").val('')
+                    //empty the lists
+                    artistNestedList.get('artists').reset()
+                    instrumentsColl.reset()
+                    console.log(instrumentsColl.toJSON());
+
 
                     var added = $('#musicianSuccessfullyAdded')
                     $( "<div title='Add new musician'>").dialog({            

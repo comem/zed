@@ -77,9 +77,6 @@
         }
         });
         var genreNestedCollServer = new GenreNestedCollServer();
-    
-
-
 
 /*
      genreCollServer.fetch({ success: function(){
@@ -93,4 +90,6 @@
     }})
 
 
+
 */
+
