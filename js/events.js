@@ -7,9 +7,12 @@ var one = "1";
 $(function(){
 	var router = new AppRouter ();
 	Backbone.history.start({
-    pushState: true,
+    pushState: false,
     root: "/zed/"
 	});
+
+	// Navigate to deafault form
+	console.log("navigate to deafult form");
 
 	// Scrolling
 	$(window).scroll(showAtScroll);
