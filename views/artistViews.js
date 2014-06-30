@@ -9,7 +9,7 @@
             }
         });
 
-        var ArtistMultipleView = Backbone.View.extend({
+var ArtistMultipleView = Backbone.View.extend({
             
 
            template : _.template(templates.add_multipleArtistsTemplate),
@@ -19,7 +19,7 @@
             }
         });
 
-        var multipleArtists = new ArtistMultipleView()
+var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
 
 
         var ArtistFieldInMusician = Backbone.View.extend({
@@ -48,6 +48,7 @@
                console.log(artistNestedList.toJSON());
             }
         });
+
         artistField = new ArtistFieldInMusician({model :artistNestedList})
 
 

@@ -35,11 +35,11 @@
 
                   var artistId = artistNestedList.get('artists').at(0).get('id')
 
-                  
+                  console.log(artistNestedList.toJSON());
                   musician.get('artistInstruments').set({artist_id: artistId})
                  
                     console.log(musician.toJSON());
-                    musician.save();
+                    //musician.save();
 
                     var added = $('#musicianSuccessfullyAdded')
                     $( "<div title='Add new musician'>").dialog({            

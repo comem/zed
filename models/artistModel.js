@@ -156,10 +156,11 @@
 
        
         artistNestedCollServer.get('artists').fetch({
-        success:function(){
-       
-            var  artistList = new ArtistMultipleView({model:artistNestedCollServer})
-            artistList.render().$el.appendTo('#artistList');
+              success:function(){
+        
+           var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
+
+            multipleArtists.render().$el.appendTo('#artistList')
 
         }
     })

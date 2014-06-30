@@ -262,8 +262,8 @@ $(function(){
 
 artistNestedCollServer.get('artists').fetch({
     success:function(){
-        render = ArtistMultipleView({model:artistNestedCollServer})
-        render.render().$el.appendTo('#artistList')
+    //    render = ArtistMultipleView({model:artistNestedCollServer})
+       // render.render().$el.appendTo('#artistList')
     }
 })
 //single musician render
