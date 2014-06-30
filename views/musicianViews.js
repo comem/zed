@@ -1,4 +1,4 @@
- 
+
        var MusicianView = Backbone.View.extend({
             initialize: function(attrs, options){
                  this.listenTo(this.model, 'all', this.render);
@@ -75,6 +75,17 @@
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
                 return this;
+            },
+            events:{
+              "click .deleteMusicianTemplate": 'deleteMusician'
+            },
+            deleteMusician: function(evt){
+
+             var index = $(evt.target).attr("data-index")-0
+             console.log(index);
+
+             var musician = this.model.get('musicians').at(index)
+             musician.destroy();
             }
         });
 

@@ -9,13 +9,13 @@ $('#instrumentMusician').autocomplete({
 
 		source: function(request,response){
 			$.ajax({
-           	 url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments',
-				dataType : "json",
-				data:{instrument:request.term},
+           	 url: 'http://pingouin.heig-vd.ch/gof/api/v1/instruments/search',
+				
+				data:{string:request.term},
 				success:function(data){
 					//console.log(data);
 					
-					response($.map(data.data, function(item){
+					response($.map(data, function(item){
 
 						return{
 							label:item.name_de,

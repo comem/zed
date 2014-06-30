@@ -26,14 +26,13 @@
                          artistInstruments.get('instruments').add(instrument)
                      });
 
-                  var artistId = artistNestedList.get('artists').at(0).get('id')
-
                   console.log(artistNestedList.toJSON());
-                  musician.get('artistInstruments').set({artist_id: artistId})
+
                   //add the data to musician (must fit to what the application needs to receive)
                     musician.get('artistsInstruments').add(artistInstruments)                  
                     console.log(JSON.stringify(musician));
-                    musician.save();
+
+                  musician.save();
 
                     // put the inputs to nothing
                     $("#nameMusician").val('')
