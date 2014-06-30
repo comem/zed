@@ -359,9 +359,7 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
      
 
 
-$(".buttonsListMusician").click(function(event){
-    event.stopPropagation();
-});
+
 
 
 

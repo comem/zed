@@ -19,7 +19,7 @@ var MyModelNestedCollection = Backbone.Model.extend({
 
 
 var EventModel = MyModelNestedCollection.extend({
-    urlRoot:'http://pingouin.heig-vd.ch/gof/nights',
+    urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 
             nested:'artists',
             nested:'ticketcategories',
@@ -84,3 +84,43 @@ var EventsNestedColl = MyModelNestedCollection.extend({
 })
 
 eventsNestedColl = new EventsNestedColl()
+
+var EventsNestedCollServer = MyModelNestedCollection.extend({
+    url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
+    nested: 'events',
+    defaults: function(){
+        return {
+            events : new EventColl()
+        }
+    },
+    parse: function (response) {
+            if (typeof response.data != "undefined") {
+                response = response.data;
+            }
+            console.log(response);
+            evento = new EventModel(response);
+            
+          
+            return evento;
+        }
+})
+
+
+eventNestedServer = new EventsNestedCollServer()
+
+
+
+
+eventNestedServer.fetch({
+    success:function(){
+
+        console.log(eventNestedServer.toJSON())
+        var listEvent = new EventMultipleView({model:eventNestedServer})
+        listEvent.render().$el.appendTo("#eventList")
+    }
+})
+
+
+
+
+

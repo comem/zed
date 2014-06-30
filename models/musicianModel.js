@@ -167,6 +167,9 @@
             musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
             musicianList.render().$el.appendTo('#musicianList')
            // $('.bite').accordion({collapsible: true, active: false,heightStyle: "content"})
+           $(".buttonsListMusician").click(function(event){
+              event.stopPropagation();
+            });
 
 
         }
