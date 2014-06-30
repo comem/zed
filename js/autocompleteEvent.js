@@ -2,17 +2,17 @@
 function autocompleteEvent(){
 var noResultClass = "noResultEvent";
 var listToBeFilled = $("#artistToEvent");
-var noResButtAppTo = $("#showAllGenres");
+var noResButtAppTo = $("#showAllEvents");
 
 $('#eventName').autocomplete({
 		source: function(request,response){
 			$.ajax({
-				url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
+				url:'http://pingouin.heig-vd.ch/gof/api/v1/nights/search',
 				dataType : "json",
-				data:{name_de:request.term},
+				data:{string:request.term},
 				success:function(data){
 					//console.log(data);
-					response($.map(data.data, function(item){
+					response($.map(data, function(item){
 					
 						return{
 							label:item.title_de,
@@ -36,9 +36,9 @@ $('#eventName').autocomplete({
 		        results: function(result) {   
 		        	//$(noResultButton).slideUp()
 		        	$('#createNewGenreButton').slideUp()
-		        	$("#noGenreResultInfo").slideUp()
-		        	$('.noResult addGenre').slideUp('fast',function(){
-		        		$('.noResult addGenre').remove()
+		        	$("#noEventResultInfo").slideUp()
+		        	$('.noResult addEvent').slideUp('fast',function(){
+		        		$('.noResult addEvent').remove()
 		        	});
 		        }
 		    },
@@ -58,7 +58,7 @@ $('#eventName').autocomplete({
 				          $(this).dialog( "close" );
 				      		}
 				      }
-					}).append('The ecent <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
+					}).append('The event <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
 
 				}else{
 					//console.log(selectedObj.label.data('originalLabel'));
@@ -112,9 +112,9 @@ $('#eventName').autocomplete({
 $(document).ready(function() { 
 
 	$("#artistToEvent").hide();
-	$(".deleteGenre").hide();
+	$(".deleteEvent").hide();
 	$("#createNewEvent").hide();
-	$("#genresSelected").hide();
+	
 
 	$('#showAllEvents').click(function() {
 	   $('#eventName').val('')

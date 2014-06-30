@@ -56,9 +56,6 @@
                  //this.listenTo(this.model, 'all', this.render);
             },
             nested:'artistsInstruments',
-            nested: 'pivot',
-            nested: 'instruments',
-         
             defaults: function(){
                 return {
                     
@@ -159,14 +156,6 @@
         });
         var musicianNestedCollServer = new MusicianNestedCollServer();
 
-    musicianNestedCollServer.get('musicians').fetch({
-        success:function(){
-       
-            var  musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-            musicianList.render().$el.appendTo('#musicianList')
-
-        }
-    })
 
 
    

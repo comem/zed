@@ -312,8 +312,13 @@ $(function(){
 /*
 artistNestedCollServer.get('artists').fetch({
     success:function(){
+<<<<<<< HEAD
+    //    render = ArtistMultipleView({model:artistNestedCollServer})
+       // render.render().$el.appendTo('#artistList')
+=======
        var render = ArtistMultipleView({model:artistNestedCollServer})
         render.render().$el.appendTo('#artistList')
+>>>>>>> master
     }
 })
 */
