@@ -71,8 +71,8 @@ $('#genre').autocomplete({
 
 					console.log(genresNestedColl.toJSON());
 
-					var render = genresAddedToArtist.render().$el
-					$(render[0]).appendTo(listToBeFilled)
+					var renderGenre = genresAddedToArtist.render().$el
+					$(renderGenre[0]).appendTo(listToBeFilled)
 					//console.log(aMusiciansList.toJSON())
 					
 				}

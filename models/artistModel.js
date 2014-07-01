@@ -150,6 +150,7 @@ var ImagesColl = Backbone.Collection.extend({
             }
         })
         var artistNestedList = new ArtistNestedColl();
+        var artistEventNestedList = new ArtistNestedColl()
     
        
 

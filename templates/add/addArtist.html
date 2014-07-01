@@ -32,6 +32,7 @@
                               <div  id="genreSelect">
                                     <h2 class ="addArtistHeader">Genre</h2>
                                     <label>Style</label><input type="text" name="genre" id="genre" placeholder= "start typing"/>
+                                    
                                     <button type="button" id="createNewGenreButton" class="noResult addGenre">Create</button>    
                                     <button  type="button" class ="showAll"id="showAllGenres"> 
                                     <img src="img/icones/icone_list2.png"/>
@@ -82,12 +83,15 @@
                                     </fieldset>
 
 
-                                   <label>Arrival date hour*</label><input class ="date" type="text"  name="arrivalHour" id="arrivalHour">
+                                   <label>Arrival date</label><input class ="text" type="text"  name="arrivalHour" id="arrivalHour">
+                                   <label>Arrival hour</label><input class ="text" type="text"  name="arrivalHour" id="arrivalHourHour">
                                    <label>Order*</label><input  type="number" name="order" id="order">
-                                   <label>Support?*</label>
+
+                                   <label>Support?</label>
                                    <select id="support">
-                                      <option>Yes</option>
-                                      <option>No</option>
+                                    <option value ="" selected>please select</option>
+                                      <option value="yes">Yes</option>
+                                      <option value ="no">No</option>
                                    </select> 
                  
                               </div>

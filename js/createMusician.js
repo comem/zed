@@ -32,15 +32,25 @@
                     musician.get('artistsInstruments').add(artistInstruments)                  
                     console.log(JSON.stringify(musician));
 
-                  musician.save();
+//                  musician.save();
+                  artistNestedList.get('artists').reset()
+                  instrumentsNestedColl.get('instruments').reset()
+
+              
+                  $("#instrumentsPlayedMusician").hide()
+                  $("#musicianAddedToArtist").hide()
+
+                  instrumentsAddedToMusician.remove()
+
 
                     // put the inputs to nothing
                     $("#nameMusician").val('')
                     $("#lastNameMusician").val('')
                     $("#addToArtist").val('')
                     $("#stagename").val('')
+                    $("#instrumentMusician").val('')
                     //empty the lists
-                    artistNestedList.get('artists').reset()
+                    
                     instrumentsColl.reset()
                     console.log(instrumentsColl.toJSON());
 
@@ -63,7 +73,7 @@
                   }
                 }).append('Artist not found');}
        }else{// Musician not complete
-         musician.isValid();
+        // musician.isValid();
        }
       }else{
            $( "<div >").dialog({

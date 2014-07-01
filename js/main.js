@@ -105,7 +105,8 @@ var MusicianList = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
-    }
+    },
+
 });
 
 var StuffList = MyView.extend({
@@ -153,7 +154,6 @@ var AddStuff = MyView.extend({
     }
 });
 
-
 var EventAdd = MyView.extend({
     template: _.template(templates.add_addEvent),
     render:function(){
@@ -161,8 +161,126 @@ var EventAdd = MyView.extend({
         return this;
     },
     events:{
-        "click  .popup-with-form" : 'popup' 
+        "click  .popup-with-form" : 'popup', 
+        "click #submitEvent" : 'createEvent',
+        "keydown #artistName" : 'autocompleteArtist',
+        "click .showAll" : 'showAll',
+        "click #showAllTypes" : 'showAllTypes',
+        "keydown #eventTypeInput" : 'autocompleteEventType',
+        "keydown #ticketCategory" : 'autocompleteTicketCategory',
     },  
+    showAll: function(){
+        
+       $('#artistName').val('')
+       $('#artistName').trigger("focus")
+       .autocomplete("search"); 
+        
+    },
+    showAllTypes: function(){
+        
+           $('#eventTypeInput').val('')
+           $('#eventTypeInput').trigger("focus")
+           .autocomplete("search"); 
+        
+    },
+    autocompleteEventType: function(){
+        var listToBeFilled = $("#eventTypesField");
+            $('#eventTypeInput').autocomplete({
+        source: function(request,response){
+                $.ajax({
+                 url: 'http://pingouin.heig-vd.ch/gof/api/v1/nighttypes/search',
+                    dataType : "json",
+                    data:{string:request.term},
+                    success:function(data){
+                        console.log(data);    
+                        response($.map(data, function(item) {
+                            // console.log(item.name_de);
+                               return {                    
+                                   label: item.name_de,  
+                                   value: item.name_de,
+                                   id: item.id,
+                                   category :'Event type',
+                               };  
+                        }))
+                    },
+                    error: function(result) {
+                        alert("Data artist not found");
+                    }
+                })
+            },
+             messages: {
+                    noResults: function(){
+                        //if the create new artist button doesnt exist, add it once
+                        $('#noTypeEventResultInfo').slideDown();
+                        //$('.noResult addArtist').insertAfter(noResButtAppTo).slideDown()
+                    }, 
+                    results: function(result) {   
+                        //$(noResultButton).slideUp()
+                        
+                        $("#noTypeEventResultInfo").slideUp()
+                        $('.noResult deleteTypeEvent').slideUp('fast',function(){
+                        $('.noResult deleteTypeEvent').remove()
+                        });
+                    }
+                },
+            minLength: 0, // must be 0 if you want to show all
+            dataType : "json",
+            select: function(event,ui){
+                    var selectedObj = ui.item;  
+                
+                    //if we have already selected a musician, dont add it twice, dialog box
+                    if($().length==1){
+                        $( "<div>").dialog({
+                            title: 'Attention!',
+                          modal: true,
+                          buttons: {
+                            Ok: function() {
+                              $(this).dialog( "close" );
+                                }
+                          }
+                        }).append('The type <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
+
+                    }else{
+                        $(listToBeFilled).show() //show the div we will append to
+     
+                            var eventType = new NightType ({id:selectedObj.id, name_de: selectedObj.value})
+                            nightTypeNestedColl.get('nighttype').add(eventType)
+                            console.log(nightTypeNestedColl.toJSON());
+                            eventTypeField.render().$el.appendTo('#eventTypesField')
+            
+                    }
+                }//end select
+    });//end autocomplete
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+                    //save data in a dom element
+                    
+                    $(item.label).data('originalLabel', item.label);
+                    item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
+                        +')', "gi"), 
+                    "<b style='color:red;'>$1</b>");
+
+                    return $("<li></li>")
+                            .data("item.autocomplete", item)
+                            .append("<a>" + item.label + "</a>")
+                            .appendTo(ul);
+                };
+        $.ui.autocomplete.prototype._renderMenu=function( ul, items ) {
+              var that = this,
+                currentCategory = "";
+              $.each( items, function( index, item ) {
+                if ( item.category != currentCategory ) {
+                  ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                  currentCategory = item.category;
+                }
+                that._renderItemData( ul, item );
+              });
+            };
+        //********************************
+        //////// END AUTOCOMPLETE
+        //************************
+
+    },
     popup: function (e) {
          e.preventDefault();
          console.log("yeah");
@@ -173,7 +291,291 @@ var EventAdd = MyView.extend({
               preloader: false,
               fixedContentPos: false
          });
-      }
+      },
+    createEvent: function (){
+     var eventName = $("#nameEvent").val()
+     var startDate = $("#startDate").val()
+     var startTime = $('#startTime').val()
+
+     var openingDoorsTime = $('#openingDoorsTime').val()
+     var endDate = $('#endDate').val()
+     var endHour = $('#endTime').val()
+     var mealNotes = $('#mealNotes').val();
+     var normalMeals = $('#normalMeals').val();
+     var veganMeals = $('#veganMeals').val();
+     var ticketPrice = $('#ticketPrice').val()
+     var ticketQuantity = $('#ticketQuantity').val();
+     var ticketNote = $('#ticketInfo').val();
+     var veganMeals = $('#veganMeals').val();
+     var complementaryNotes = $('#compInfo').val()
+     var placesNumber = $('#placesNumber').val()
+     var followed = $("#followed").val()// 0 or 1
+     var eventType = $('#eventType').val();
+     var ticketType = $('#ticketType').val();
+   
+     if (followed == "Yes") {
+        followed = true
+     }else{
+        followed = false;
+     };
+     //get night type id
+     var nighttypeid = nightTypeNestedColl.get('nighttype').at(0).get('id')
+  
+     var evento = new EventModel({title_de: eventName, start_date_hour: startDate+" "+startTime, ending_date_hour: 
+      endDate+" "+endHour, opening_doors:startDate +" "+openingDoorsTime, nb_meal : normalMeals, nb_vegans_meal: veganMeals,
+      meal_note: mealNotes, nb_places: placesNumber, followed_by_private: followed, 
+      notes: complementaryNotes,nighttype_id: nighttypeid});
+
+     //add platforms
+     var isCheckedFacebook =  $("input[value='facebook']").is(":checked")
+     var isCheckedTwitter =  $("input[value='twitter']").is(":checked")
+
+      if (isCheckedFacebook) {
+        platformid = 1
+        facebook = new Platform({platform_id: platformid})
+        evento.get('platforms').add(facebook)
+      };
+      if (isCheckedTwitter) {
+        platformid  = 2
+        twitter = new Platform({platform_id: platformid})
+        evento.get('platforms').add(twitter)
+      };
+      //add ticket 
+      var ticketId = ticketsNestedColl.get('tickets').at(0).get('id')
+     var ticket = new Ticket({amount: ticketPrice, comment: ticketNote, ticket_categorie_id: ticketId, quantitySold: ticketQuantity})
+     console.log(ticket.toJSON());
+
+     evento.get('ticket_categorie').add(ticket)
+    
+     //addArtists
+    artistEventNestedList.get('artists').each(function( model ) {
+                  var artist = new Artist({id: model.attributes.id, name:model.attributes.name, 
+                  artist_hour_arrival: '2014-01-03 10:01:01', is_support:0})
+                  evento.get('artists').add(artist)
+    });
+     
+ 
+        console.log(JSON.stringify(evento));
+        evento.save()
+
+
+               },
+    autocompleteArtist: function(){
+
+        var listToBeFilled = $("#artistInEvent");
+        var noResButtAppTo = $("#addArtistButton");
+        var artistListMusician = new ArtistNestedColl();
+        $('#artistName').autocomplete({
+            source: function(request,response){
+                    $.ajax({
+                     url: 'http://pingouin.heig-vd.ch/gof/api/v1/artists/search',
+                        dataType : "json",
+                        data:{string:request.term},
+                        success:function(data){
+                            //console.log(data);    
+                            response($.map(data, function(item) {
+                                // console.log(item.name);
+                                   return {                    
+                                       label: item.name,  
+                                       id: item.id,
+                                       category :'Artists',   
+                                   };  
+                            }))
+                        },
+                        error: function(result) {
+                            alert("Data artist not found");
+                        }
+                    })
+                },
+                 messages: {
+                        noResults: function(){
+                            //if the create new artist button doesnt exist, add it once
+                            $('#noArtistEventResultInfo').slideDown();
+                            //$('.noResult addArtist').insertAfter(noResButtAppTo).slideDown()
+                        }, 
+                        results: function(result) {   
+                            //$(noResultButton).slideUp()
+                            
+                            $("#noArtistEventResultInfo").slideUp()
+                            $('.noResult addArtist').slideUp('fast',function(){
+                            $('.noResult addArtist').remove()
+                            });
+                        }
+                    },
+                minLength: 0, // must be 0 if you want to show all
+                dataType : "json",
+                select: function(event,ui){
+                        var selectedObj = ui.item;  
+            
+                //if we have already selected a musician, dont add it twice, dialog box
+                if($().length==1){
+                    $( "<div>").dialog({
+                        title: 'Attention!',
+                      modal: true,
+                      buttons: {
+                        Ok: function() {
+                          $(this).dialog( "close" );
+                            }
+                      }
+                    }).append('The artist <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
+
+                }else{
+                    $(listToBeFilled).show() //show the div we will append to
+
+
+                                var artist = new Artist({name : selectedObj.value, id: selectedObj.id})
+                                //console.log(artist);
+                                    artistEventNestedList.get('artists').add(artist)
+                                
+                                    console.log(artistEventNestedList.toJSON());
+
+                    
+                                    var renderArtist = artistFieldEvent.render().$el
+                                    $(renderArtist).appendTo(listToBeFilled)
+                                    listToBeFilled.show()
+                                                
+                }
+            }//end select
+});//end autocomplete
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+                    //save data in a dom element
+                    
+                    $(item.label).data('originalLabel', item.label);
+                    item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
+                        +')', "gi"), 
+                    "<b style='color:red;'>$1</b>");
+
+                    return $("<li></li>")
+                            .data("item.autocomplete", item)
+                            .append("<a>" + item.label + "</a>")
+                            .appendTo(ul);
+                };
+        $.ui.autocomplete.prototype._renderMenu=function( ul, items ) {
+              var that = this,
+                currentCategory = "";
+              $.each( items, function( index, item ) {
+                if ( item.category != currentCategory ) {
+                  ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                  currentCategory = item.category;
+                }
+                that._renderItemData( ul, item );
+              });
+            };
+        //********************************
+        //////// END AUTOCOMPLETE
+        //************************
+
+    },
+    autocompleteTicketCategory: function(){
+
+        //var noResultClass = "noResultGenre";
+        var listToBeFilled = $("#ticketCategoryField");
+        var noResButtAppTo = $("#addArtistButton");
+
+        $('#ticketCategory').autocomplete({
+            source: function(request,response){
+                    $.ajax({
+                     url: 'http://pingouin.heig-vd.ch/gof/api/v1/ticketcategories/search',
+                        dataType : "json",
+                        data:{string:request.term},
+                        success:function(data){
+                            //console.log(data);    
+                            response($.map(data, function(item) {
+                                
+                                   return {                    
+                                       label: item.name_de,  
+                                       value: item.name_de,
+                                       id: item.id,
+                                       category :'Ticket category'   
+                                   };  
+                            }))
+                        },
+                        error: function(result) {
+                            alert("Data ticket category not found");
+                        }
+                    })
+                },
+                 messages: {
+                        noResults: function(){
+                            //if the create new artist button doesnt exist, add it once
+                            $('#noTicketCategoryResultInfo').slideDown();
+                            //$('.noResult addArtist').insertAfter(noResButtAppTo).slideDown()
+                        }, 
+                        results: function(result) {   
+                            //$(noResultButton).slideUp()
+                            
+                            $("#noTicketCategoryResultInfo").slideUp()
+                            
+                        }
+                    },
+                minLength: 0, // must be 0 if you want to show all
+                dataType : "json",
+                select: function(event,ui){
+                        var selectedObj = ui.item;  
+            
+                //if we have already selected a musician, dont add it twice, dialog box
+                if($().length==1){
+                    $( "<div>").dialog({
+                        title: 'Attention!',
+                      modal: true,
+                      buttons: {
+                        Ok: function() {
+                          $(this).dialog( "close" );
+                            }
+                      }
+                    }).append('The ticket category <b>'+selectedObj.value + '</b> (id'+selectedObj.id+') is already in the list!');
+
+                }else{
+                    
+                    $(listToBeFilled).show() //show the div we will append to
+
+                    var ticket = new Ticket({name : selectedObj.value, id: selectedObj.id})
+                    
+                    ticketsNestedColl.get('tickets').add(ticket)
+                    console.log(ticketsNestedColl.toJSON());
+
+  
+    
+                    var renderTicket = ticketField.render().$el
+                    $(renderTicket).appendTo(listToBeFilled)
+                    listToBeFilled.show()
+                                    
+                }
+            }//end select
+});//end autocomplete
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+                    //save data in a dom element
+                    
+                    $(item.label).data('originalLabel', item.label);
+                    item.label = item.label.replace(new RegExp("(^"+$.ui.autocomplete.escapeRegex(this.term) 
+                        +')', "gi"), 
+                    "<b style='color:red;'>$1</b>");
+
+                    return $("<li></li>")
+                            .data("item.autocomplete", item)
+                            .append("<a>" + item.label + "</a>")
+                            .appendTo(ul);
+                };
+        $.ui.autocomplete.prototype._renderMenu=function( ul, items ) {
+              var that = this,
+                currentCategory = "";
+              $.each( items, function( index, item ) {
+                if ( item.category != currentCategory ) {
+                  ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                  currentCategory = item.category;
+                }
+                that._renderItemData( ul, item );
+              });
+            };
+        //********************************
+        //////// END AUTOCOMPLETE
+        //************************
+
+
+}
+               
     
     
 });
@@ -335,12 +737,22 @@ multipleArtists.render().$el.appendTo('#artistList');
 multipleEvents.render().$el.appendTo('#eventList');
 multipleMusicians.render().$el.appendTo('#musicianList')
 */
-//var chuj = new ArtistFieldInMusician({model: artistNestedList})
-//chuj.render().$el.appendTo('#eventList')
 
-
-$("#arrivalHour").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true,
+//artist
+$("#arrivalHourHour").timepicker({'scrollDefaultNow': true, 'timeFormat': 'H:i'})
+$("#arrivalHour").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true, changeYear: true})
+//events 
+$("#startDate").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true,
       changeYear: true})
+$("#endDate").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true,
+      changeYear: true})
+$("#openingDoorsTime").timepicker({'scrollDefaultNow': true, 'timeFormat': 'H:i'})
+
+$("#startTime").timepicker({'scrollDefaultNow': true, 'timeFormat': 'H:i'})
+$("#endTime").timepicker({'scrollDefaultNow': true, 'timeFormat': 'H:i'})
+
+
+
 
 $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
 
@@ -351,14 +763,18 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
 
         // Render an instance of your modal
         var modalView = new Modal();
-       
         $('.app').html(modalView.render().el);
+});
+$(".deleteArtistEvent").hide()
+$("#artistInEvent").hide()
+$("#noArtistEventResultInfo").hide()
+$("#eventTypesField").hide()
+$("#noTypeEventResultInfo").hide()
+$(".deleteTypeEvent").hide()
 
-      });
-
-     
-
-
+$("#ticketCategoryField").hide()
+$("#noTicketCategoryResultInfo").hide()
+$
 $(".buttonsListMusician").click(function(event){
     event.stopPropagation();
 });
