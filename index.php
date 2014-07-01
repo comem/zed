@@ -4,6 +4,7 @@
 	   <title>ZED</title>
 	   <meta charset="utf-8">
 	   <link rel="stylesheet" type="text/css" href="css/style.css">
+       <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" type="text/css" href="css/form.css"> 
      <link rel="stylesheet" type="text/css" href="css/uicss.css"> 
      <!-- <link rel="stylesheet" type="text/css" href="css/list.css">  -->
