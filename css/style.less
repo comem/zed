@@ -327,26 +327,22 @@ body{
 
 
 	.downNav{
+		position:fixed;
+		top:0;
+		z-index:20000;
+		.column(24);
 		font-family: arial;
 		font-weight: bold;
-		position: fixed;
-		top:0px;
-		left:20px;
-		.column(3);
-
-
-		
 		text-transform: uppercase;
-		font-size: 1em;
-		z-index:1000;
+		font-size: 1.3em;
+
 		a{
 			text-decoration: none;
 			color:#FFF7E8;
 		}
 
 		/// GENERAL ///
-		
-		height:50px;
+		height:@navHeight;
 		background-color: @lightBrown;
 	    -webkit-box-shadow: inset 0px 51px 21px -50px rgba(50, 50, 50, 0.54);
 	    -moz-box-shadow:    inset 0px 51px 21px -50px rgba(50, 50, 50, 0.54);
@@ -359,12 +355,10 @@ body{
 			li:first-child{
 				
 				a{	
-					.column(23.8);
+					.column(23.95);
 					
 					margin-right: 1px;
 					border-right: 6px solid #8C7658;
-
-
 					/// Shadow for the separation in the nav (ADD | LIST) ///
 					// -webkit-box-shadow: inset -5px 0px 0px -3px rgba(102, 90, 74, 0.3);
 	    //             -moz-box-shadow:    inset -5px 0px 0px -3px rgba(102, 90, 74, 0.3);
@@ -372,7 +366,7 @@ body{
 				}
 			}
 			li{	
-				line-height:50px;
+				line-height:@navHeight;
 				margin-left: 10px;
 				text-align: center;
 				.column(12);
@@ -387,7 +381,7 @@ body{
 					background-color: @lightBrown;
 					vertical-align: middle;
 					.column(24);
-					height:50px;
+					height:@navHeight;
 
 					&:hover{
 						background-color: #8C7658;
@@ -452,6 +446,57 @@ body{
 
 		}
 	}
+
+
+	.downSecondNav{
+		position:fixed;
+		top:13px;
+		.column(24);
+		padding-top:50px;
+		z-index:2000;
+		
+		.liEvent{
+        	background-color: @lightBrown;
+        }
+        
+		li{
+
+		.column(4);
+		.push(1.6);
+		line-height:50px;
+		background-color: @darkBrown;
+
+		-webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+
+
+
+		a{	
+
+           -webkit-box-shadow: 1px 0px 19px 0px rgba(50, 50, 50, 0.35);
+           -moz-box-shadow:    1px 0px 19px 0px rgba(50, 50, 50, 0.35);
+           box-shadow:         1px 0px 19px 0px rgba(50, 50, 50, 0.35);	
+
+
+
+			font-family: arial;
+			text-decoration: none;
+			text-transform: capitalize;
+			color:#FFF7E8;
+			text-align: center;
+			vertical-align: middle;
+			.column(24);
+			height:50px;
+
+			&:hover{
+				background-color: @lightBrown;
+			}
+		}
+
+		}
+	}
+
 	
 }
 
@@ -466,7 +511,7 @@ body{
 	position: absolute;
 	width:100%;
 	top:150px;
-	height: 4001px;
+	height: 2000px;
 
 	.event{
 		position: relative;

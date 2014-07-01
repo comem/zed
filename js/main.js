@@ -26,7 +26,8 @@ var Modal = Backbone.Modal.extend({
     template: _.template(templates.add_uploadImage),
     cancelEl: '.bbm-button',
     events:{
-        "click  #selectable>li" : 'imageSelect'
+        "click  #selectable li img" : 'imageSelect',
+        "click  #imageUpload"       : 'uploadImage'
        
     },
     imageSelect:function(event){
@@ -34,7 +35,12 @@ var Modal = Backbone.Modal.extend({
         var id = $(event.target).attr('id');  
         console.log($(event.target).attr('id'));
         console.log(genreIndex);
-        $(this).css('border','3px solid red');
+        $('#selectable li img').css('border','none');
+        $(event.target).css('border','2px solid red');
+    },
+    imageUpload:function(){
+        console.log('imageupload');
+        $('#selectable li img').css('border','none');
     }
 });
 

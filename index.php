@@ -33,6 +33,7 @@
    
 <script src="models/linksModel.js"></script>
     <script src="models/genreModel.js"></script>   
+    <script src="models/imageModel.js"></script> 
     <script src="models/ticketsModel.js"></script>
     <script src="models/instrumentModel.js"></script>   
     <script src="models/musicianModel.js"></script>

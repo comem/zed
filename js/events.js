@@ -13,8 +13,11 @@ $(function(){
 
 	// Navigate to deafault form
 	console.log("navigate to deafult form");
-
-	setTimeout(pageHeight, 4000);
+	$('.musicianTemplate h1').on('click', function(){
+		console.log('yeah click on it');
+	});
+	setTimeout(pageHeight, 2000);
+	
 
 	// Scrolling
 	$(window).scroll(showAtScroll);
@@ -48,15 +51,32 @@ function showMain(href){
 }
 
 
-function showAtScroll(){
-	var heightLimit = $(document).scrollTop();
-	var positionElementInPage = '300';
-	if ($(window).scrollTop() > positionElementInPage) {  
-        $(this).switchClass('downNav','normalNav',800,'easeOutBounce');
-    } else {
-  		$('body>nav').switchClass('normalNav','downNav',0,'easeOutBounce');
-	};
-}
+ function showAtScroll(){
+// 	var heightLimit = $(document).scrollTop();
+// 	var positionElementInPage = '300';
+// 	if ($(window).scrollTop() > 90) {  
+		
+// 		$('body>div>nav').removeClass('normalNav');
+// 		$('body>div>nav').addClass('downNav');
+
+		
+		
+//        //$('body>div>nav').switchClass('normalNav','downNav',800,'easeOutBounce');
+//     } else {
+
+//     	$('body>div>nav').removeClass('downNav');
+// 		$('body>div>nav').addClass('normalNav');
+
+		
+//   		//$('body>nav').switchClass('normalNav','downNav',0,'easeOutBounce');
+// 	};
+
+// 	if($(window).scrollTop()>180){
+// 		$('.normalSecondNav').removeClass('normalSecondNav').addClass('downSecondNav');
+// 	}else{
+// 		$('.downSecondNav').removeClass('downSecondNav').addClass('normalSecondNav');
+// 	}
+ }
 
 
 function scrollForm(href){
@@ -78,7 +98,7 @@ function scrollForm(href){
 
 		$('.main nav ul li ').css('background-color','#7A664C');
 		$('.liArtist ').css('background-color','#B39C7F');
-		$('.event').animate({left: '-100%'});	
+		$('.event').animate({left: '-100%'});
 		$('.artist').animate({left: '0%'});
 		$('.musician').animate({left: '100%'});
 		$('.stuff').animate({left: '200%'});	
@@ -117,8 +137,10 @@ function isFocus(href){
 
 function pageHeight(){
 
+	var heightPage = $('#musicianList').height();
 	console.log($('#musicianList').height());
-	if (true) {
-
+	if (heightPage > 2000) {
+		console.log(heightPage);
+		$('.forms1').css({'height' : heightPage + 300 });
 	};
 }

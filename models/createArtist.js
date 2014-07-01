@@ -62,6 +62,6 @@
    }
 
 $(document).ready(function(){
-  $('#createNewArtistButton').click(createArtist)
+  $('#createNewArtistButton').click(createArtist);
 
 })

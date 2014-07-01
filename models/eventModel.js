@@ -16,18 +16,43 @@ var MyModelNestedCollection = Backbone.Model.extend({
             }
         });
 
-var Image = Backbone.Model.extend({
+var ImageModel = Backbone.Model.extend({
+    urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/store',
+
     defaults: function(){
                 return{
-               
+                 
                  id:''
                  }
             }
 
 })
+
 var ImagesColl = Backbone.Collection.extend({
-    model: Image
-})
+    url: 'http://pingouin.heig-vd.ch/gof/api/v1/images',
+    model: ImageModel,
+    parse: function (response) {
+        if (typeof response.data != "undefined") {
+            response = response.data;
+        }
+       
+        return response;
+    }
+
+});
+
+var imagesCollection = new ImagesColl()
+imagesCollection.fetch({
+    success: function(){
+        console.log('Images:');
+        console.log(imagesCollection.toJSON());
+
+        musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+        musicianList.render().$el.appendTo('#musicianList')
+        $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+    }
+});
+
 
 
 var EventModel = Backbone.Model.extend({
