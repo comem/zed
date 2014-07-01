@@ -46,6 +46,10 @@ form {
   -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 }
+body {
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 300;
+}
 #artistInfoDiv,
 #genreSelect,
 #musicianSelect,
@@ -67,13 +71,13 @@ form {
 #stuffForm {
   background-color: #EEE;
   padding: 20px 30px 20px 30px;
-  font: 14px Georgia, "Times New Roman", Times, serif;
   color: #888;
+  font-size: 14px;
   text-shadow: 1px 1px 1px #FFF;
   border: 1px solid #DADADA;
 }
 h1 {
-  font: 25px Georgia, "Times New Roman", Times, serif;
+  font-size: 25px;
   padding: 0px 0px 5px 30px;
   display: block;
   margin-top: 20px;
@@ -84,7 +88,7 @@ h1:focus {
 }
 h2 {
   margin-bottom: 15px;
-  font: 16px Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
   color: #888;
   text-decoration: underline;
   outline: 0 none;
@@ -119,7 +123,7 @@ input[type="number"] {
   margin-top: 2px;
   padding: 3px 3px 3px 5px;
   width: 70%;
-  font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
 }
 select {
   -webkit-appearance: none;
@@ -148,13 +152,19 @@ button img:hover {
   filter: alpha(opacity=100);
   -webkit-transition: 0.2s;
 }
+.artist h2 img,
+.musicianForm h2 img,
+#eventForm h2 img {
+  opacity: 0.6;
+  margin-right: 5px;
+}
 div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
   background: white;
   border: 1px solid #DADADA;
   border-top: none;
   width: 230px;
   color: #888;
-  font: Georgia, "Times New Roman", Times, serif;
+  font-family: 'Oxygen', sans-serif;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.54);
   -moz-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.54);
   box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.54);
@@ -207,7 +217,7 @@ div.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-dialog-butto
   box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
   border-radius: 10px;
   outline: none;
-  font: 14px Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
   color: #888;
   text-shadow: 1px 1px 1px #FFF;
 }
@@ -408,7 +418,8 @@ span.ui-button-text:hover {
   display: none;
 }
 .ui-menu-item {
-  font: 13px Georgia, "Times New Roman", Times, serif;
+  font-size: 13px;
+  font-family: 'Oxygen', sans-serif;
   opacity: 0.6;
 }
 .ui-menu-item:hover {
@@ -473,7 +484,7 @@ span.ui-button-text:hover {
 .musicianTemplate {
   border-bottom: 1px solid #7A7A7A;
   border-bottom-right-radius: 10px;
-  font: 14px Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
   color: #888;
 }
 .musicianTemplate:last-child {
@@ -541,7 +552,7 @@ span.ui-button-text:hover {
   margin: 0 0%;
   border-bottom: 1px solid #7A7A7A;
   border-bottom-right-radius: 10px;
-  font: 14px Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
   color: #888;
 }
 .artistTemplate:last-child {
@@ -593,7 +604,7 @@ span.ui-button-text:hover {
 .eventTemplate {
   border-bottom: 1px solid #7A7A7A;
   border-bottom-right-radius: 10px;
-  font: 14px Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
   color: #888;
 }
 .eventTemplate .pourQueAccFonctionne {
