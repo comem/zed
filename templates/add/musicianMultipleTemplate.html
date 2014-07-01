@@ -1,7 +1,9 @@
 <% _.each(musicians, function (musician, musicianIndex) { %>
 <div class="musicianTemplate myAccordion">
 
-          	<h1> Musician <%- musicianIndex+1 %> - <%- musician.first_name %> 
+          	<h1>
+                    <img  class ="imageListe" src="img/icones/icone_musician_big.png">
+                <%- musician.first_name %> 
           		<span><%- musician.stagename %></span>
 
           		<ul class = "buttonsListMusician">
@@ -35,9 +37,5 @@
           	
           		
 </div>
-
-
-
-
 
  <% }); %>

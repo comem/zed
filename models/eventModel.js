@@ -1,4 +1,3 @@
-
 var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
@@ -158,5 +157,3 @@ eventsNestedColl.get('events').fetch({
         console.log(eventsNestedColl.toJSON());
     }
 })
-
-

@@ -3,8 +3,8 @@
 
 
           	<h1>
-          		<img src="img/icones/icone_artist.png">
-          		Artist <%- artistIndex +1 %> - <%- artists[artistIndex].name %>
+          		<img class ="imageListe"src="img/icones/icone_artist.png">
+          		<%- artists[artistIndex].name %>
           		<ul class = "buttonsListMusician">
           			<li><button type="button">
           				<img src="img/icones/icone_delete.png"/>
@@ -70,17 +70,21 @@
 		          	 <% }); %>
 		        </div>
 
-		      <div class="secondColumn myAccordion">
-					<h1>
+		      <div class="secondColumn">
+					<h2>
 						<img src="img/icones/icone_musician.png">
 						Musicians 
-					</h1>
+					</h2>
 
-		         <div>
+		         
  					<% _.each(artists[artistIndex].musicians, function (musician, index) { %>
-		           	<div class ="musicianPlusInstrument">
-		           	<div class ="artistMusician"> 	
+		           	
+		           	<div class ="artistMusician myAccordion"> 
+		           		
 		           		<h3> <%- musician.stagename  %> </h3>
+		           		<div>	
+		           		
+
 		           		<p> 
 		           			<label>First name : </label>
 		           			<%- musician.first_name %> 
@@ -90,7 +94,8 @@
 		           			<label>Last name : </label>
 		           			<%- musician.last_name %> 
 		           		</p>
-		           	</div>	
+		           		</div>
+		           	
 			           		
 			           		
 			       
@@ -99,7 +104,7 @@
 		           
 		        </div>  
 		 	   	<% }); %>
-		 	   	</div>
+		 	   	
 		 	   	
 		 	   	</div>
           

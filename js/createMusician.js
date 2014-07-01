@@ -32,6 +32,8 @@
                     musician.get('artistsInstruments').add(artistInstruments)                  
                     console.log(JSON.stringify(musician));
 
+                   
+
                   musician.save();
 
                     // put the inputs to nothing
@@ -52,7 +54,7 @@
                                   $(this).dialog( "close" );
                                     },
                               }
-                            }).append(added.text());
+                            }).append('Le musicien a été ajouté avec succès')
              }else{//Artist not found
                 $( "<div >").dialog({
                   title :'Attention!',
