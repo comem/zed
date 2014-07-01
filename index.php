@@ -41,6 +41,7 @@
     <script src="models/eventModel.js"></script>
 
     <script src="views/artistViews.js"></script>
+    <script src="views/imageViews.js"></script>
     <script src="views/eventViews.js"></script>
     <script src="views/instrumentViews.js"></script>
     <script src="views/genreViews.js"></script>

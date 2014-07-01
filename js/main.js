@@ -412,8 +412,10 @@ $(function(){
     addEvent.render().$el.appendTo('#formsAdd');
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
-    addStuff.render().$el.appendTo('#stuffForm')
+    addStuff.render().$el.appendTo('#stuffForm');
 
+
+   
 /*
 artistNestedCollServer.get('artists').fetch({
     success:function(){
@@ -469,6 +471,30 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
         var modalView = new Modal();
        
         $('.app').html(modalView.render().el);
+
+        var ImageView = Backbone.View.extend({
+            initialize: function(attrs, options){
+                 this.listenTo(this.model, 'all', this.render);
+                 //this.listenTo(this.model, 'remove', this.logDelete);
+                 //this.listenTo(this.model, 'add' ,this.logAdd)
+            },
+           template : _.template(templates.lists_listImage),
+            render: function() {
+                this.$el.html(this.template(this.model.toJSON()));
+                return this;
+            }
+            
+        });
+
+
+var imageView = new ImageView({model:imagescollnested})
+imagescollnested.get("images").fetch({
+  success:function () {
+    imageView.render().$el.appendTo("#selectable");
+    console.log(imagescollnested.toJSON())
+
+  }
+})
 
       });
 

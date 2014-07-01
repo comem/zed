@@ -20,37 +20,3 @@
 
        
 
-//*******************//**********SERVER*********//**************
-        
-        var MusicianCollServer = Backbone.Collection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/api/v1/images',
-            model: Musician,
-            parse: function (response) {
-                if (typeof response.data != "undefined") {
-                    response = response.data;
-                }
-                musician = new Musician(response)
-                return response;
-            }
-        });
-        var musicianCollServer = new MusicianCollServer();
-
-
-        var MusicianNestedCollServer = MyModelNestedCollection.extend({
-            url: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians',
-            nested:'musicians',
-            defaults: function(){
-                return {
-                    musicians : new MusicianCollServer()
-                }
-            },
-            parse: function (response) {
-            if (typeof response.data != "undefined") {
-                response = response.data;
-
-            }
-            musician = new Musician(response)
-            return musician;
-        }
-        });
-        var musicianNestedCollServer = new MusicianNestedCollServer();

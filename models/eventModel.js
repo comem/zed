@@ -40,6 +40,18 @@ var ImagesColl = Backbone.Collection.extend({
 
 });
 
+var ImagesCollNested = MyModelNestedCollection.extend({
+    nested : "images",
+    defaults: function(){
+                return{
+                 
+                 images: new ImagesColl()
+                 }
+            }
+
+});
+var imagescollnested = new ImagesCollNested()
+
 var imagesCollection = new ImagesColl()
 imagesCollection.fetch({
     success: function(){

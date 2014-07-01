@@ -4,12 +4,13 @@
     </div>
     <div class="bbm-modal__section">
     <ol id="selectable">
-      <li class="ui-state-default" > <img id="1" src="img/images/1.jpg"></li>
-      <li class="ui-state-default" > <img id="2" src="img/images/2.jpg"></li>
-      <li class="ui-state-default" > <img id="3" src="img/images/3.jpg"></li>
-      <li class="ui-state-default"> <img src="img/images/1.jpg" id="4"></li>
-      <li class="ui-state-default" > <img id="5" src="img/images/2.jpg"></li>
-      <li class="ui-state-default" id="6"> 3</li>
+      <% _.each(images,function(image,i){%>
+
+        <li class="ui-state-default"> <img src="<%- image.source %>" id="<%- image.id %>"></li>
+
+    <%});%>
+
+      
     </ol>
      
     </div>
