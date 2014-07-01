@@ -206,6 +206,9 @@ var ImagesColl = Backbone.Collection.extend({
             //ar  artistList = new ArtistMultipleView({model:artistNestedCollServer})
             multipleArtists.render().$el.appendTo('#artistList');
             $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+            $(".buttonsListMusician").click(function(event){
+            event.stopPropagation();
+            });
 
 
         }

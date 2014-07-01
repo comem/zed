@@ -1,0 +1,20 @@
+<% _.each(x,function(x,i){%>
+
+	<li class="ui-state-default"> <img src="" id="4"></li>
+
+<%});%>
+
+  <h1>Instruments</h1>
+    <% _.each(instruments, function (instrument, index) { %>
+<div class="instrumentList" id="intrumentNameList-<%- instrument.name %>" data-indice=
+            "<%- index %>"	>
+
+       
+               <%- index+1 %> :   <b><%- instrument.name_de %> </b>
+
+
+    
+ </div>
+         <% }); %>
+	
+           
