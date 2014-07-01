@@ -65,12 +65,12 @@ $('#eventName').autocomplete({
 					$(listToBeFilled).show() //show the div we will append to
 					var evento = new EventModel({title_de: selectedObj.value, id:selectedObj.id})
 					
-					eventColl.add(evento);
-					eventsNestedColl.get('events').add(evento);
+					eventColl2.add(evento);
+					eventsNestedColl2.get('events').add(evento);
 
-					console.log(eventsNestedColl.toJSON());
+					console.log(eventsNestedColl2.toJSON());
 
-					//var artistToEvent = new EventFieldArtist({model : eventsNestedColl})
+					//var artistToEvent = new EventFieldArtist({model : eventsNestedColl2})
 					artistToEvent.render().$el.appendTo(listToBeFilled)
 					
 					

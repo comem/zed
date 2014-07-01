@@ -9,12 +9,12 @@ var artistListMusician = new ArtistNestedColl();
 $('#addToArtist').autocomplete({
 	source: function(request,response){
 			$.ajax({
-           	 url: 'http://pingouin.heig-vd.ch/gof/api/v1/artists',
+           	 url: 'http://pingouin.heig-vd.ch/gof/api/v1/artists/search',
 				dataType : "json",
-				data:{name:request.term},
+				data:{string:request.term},
 				success:function(data){
 					//console.log(data);	
-					response($.map(data.data, function(item) {
+					response($.map(data, function(item) {
                         // console.log(item.name);
                            return {                    
                                label: item.name,  
