@@ -57,6 +57,25 @@
 
                console.log(JSON.stringify(artist));
                artist.save()
+
+               // put the inputs to nothing
+                    $("#nameArtist").val('')
+                    $("#lead").val('')
+                    $("#artistDescription").val('')
+                    $("#titleLink").val('')
+                    $("#nameLink").val('')
+                    $("#linkUrl").val('')
+                    $("#genre").val('')
+                    $("#musician").val('')
+                    $("#eventName").val('')
+                    $("#arrivalHour").val('')
+                    $("#order").val('')
+                   
+                    
+
+                    
+
+
  
                  $( "<div title='Add new artist'>").dialog({            
                           buttons: {

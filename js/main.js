@@ -116,40 +116,139 @@ var StuffList = MyView.extend({
     }
 });
 
-
+///°°°°° ADD STUFF °°°°/////
 var AddStuff = MyView.extend({
     template: _.template(templates.add_addStuff),
     render:function(){
         this.$el.html(this.template());
         return this;
     },
+    
     events:{
         "click  #stuffGenreButton" : 'addGenre',
         "click  #stuffInstrumentButton" : 'addInstrument',
         "click  #stuffEventButton" : 'addEvent',
         "click  #stuffTicketButton" : 'addTicket'
     },
+
+    ///ADD GENRE///
     addGenre: function(){
        var name = this.$el.find("input[name='stuffGenre']").val();
        var genre = new Genre({name_de: name})
-       console.log(genre.toJSON());
-       genre.save()
+       if(name==''){
+        $( "<div >").dialog({
+                  title :'Genre',
+
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                        
+                  },
+
+                }).append('Veuillez remplir le champ');
+
+       }else{
+        genre.save()
+       $( "<div >").dialog({
+                  title :'Genre',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Votre genre a été crée');
+       $("input[name='stuffGenre']").val('');
+       }
     },
+    ///ADD INSTRUMENT///
     addInstrument: function(){
         var name = this.$el.find("input[name='stuffInstrument']").val();
        var instrument = new Instrument({name_de: name})
-       console.log(instrument.toJSON());
-       instrument.save()
+       if(name==''){
+        $( "<div >").dialog({
+                  title :'Instrument',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Veuillez remplir le champ');
+
+       }else{
+        instrument.save()
+       $( "<div >").dialog({
+                  title :'Instrument',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Votre instrument a été crée');
+       $("input[name='stuffInstrument']").val('');
+       }
+
     },
+    ///ADD TICKET TYPE///
     addTicket: function(){
-        var name = this.$el.find("input[name='stuffTicket']").val();
+        var name = this.$el.find("input[name='stuffTicketType']").val();
        var ticket = new Ticket({type: name})
-       ticket.save()
+       
+       if(name==''){
+        $( "<div >").dialog({
+                  title :'TicketType',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Veuillez remplir le champ');
+
+       }else{
+        ticket.save()
+       $( "<div >").dialog({
+                  title :'TicketType',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Votre ticket a été crée');
+       $("input[name='stuffTicketType']").val('');
+       }
+
     },
+    ///ADD EVENT TYPE///
     addEvent: function(){
-        var name = this.$el.find("input[name='stuffEvent']").val();
+        var name = this.$el.find("input[name='stuffEventType']").val();
        var eventType = new EventType({type: name})
-       eventType.save()
+       
+       if(name==''){
+        $( "<div >").dialog({
+                  title :'EventType',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+                  }
+                }).append('Veuillez remplir le champ');
+
+       }else{
+        eventType.save()
+       $( "<div >").dialog({
+                  title :'EventType',
+                  buttons: {
+                    Close: function() {
+                      $(this).dialog( "close" );
+                        },
+
+
+                  }
+                }).append('Votre typeEvent a été crée');
+       $("input[name='stuffEventType']").val('');
+       }
+
+
     }
 });
 

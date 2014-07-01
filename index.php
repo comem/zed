@@ -106,8 +106,7 @@
   <div class="app"></div>
 
  
- 
-<div id="#musicianSuccessfullyAdded"> Musician successfully added!</div>
+
 
     </body>
 </html>
