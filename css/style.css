@@ -414,7 +414,7 @@ body .downNav ul li a:hover {
   background-position: 0 -17px;
 }
 #login_form label.css-label {
-  background-image: url(css/checkbox.png);
+  background-image: url(../img/checkbox.png);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
