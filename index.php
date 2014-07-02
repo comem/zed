@@ -7,7 +7,8 @@
        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" type="text/css" href="css/form.css"> 
      <link rel="stylesheet" type="text/css" href="css/uicss.css"> 
-     <!-- <link rel="stylesheet" type="text/css" href="css/list.css">  -->
+
+     <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css">  
      <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.js" type="text/javascript"></script> 
     <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
@@ -47,6 +48,7 @@
     <script src="views/instrumentViews.js"></script>
     <script src="views/genreViews.js"></script>
     <script src="views/musicianViews.js"></script>
+     <script src="views/ticketView.js"></script>
     
     
     
@@ -63,6 +65,7 @@
 
     <script src ="js/createMusician.js"></script>
     <script src ="js/createArtist.js"></script> 
+    <script src="js/createEvent.js"></script>
 
     <script src ="lang/jquery.localisation.js"></script> 
     <script src ="js/langChange.js"></script> 

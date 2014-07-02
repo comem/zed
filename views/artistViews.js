@@ -35,7 +35,7 @@ var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
                 'click .deleteArtist': 'delete'
             }, 
             delete: function (event) {
-              
+              //ARTIST IN MUSICIAN
               var len = artistNestedList.toJSON().artists.length;
               if (len == 1)  $('#musicianAddedToArtist').fadeOut("slow");
             
@@ -45,13 +45,25 @@ var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
              //remove from nested model
               this.model.get('artists').remove(artistDelete);
               
-               console.log(artistNestedList.toJSON());
+              //console.log(artistNestedList.toJSON());
+
+
+              //ARTIST IN EVENT
+               var len2 =artistEventNestedList.toJSON().artists.length
+               console.log(artistEventNestedList.toJSON());
+               if (len2 == 0)  $('#artistInEvent').fadeOut("slow");
+               var artistEventIndex = $(event.target).attr('data-indice');
+             
+             var artistEventDelete = artistEventNestedList.get('artists').at(artistEventIndex);
+             //remove from nested model
+              artistEventNestedList.get('artists').remove(artistEventDelete);
+            
             }
         });
 
 
         artistField = new ArtistFieldInMusician({model :artistNestedList})
-
+        artistFieldEvent = new ArtistFieldInMusician({model :artistEventNestedList})
        
        
 

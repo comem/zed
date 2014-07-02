@@ -6,33 +6,37 @@
      var linkTitle = $('#titleLink').val()
      var linkName = $('#nameLink').val()
      var linkUrl = $('#linkUrl').val()
-     var arrivalHour = $('#arrivalHour').val();
+     var arrivalDate= $('#arrivalHour').val();
+     var arrivalHour = $('#arrivalHourHour').val();
      var order = $('#order').val();
      var support = $('#support').val();
 
      //create new Artist
      var artist = new Artist({name: artistName, 
-        short_description: lead, complete_description: description })
+     short_description: lead, complete_description: description })
      //add the links info to the artist
      artist.get('links').set({url :linkUrl, title_de: linkTitle, name_de: linkName})
 
 
 
        if(artist.get('first_name') != ''){
-         if (allMusicians.length != 0 ){
+        
           if(linkUrl.length != 0){
 
             musIns2 = new MusicianInstruments({musician_id: 03003, instrument_id:69})
             // img = new Images({id:23})
             //img2 = new Images({id:22992})
             // artist.get('images').add([img, img2])
-            if (support == "Yes") {
+            if (support == "yes") {
                   artist.get('night').set({isSupport: 1})
-            }else{
+            }if(support=="no"){
               artist.get('night').set({isSupport: 0})
             }
+            if(support ==""){
 
-            artist.get('night').set({artist_hour_arrival: arrivalHour, order: order})
+            }
+
+            artist.get('night').set({artist_hour_arrival: arrivalDate+" "+arrivalHour, order: order})
             
 
               //Add musicians
@@ -50,7 +54,7 @@
                   artist.get('genres').add(genre)
                 });
               
-               eventColl.each(function(model){
+               eventColl2.each(function(model){
                 console.log(model);
                   artist.get('night').set({id:model.attributes.id})
                })
@@ -94,16 +98,7 @@
                           }
                         }).append('URL link missing');
                  }
-          }else{//Artist not found
-            $( "<div title='Attention!'>").dialog({
-                              
-                              buttons: {
-                                Close: function() {
-                                  $(this).dialog( "close" );
-                                    },
-                              }
-                  }).append('Musician not found');}
-        }else{// Musician not complete
+          }else{// Musician not complete
             artist.isValid();
          }
    }

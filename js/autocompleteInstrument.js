@@ -72,8 +72,8 @@ $('#instrumentMusician').autocomplete({
 
 					console.log(instrumentsNestedColl.toJSON());
 
-					var render = instrumentsAddedToMusician.render().$el
-					$(render[0]).appendTo(listToBeFilled)
+					var renderInstrument = instrumentsAddedToMusician.render().$el
+					$(renderInstrument[0]).appendTo(listToBeFilled)
 					//console.log(aMusiciansList.toJSON())
 					
 				}
