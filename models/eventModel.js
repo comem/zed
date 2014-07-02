@@ -50,20 +50,21 @@ var ImagesCollNested = MyModelNestedCollection.extend({
             }
 
 });
-var imagescollnested = new ImagesCollNested()
+/*
+    var imagescollnested = new ImagesCollNested()
 
-var imagesCollection = new ImagesColl()
-imagesCollection.fetch({
-    success: function(){
-        console.log('Images:');
-        console.log(imagesCollection.toJSON());
+    var imagesCollection = new ImagesColl()
+    imagesCollection.fetch({
+        success: function(){
+            console.log('Images:');
+            console.log(imagesCollection.toJSON());
 
-        musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-        musicianList.render().$el.appendTo('#musicianList')
-        $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-    }
-});
-
+            musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+            musicianList.render().$el.appendTo('#musicianList')
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+        }
+        });
+*/
 
 var NightType = Backbone.Model.extend({
      defaults: function(){
@@ -97,7 +98,7 @@ var PlatformsColl = Backbone.Collection.extend({
 })
 
 var EventModel = Backbone.Model.extend({
-    urlRoot:'http/:/pingouin.heig-vd.ch/gof/api/v1/nights',
+    url:'http//pingouin.heig-vd.ch/gof/api/v1/nights',
 
 
             defaults: function(){
@@ -136,7 +137,6 @@ var EventModel = Backbone.Model.extend({
 
 var EventColl = Backbone.Collection.extend({
     url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
-
     model:EventModel,
     parse: function (response) {
         if (typeof response.data != "undefined") {
@@ -150,8 +150,8 @@ var eventColl = new EventColl()
 
 
 
-var EventsNestedColl = MyModelNestedCollection.extend({
-      
+var EventsNestedColl = MyModelNestedCollection.extend({ 
+ url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',   
     nested: 'events',
     defaults: function(){
         return {
@@ -184,24 +184,6 @@ var EventsNestedColl2 = MyModelNestedCollection.extend({
 })
 
 eventsNestedColl2 = new EventsNestedColl()
-
-
-
-
-
- musicianNestedCollServer.get('musicians').fetch({
-        success:function(){
-
-           musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-           musicianList.render().$el.appendTo('#musicianList')
-            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-
-           
-        }
-    })
-
-
-   
 
 
 eventsNestedColl.get('events').fetch({

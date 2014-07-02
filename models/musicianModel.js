@@ -50,7 +50,7 @@
 
         //Model Musician
         var Musician = MyModelNestedCollection.extend({
-            urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians/',
+            urlRoot: 'http://pingouin.heig-vd.ch/gof/api/v1/musicians',
           
             initialize: function(){
                  //this.listenTo(this.model, 'all', this.render);
