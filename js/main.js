@@ -117,14 +117,55 @@ var ArtistList = MyView.extend({
     }
 });
 
+
+/*
+ musicianNestedCollServer.get('musicians').fetch({
+        success:function(){
+
+           musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+           musicianList.render().$el.appendTo('#musicianList')
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+
+           
+        }
+    })
+*/
 var MusicianList = MyView.extend({
     template: _.template(templates.lists_listMusician),
     render:function(){
         this.$el.html(this.template());
         return this;
     },
+    loadStuff: function(){
+        var self = this;
+        musicianNestedCollServer.get('musicians').fetch({
+            xhr: function() {
+
+                var xhr = $.ajaxSettings.xhr();
+                xhr.onprogress = self.handleProgress;
+                return xhr;
+            }
+        });
+    },
+    handleProgress: function(evt){
+        var percentComplete = 0;
+        if (evt.lengthComputable) {  
+            percentComplete = evt.loaded / evt.total;
+            
+        }
+        if(percentComplete ==100){
+
+           musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+           musicianList.render().$el.appendTo('#musicianList')
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+
+        }
+        console.log(Math.round(percentComplete * 100)+"%");
+    }
 
 });
+
+
 
 var StuffList = MyView.extend({
     template: _.template(templates.lists_listStuff),
@@ -366,7 +407,7 @@ var EventAdd = MyView.extend({
             
                     }
                 }//end select
-    });//end autocomplete
+         });//end autocomplete
 
         $.ui.autocomplete.prototype._renderItem = function (ul, item) {
                     //save data in a dom element
@@ -459,19 +500,19 @@ var EventAdd = MyView.extend({
       //add ticket 
       var ticketId = ticketsNestedColl.get('tickets').at(0).get('id')
      var ticket = new Ticket({amount: ticketPrice, comment: ticketNote, ticket_categorie_id: ticketId, quantitySold: ticketQuantity})
-     console.log(ticket.toJSON());
+
 
      evento.get('ticket_categorie').add(ticket)
     
      //addArtists
-    artistEventNestedList.get('artists').each(function( model ) {
-                  var artist = new Artist({id: model.attributes.id, name:model.attributes.name, 
-                  artist_hour_arrival: '2014-01-03 10:01:01', is_support:0})
-                  evento.get('artists').add(artist)
-    });
-     
- 
-        console.log(JSON.stringify(evento));
+      artistEventNestedList.get('artists').each(function( model ) {
+                    var artist = new Artist({id: model.attributes.id, name:model.attributes.name, 
+                    artist_hour_arrival: '2014-01-03 10:01:01', is_support:0})
+                    evento.get('artists').add(artist)
+      });
+       
+   
+          console.log(JSON.stringify(evento));
         evento.save()
 
 
@@ -552,7 +593,7 @@ var EventAdd = MyView.extend({
                                                 
                 }
             }//end select
-});//end autocomplete
+        });//end autocomplete
 
         $.ui.autocomplete.prototype._renderItem = function (ul, item) {
                     //save data in a dom element
@@ -659,7 +700,7 @@ var EventAdd = MyView.extend({
                                     
                 }
             }//end select
-});//end autocomplete
+        });//end autocomplete
 
         $.ui.autocomplete.prototype._renderItem = function (ul, item) {
                     //save data in a dom element
@@ -788,6 +829,7 @@ var listSecondNav = new ListNav();
 var eventList = new EventList();
 var artistList = new ArtistList();
 var musicianList = new MusicianList();
+musicianList.loadStuff()
 var stuffList = new StuffList();
 
 var addEvent = new EventAdd();
