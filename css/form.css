@@ -30,18 +30,6 @@ form {
   width: 50%;
   margin: 0 0%;
 }
-.ticketEspacement {
-  display: inline;
-  float: left;
-  width: 33.33333333333333%;
-  margin: 0 0%;
-}
-.ticketEspacement #ticketAddArtist {
-  width: 90px;
-}
-.ticketEspacement #ticketPrice {
-  border-radius: 10px;
-}
 .accordion,
 #stuffForm {
   background-color: #EEE;
