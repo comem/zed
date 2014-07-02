@@ -30,6 +30,10 @@ var Modal = Backbone.Modal.extend({
         "click  #imageUpload"       : 'uploadImage'
        
     },
+    render:function(){
+        this.$el.html(this.template());
+        return this;
+    },
     imageSelect:function(event){
         var genreIndex = $(event.target).attr('id');
         var id = $(event.target).attr('id');  
@@ -395,6 +399,8 @@ var addMusician = new MusicianAdd();
 var addStuff = new AddStuff()
 
 
+
+
 $(function(){
     
     header.render().$el.appendTo('body');    
@@ -413,6 +419,9 @@ $(function(){
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
     addStuff.render().$el.appendTo('#stuffForm');
+
+   
+
 
 
    
@@ -467,18 +476,17 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
 
  $('.open').on('click', function(){
 
-        // Render an instance of your modal
         var modalView = new Modal();
-       
-        $('.app').html(modalView.render().el);
+         $('.app').html(modalView.render().el);
 
         var ImageView = Backbone.View.extend({
+          template : _.template(templates.lists_listImage),
             initialize: function(attrs, options){
                  this.listenTo(this.model, 'all', this.render);
                  //this.listenTo(this.model, 'remove', this.logDelete);
                  //this.listenTo(this.model, 'add' ,this.logAdd)
             },
-           template : _.template(templates.lists_listImage),
+           
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
                 return this;
@@ -486,17 +494,21 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
             
         });
 
+        // Render an instance of your modal
+        
+       
 
-var imageView = new ImageView({model:imagescollnested})
-imagescollnested.get("images").fetch({
-  success:function () {
-    imageView.render().$el.appendTo("#selectable");
-    console.log(imagescollnested.toJSON())
+        var imageView = new ImageView({model:imagescollnested});
 
-  }
-})
+        imagescollnested.get("images").fetch({
+        success:function () {
+        imageView.render().$el.appendTo("#selectable");
+          console.log(imagescollnested.toJSON());
 
-      });
+        }
+    })
+
+});
 
      
 
