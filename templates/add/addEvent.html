@@ -5,39 +5,44 @@
         <form id="eventForm">
           <div class="firstColumn">
             <div id="eventInfoDiv">
-              <h2 class ="addEventHeader">Informations</h1>
+              <h2 class ="addEventHeader"><img src="img/icones/icone_information.png">Informations</h2>
               <label>Name* </label>
               <input type="text" name="nameEvent" id="nameEvent" required/>
             </div>
 
             <div id="startTimeDiv">
-                <h2 class ="addEventHeader">Start time*</h2>
+                <h2 class ="addEventHeader"><img src="img/icones/icone_time.png">Start time*</h2>
                 <label>Date</label>
-                <input type="date" name="startDate" id="startDate" class="timeCntr" required/>
+                <input type="text" name="startDate" id="startDate" class="timeCntr" required/>
                 <label>Start hour</label> 
-                <input type="time" name="startTime" id="startTime"  required/>
+                <input type="text" name="startTime" id="startTime"  required/>
                 <label>
                 <abbr title="if not filled, 45min before start hour will be set">Opening doors hour</abbr>
                 </label>
-                <input type="time" name="openingDoorsTime" id="openingDoorsTime"/>
+                <input type="text" name="openingDoorsTime" id="openingDoorsTime"/>
             </div>
 
             <div id="endTimeDiv">
-                <h2 class ="addEventHeader">Ending time*</h2>
+                <h2 class ="addEventHeader"><img src="img/icones/icone_time.png">Ending time*</h2>
                 <label>Date</label> 
-                <input type="date" name="startDate" id="startDate"  required/>
-                <label>Ending hour</label><input type="time" name="startTime" id="startTime" required/>
+                <input type="text" name="endDate" id="endDate"  required/>
+                <label>Ending hour</label><input type="text" name="endTime" id="endTime" required/>
             </div>
 
 
             <div id="compInfoDiv">
-                <h2 class ="addEventHeader">Complementary informations</h2>
+                <h2 class ="addEventHeader"><img src="img/icones/icone_moreinfo.png">Complementary informations</h2>
                 <label>Note</label>
                 <textarea placeholder="informations" id="compInfo" ></textarea><br>
                 <label>Number of places*</label>
                 <input type="number" name="placesNumber" id="placesNumber"  required/><br>
-                <label>Followed*</label>
-                <button>Switch</button><br>   
+
+                  <label>Private event?</label>
+                                   <select id="followed">
+                                      <option>Yes</option>
+                                      <option>No</option>
+                                   </select>   
+
                 <label>Contract</label>
                 <input type="file" name="contract" id="contract"/><br>
             </div>
@@ -45,15 +50,21 @@
             <div id="eventTypeDiv">
                 <h2 class ="addEventHeader">Event type</h2>
                 <label>Name</label>
-                <select>
-                  <option>Pussy rockers</option>
-                  <option>bitches on the beach</option>
-                  <option>HEIG is cool</option>
-                </select><br>
+              <input type="text" id ="eventTypeInput"> 
+              <button type="button" id="showAllTypes">Show all types</button>
+
+              <fieldset id="eventTypesField">
+                    <legend>Type selected</legend>
+                </fieldset>
+                
+                <h3 id = 'noTypeEventResultInfo'>pas de resultat, vous pouvez creer un nouveau type</h3> 
+                
+                <button type="button" class ="deleteTypeEvent">Delete type</button>
+
            </div>
 
             <div id="eventImageDiv">
-                 <h2 class ="addEventHeader">Event image</h2>
+                 <h2 class ="addEventHeader"><img src="img/icones/icone_image.png">Event image</h2>
                  <label>Choose existing image</label>
 
                      <button type="button"><a href="#" class="open">Open modal</a></button> 
@@ -71,48 +82,66 @@
         <div class="secondColumn">
 
             <div id="mealsDiv">
-                <h2 class ="addEventHeader">Meals</h2>
+                <h2 class ="addEventHeader"><img src="img/icones/icone_food.png">Meals</h2>
                 <label>Number of normal meals</label>
                 <input type="number" name="normalMeals" id="normalMeals"  required/><br>
-                <label>Number of vegan(metally ill person) meals</label>
+                <label>Number of vegan meals</label>
                 <input type="number" name="veganMeals" id="veganMeals"  required/><br>
                 <label>Note </label>
-                <textarea  id="mealNotes "placeholder="meal notes" ></textarea>
+                <textarea  id="mealNotes"placeholder="meal notes" ></textarea>
             </div>
 
-           <div id="ticketsDiv">
-                <h2 class ="addEventHeader">Tickets</h2>
-                <label>Name</label>
-                <select id="ticketAddArtist">
-                  <option>Frei</option>
-                  <option>AVS</option>
-                  <option>Etudiant</option>
-                </select><br>
+          <div id="ticketsDiv">
+
+                <h2 class ="addEventHeader"><img src="img/icones/icone_price.png">Tickets</h2>
+                <label>Category</label>
+                <input type="text" name="ticketCategory" id="ticketCategory"/>
+                <button type="button" id="showAllCategories">show all categories</button>
+                <fieldset id="ticketCategoryField">
+                    <legend>Tickets selected</legend>
+                </fieldset>
+                
+                <h3 id = 'noTicketCategoryResultInfo'>pas de resultat, vous pouvez creer un nouveau ticket</h3> 
+                
+               
+
 
                 <label>Price</label>
                 <input type="number" name="ticketPrice" id="ticketPrice"/>CHF<br>
                 <label>Quantity</label>
-                <input type="number" name="ticketPrice" id="ticketPrice"/><br>
+                <input type="number" name="ticketQuantity" id="ticketQuantity"/><br>
                 <label>Note</label>
                 <textarea placeholder="informations" id="ticketInfo" ></textarea><br>
             </div>
 
            <div id="plublishingDiv">
-                <h2 class ="addEventHeader">Publishing</h2>
-                <input type="checkbox" name="publishingPlatform" value="facebook">Facebook<br>
+
+                <h2 class ="addEventHeader"><img src="img/icones/icone_publish.png">Publishing</h2>
+                <input type="checkbox" name="publishingPlatform" value="facebook">Facebook
+                <input type="checkbox" name="publishingPlatform" value="twitter">Twitter<br>
+
            </div>
 
            <div id="eventArtistsDiv">
-                 <h2 class ="addEventHeader">Artists</h2>
+                 <h2 class ="addEventHeader"><img src="img/icones/icone_artist_small.png">Artists</h2>
                  <input type="text" name="artistName" id="artistName"/>
                  <button type="button"id="addArtistButton" class ="showAll">
                  <img src="img/icones/icone_list2.png"/>
                  </button><br>
+
+
+                <fieldset id="artistInEvent">
+                    <legend>Artists selected</legend>
+                </fieldset>
+                
+                <h3 id = 'noArtistEventResultInfo'>pas de resultat, vous pouvez creer un nouvel artiste</h3> 
+                
+              
           </div>
 
            
                
-               <button id="submitEvent">CREATE NEW EVENT</button>
+               <button type="button" id="submitEvent">CREATE NEW EVENT</button>
                           
         </div>                  
         

@@ -13,4 +13,4 @@ var ImageView = Backbone.View.extend({
         });
 
 
-var imageView = new ImageView({model:imagescollnested})
+var imageView = new ImageView({model:ImagesCollNested});

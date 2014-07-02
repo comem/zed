@@ -28,8 +28,9 @@
 	          	<p><label>Stage name : </label><%- musician.stagename %> </p>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
+                         <% _.each(musicians[musicianIndex].artists, function (artist, index) { %>
 	          		<p><label>Artists : </label>
-	          	 <% _.each(musicians[musicianIndex].artists, function (artist, index) { %>
+	          	 
 	          	 	<%- artist.name %> </p>
 	          	  <% }); %> 
 	          	</div>

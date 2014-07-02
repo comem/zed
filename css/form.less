@@ -25,6 +25,17 @@ form{
     .column(12);
 }
 
+// .ticketEspacement{
+//     .column(8);
+
+//     #ticketAddArtist{
+//         width: 90px;
+//     }
+//     #ticketPrice{
+//         border-radius: 10px;
+//     }
+// }
+
 
 
 
@@ -43,7 +54,14 @@ box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 
 
 }
+///°°°°FONT°°°///
 
+body{
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+
+}
 
 #artistInfoDiv, #genreSelect,
 #musicianSelect, #addToEvent,
@@ -56,14 +74,16 @@ box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 #eventImageDiv, #eventArtistsDiv, #stuffForm {  
     background-color: #EEE;
     padding: 20px 30px 20px 30px;
-    font: 14px Georgia, "Times New Roman", Times, serif;
     color: #888;
+    font-size: 14px;
     text-shadow: 1px 1px 1px #FFF;
     border:1px solid #DADADA;   
 }
 
 h1 {
-    font: 25px Georgia, "Times New Roman", Times, serif;
+
+
+    font-size: 25px;
     padding: 0px 0px 5px 30px;
     display: block;
     margin-top: 20px;
@@ -80,7 +100,7 @@ h1 {
 h2 {
 
     margin-bottom: 15px;
-    font: 16px Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
     color: #888;
     text-decoration: underline;
     outline: 0 none;
@@ -125,7 +145,7 @@ input[type="number"]{
 
     padding: 3px 3px 3px 5px;
     width: 70%;
-    font: normal 12px/12px Georgia, "Times New Roman", Times, serif;
+    font-size: 12px;
 }
 select {
    
@@ -158,6 +178,16 @@ button {
                 }
             }
         }
+///°°°°°°°°°°ARTIST FORM °°°°°°°////
+
+.artist, .musicianForm, #eventForm{
+    h2{
+        img{
+            opacity: 0.6; 
+            margin-right: 5px; 
+        }
+    }
+}
 ///°°°°°°°°°°°DATE PICKER°°°°°°°°///
 
 div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{
@@ -166,7 +196,7 @@ div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearf
     border-top: none;
     width: 230px;
     color: #888;
-    font: Georgia, "Times New Roman", Times, serif;
+    font-family: 'Oxygen', sans-serif;
     -webkit-box-shadow: 0px 1px 4px 0px rgba(50, 50, 50, 0.54);
 -moz-box-shadow:    0px 1px 4px 0px rgba(50, 50, 50, 0.54);
 box-shadow:         0px 1px 4px 0px rgba(50, 50, 50, 0.54);
@@ -241,7 +271,7 @@ div.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-dialog-butto
     box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
     border-radius: 10px;
     outline: none; 
-    font: 14px Georgia, "Times New Roman", Times, serif;
+    font-size: 14px;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
 }
@@ -278,6 +308,58 @@ span.ui-button-text{
     }
 
 }
+
+
+////°°°°°°°°°°SWITCH FOLLOWED°°°°°°/////
+
+.onoffswitch {
+    position: relative; width: 48px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 15px; padding: 0; line-height: 15px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 7px;
+    background-color: #75858A; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 7px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 8px; margin: 3.5px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 29px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+
 /// BUTTON CREATE ARTIST
 
 #createNewArtistButton{
@@ -458,7 +540,8 @@ span.ui-button-text{
     }
     .ui-menu-item{
 
-        font: 13px Georgia, "Times New Roman", Times, serif;
+        font-size: 13px;
+        font-family: 'Oxygen', sans-serif;
         opacity:0.6;
         
 
@@ -556,7 +639,7 @@ span.ui-button-text{
     
     border-bottom:1px solid #7A7A7A;  
     border-bottom-right-radius: 10px; 
-    font: 14px Georgia, "Times New Roman", Times, serif;
+   font-size: 14px;
     color: #888;
 
         &:last-child{
@@ -641,7 +724,7 @@ span.ui-button-text{
     .column(24);
     border-bottom:1px solid #7A7A7A;  
     border-bottom-right-radius: 10px; 
-    font: 14px Georgia, "Times New Roman", Times, serif;
+font-size: 14px;
     color: #888;
     
 
@@ -730,7 +813,7 @@ span.ui-button-text{
 
     border-bottom:1px solid #7A7A7A;  
     border-bottom-right-radius: 10px; 
-    font: 14px Georgia, "Times New Roman", Times, serif;
+font-size: 14px;
     color: #888;
 
     .pourQueAccFonctionne{

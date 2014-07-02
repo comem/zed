@@ -50,49 +50,68 @@ var ImagesCollNested = MyModelNestedCollection.extend({
             }
 
 });
-var imagescollnested = new ImagesCollNested()
+/*
+    var imagescollnested = new ImagesCollNested()
 
-var imagesCollection = new ImagesColl()
-imagesCollection.fetch({
-    success: function(){
-        console.log('Images:');
-        console.log(imagesCollection.toJSON());
+    var imagesCollection = new ImagesColl()
+    imagesCollection.fetch({
+        success: function(){
+            console.log('Images:');
+            console.log(imagesCollection.toJSON());
 
-        musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-        musicianList.render().$el.appendTo('#musicianList')
-        $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-    }
-});
+            musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+            musicianList.render().$el.appendTo('#musicianList')
+            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+        }
+        });
+*/
 
+var NightType = Backbone.Model.extend({
+     defaults: function(){
+                return{
+                id:'',
+                name_de:''
 
+                 }
+            }
+})
+var NightTypeColl = Backbone.Collection.extend({
+    model: NightType
+})
+var NightTypeNestedColl = MyModelNestedCollection.extend({
+    nested: 'nighttype',
+    defaults: function(){
+                return{
+                    nighttype : new NightTypeColl()
+     
+                }
+            }
+
+})
+var nightTypeNestedColl = new NightTypeNestedColl()
+
+var Platform = Backbone.Model.extend({
+
+})
+var PlatformsColl = Backbone.Collection.extend({
+    model: Platform
+})
 
 var EventModel = Backbone.Model.extend({
-    urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
+    url:'http//pingouin.heig-vd.ch/gof/api/v1/nights',
 
 
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
-                    ticketcategories: new TicketsColl(),
+                    ticket_categorie: new TicketsColl(),
                     title_de:'',
                     image: new ImagesColl(),
-                    start_date_hour:'',
-                    opening_doors: '',
-                    ending_date_hour : '',
-                    nb_vegan_meals:'',
-                    nb_meals:'',
-                    meal_notes:'',
-                    notes:'',
-                    nb_places :'',
-                    followed:'',
-                    ticketType:'',
-                    ticketPrice :'',
-                    ticketQt :'',
-                    ticketNote:'',
-                    eventType:'',
-                    publishing:''
+                   // nighttype: new NightType(),
+                    platforms: new PlatformsColl()
+     
                 }
-            },
+            }/*,
         validate: function(attrs, options){
             if (!_.isDate(attrs.startDate) || attrs.startDate =='') {
                 alert('event start date has to be a date!')
@@ -112,13 +131,12 @@ var EventModel = Backbone.Model.extend({
              if(!_.isNumber(attrs.nbVeganMeals)){
                 alert('number of vegan meals has to be a number!')
             }
-        }
+        }*/
 
         });
 
 var EventColl = Backbone.Collection.extend({
     url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
-
     model:EventModel,
     parse: function (response) {
         if (typeof response.data != "undefined") {
@@ -131,8 +149,9 @@ var EventColl = Backbone.Collection.extend({
 var eventColl = new EventColl()
 
 
-var EventsNestedColl = MyModelNestedCollection.extend({
-      
+
+var EventsNestedColl = MyModelNestedCollection.extend({ 
+ url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',   
     nested: 'events',
     defaults: function(){
         return {
@@ -144,19 +163,27 @@ var EventsNestedColl = MyModelNestedCollection.extend({
 eventsNestedColl = new EventsNestedColl()
 
 
- musicianNestedCollServer.get('musicians').fetch({
-        success:function(){
-
-           musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-           musicianList.render().$el.appendTo('#musicianList')
-            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-
-           
-        }
-    })
 
 
+var EventColl2 = Backbone.Collection.extend({
+    
+
+    model:EventModel,
    
+}) 
+var eventColl2 = new EventColl()
+
+var EventsNestedColl2 = MyModelNestedCollection.extend({
+      
+    nested: 'events',
+    defaults: function(){
+        return {
+            events : new EventColl2()
+        }
+    }
+})
+
+eventsNestedColl2 = new EventsNestedColl()
 
 
 eventsNestedColl.get('events').fetch({
@@ -169,3 +196,4 @@ eventsNestedColl.get('events').fetch({
         console.log(eventsNestedColl.toJSON());
     }
 })
+

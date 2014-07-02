@@ -23,8 +23,11 @@
 
             defaults: function(){
                 return {
-                    name_de:'',
-                    id:''
+                    ticket_categorie_id:'',
+                    amount:'',
+                    quantitySold:'',
+                    comment:''
+
                 }
             }
         });
