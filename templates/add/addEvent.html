@@ -37,7 +37,14 @@
                 <label>Number of places*</label>
                 <input type="number" name="placesNumber" id="placesNumber"  required/><br>
                 <label>Followed*</label>
-                <button>Switch</button><br>   
+                <!-- <button>Switch</button><br> -->   
+                <div class="onoffswitch">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                      <span class="onoffswitch-inner"></span>
+                      <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
                 <label>Contract</label>
                 <input type="file" name="contract" id="contract"/><br>
             </div>
@@ -74,7 +81,7 @@
                 <h2 class ="addEventHeader"><img src="img/icones/icone_food.png">Meals</h2>
                 <label>Number of normal meals</label>
                 <input type="number" name="normalMeals" id="normalMeals"  required/><br>
-                <label>Number of vegan(metally ill person) meals</label>
+                <label>Number of vegan meals</label>
                 <input type="number" name="veganMeals" id="veganMeals"  required/><br>
                 <label>Note </label>
                 <textarea  id="mealNotes "placeholder="meal notes" ></textarea>
@@ -82,17 +89,22 @@
 
            <div id="ticketsDiv">
                 <h2 class ="addEventHeader"><img src="img/icones/icone_price.png">Tickets</h2>
+                <div class="ticketEspacement">
                 <label>Name</label>
                 <select id="ticketAddArtist">
                   <option>Frei</option>
                   <option>AVS</option>
                   <option>Etudiant</option>
                 </select><br>
-
+                </div>
+                <div class="ticketEspacement">
                 <label>Price</label>
                 <input type="number" name="ticketPrice" id="ticketPrice"/>CHF<br>
+                </div>
+                <div class="ticketEspacement">
                 <label>Quantity</label>
                 <input type="number" name="ticketPrice" id="ticketPrice"/><br>
+                </div>
                 <label>Note</label>
                 <textarea placeholder="informations" id="ticketInfo" ></textarea><br>
             </div>
