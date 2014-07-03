@@ -26,13 +26,22 @@
        		
 	          	<p><label>Last name : </label><%- musician.last_name %> </p>
 	          	<p><label>Stage name : </label><%- musician.stagename %> </p>
+                    <p><label>Instrument played : </label>
+                    <% _.each(musicians[musicianIndex].instruments, function (instrument, index) { %>
+                          <%- instrument.name_de %> -
+
+                          <% }); %>
 	          	
 	          	<div class="musicianInstrumentsTemplate">
+                         <p><label>Play in artist : </label>
                          <% _.each(musicians[musicianIndex].artists, function (artist, index) { %>
-	          		<p><label>Artists : </label>
+	          		
 	          	 
-	          	 	<%- artist.name %> </p>
-	          	  <% }); %> 
+	          	 	<div class = "musicianListYeah"> 
+                          <%- artist.name %> 
+                          
+                         </div>
+	          	  <% }); %><p> 
 	          	</div>
           	</div>
           	

@@ -118,7 +118,7 @@ var ArtistList = MyView.extend({
 });
 
 
-/*
+
  musicianNestedCollServer.get('musicians').fetch({
         success:function(){
 
@@ -129,7 +129,7 @@ var ArtistList = MyView.extend({
            
         }
     })
-*/
+
 var MusicianList = MyView.extend({
     template: _.template(templates.lists_listMusician),
     render:function(){
@@ -897,7 +897,9 @@ multipleArtists.render().$el.appendTo('#artistList');
 multipleEvents.render().$el.appendTo('#eventList');
 multipleMusicians.render().$el.appendTo('#musicianList')
 */
-
+//export
+$("#exportDate").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true, changeYear: true})
+$("#exportEndDate").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true, changeYear: true})
 //artist
 $("#arrivalHourHour").timepicker({'scrollDefaultNow': true, 'timeFormat': 'H:i'})
 $("#arrivalHour").datepicker({dateFormat: 'dd.mm.yy',changeMonth: true, changeYear: true})
@@ -943,6 +945,49 @@ $
 $(".buttonsListMusician").click(function(event){
     event.stopPropagation();
 });
+
+
+
+
+
+///EXPORTWORD///
+
+
+$( "#exportTo" ).click(function() {
+    var exportDate = $( "#exportDate" ).val();
+    exportWord(exportDate);
+    console.log("click");
+});
+
+
+
+
+ function formatDate(date){
+
+       var euro_date = date;
+       euro_date = euro_date.split('.');
+       var us_date = euro_date.reverse().join('-');
+       console.log("format");
+       return us_date
+     }
+
+function exportWord (exportDate) {
+
+     jQuery.ajax({
+         type: "POST",
+         url: "http://pingouin.heig-vd.ch/gof/api/v1/nights/publish?date="+formatDate(exportDate),
+         dataType: "json",
+         success: function () {
+             console.log("sucess");
+         },
+
+         error: function () {
+            console.log("error");
+         }
+});
+   }
+
+
 
 
 

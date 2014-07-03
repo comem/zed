@@ -1,7 +1,7 @@
 <div class="form event">
   <div class= "accordion">
     <h1 class="addEventHeader">Add new event</h1>
-      <div>
+      <div id="overflow">
         <form id="eventForm">
           <div class="firstColumn">
             <div id="eventInfoDiv">
@@ -51,7 +51,8 @@
                 <h2 class ="addEventHeader">Event type</h2>
                 <label>Name</label>
               <input type="text" id ="eventTypeInput"> 
-              <button type="button" id="showAllTypes">Show all types</button>
+              <button type="button" class="showAll"id="showAllTypes">
+              <img src="img/icones/icone_list2.png"/></button></button>
 
               <fieldset id="eventTypesField">
                     <legend>Type selected</legend>
@@ -96,7 +97,8 @@
                 <h2 class ="addEventHeader"><img src="img/icones/icone_price.png">Tickets</h2>
                 <label>Category</label>
                 <input type="text" name="ticketCategory" id="ticketCategory"/>
-                <button type="button" id="showAllCategories">show all categories</button>
+                <button type="button" class ="showAll" id="showAllCategories">
+                <img src="img/icones/icone_list2.png"/></button>
                 <fieldset id="ticketCategoryField">
                     <legend>Tickets selected</legend>
                 </fieldset>

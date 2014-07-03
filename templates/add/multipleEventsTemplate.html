@@ -28,7 +28,7 @@
                         <p><label>Opening doors hour : </label><%- events[eventsIndex].opening_doors %></p>
                         <p><label>Ending hour : </label><%- events[eventsIndex].ending_date_hour %></p>
                         <p><label>Event type : </label><%- events[eventsIndex].nighttype.name_de %></p>
-                        <p><label>Ending date : </label><%- events[eventsIndex].endingDate %></p>
+                        
                     </div> <!-- eventInformation -->
 
                     <div class ="eventTicketInfo">
@@ -58,7 +58,11 @@
                     <div class ="eventOtherInfo">
                       <h2><img src="img/icones/icone_autre.png"> Others</h2>
                         <p><label>Place numbers : </label><%- events[eventsIndex].nb_places %></p>
-                        <p><label>Publishing? yes, </label><%- events[eventsIndex].published_at %></p>
+                        <p><label>Published on : </label>
+                        <% _.each(events[eventsIndex].platforms, function (platform, eventsIndex) { %>  
+                        <%- platform.name %>
+                        <% }); %>
+                        </p>
                         <p><label>Complementary note : </label><%- events[eventsIndex].notes %></p>
                     </div> <!-- eventOtherInfo -->
                 </div>    
