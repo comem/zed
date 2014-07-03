@@ -14,21 +14,21 @@
 
             <div id="startTimeDiv">
                 <h2 class ="addEventHeader"><img src="img/icones/icone_time.png"><span class="addEventStart">Start time*</span></h2>
-                <label class="addEventStartDate">Date</label>
+                <label class="addEventStartDate">Date*</label>
                 <input type="text" name="startDate" id="startDate" class="timeCntr" required/>
-                <label class="addEventStartHour">Start hour</label> 
+                <label class="addEventStartHour">Start hour*</label> 
                 <input type="text" name="startTime" id="startTime"  required/>
                 <label>
-                <abbr class="addEventOpeningDoors" title="if not filled, 45min before start hour will be set">Opening doors hour</abbr>
+                <abbr class="addEventOpeningDoors" title="if not filled, 45min before start hour will be set">Opening doors hour*</abbr>
                 </label>
                 <input type="text" name="openingDoorsTime" id="openingDoorsTime"/>
             </div>
 
             <div id="endTimeDiv">
                 <h2 class ="addEventHeader"><img src="img/icones/icone_time.png"><span class="addEventEnding">Ending time*</span></h2>
-                <label class="addEventEndingDate">Date</label> 
+                <label class="addEventEndingDate">Date*</label> 
                 <input type="text" name="endDate" id="endDate"  required/>
-                <label class="addEventEndingHour">Ending hour</label><input type="text" name="endTime" id="endTime" required/>
+                <label class="addEventEndingHour">Ending hour*</label><input type="text" name="endTime" id="endTime" required/>
             </div>
 
 
@@ -39,7 +39,7 @@
                 <label class="addEventNumberPlace">Number of places*</label>
                 <input type="number" name="placesNumber" id="placesNumber"  required/><br>
 
-                  <label class="addEventPrivateEvent">Private event?</label>
+                  <label class="addEventPrivateEvent">Private event?*</label>
                                    <select id="followed">
                                       <option>Yes</option>
                                       <option>No</option>
@@ -50,7 +50,7 @@
             </div>
 
             <div id="eventTypeDiv">
-                <h2 class ="addEventHeader addEventType">Event type</h2>
+                <h2 class ="addEventHeader addEventType">Event type*</h2>
                 <label class="addEventName">Name</label>
               <input type="text" id ="eventTypeInput"> 
               <button type="button" class="showAll"id="showAllTypes">
@@ -86,9 +86,9 @@
 
             <div id="mealsDiv">
                 <h2 class ="addEventHeader"><img src="img/icones/icone_food.png"><span class="addEventMeals">Meals</span></h2>
-                <label class="addEventMealsNumber">Number of normal meals</label>
+                <label class="addEventMealsNumber">Number of normal meals*</label>
                 <input type="number" name="normalMeals" id="normalMeals"  required/><br>
-                <label class="addEventNumberVegiMeals">Number of vegan meals</label>
+                <label class="addEventNumberVegiMeals">Number of vegan meals*</label>
                 <input type="number" name="veganMeals" id="veganMeals"  required/><br>
                 <label class="addEventNote">Note </label>
                 <textarea  id="mealNotes"placeholder="meal notes" ></textarea>
@@ -97,7 +97,7 @@
           <div id="ticketsDiv">
 
                 <h2 class ="addEventHeader"><img src="img/icones/icone_price.png"><span class="addEventTickets">Tickets</span></h2>
-                <label class="addEventCategory">Category</label>
+                <label class="addEventCategory">Category*</label>
                 <input type="text" name="ticketCategory" id="ticketCategory"/>
                 <button type="button" class ="showAll" id="showAllCategories">
                 <img src="img/icones/icone_list2.png"/></button>
@@ -110,9 +110,9 @@
                
 
 
-                <label>Price</label>
+                <label>Price*</label>
                 <input type="number" name="ticketPrice" id="ticketPrice"/>CHF<br>
-                <label class="addEventQuantity">Quantity</label>
+                <label class="addEventQuantity">Quantity*</label>
                 <input type="number" name="ticketQuantity" id="ticketQuantity"/><br>
                 <label>Note</label>
                 <textarea placeholder="informations" id="ticketInfo" ></textarea><br>

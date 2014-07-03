@@ -76,7 +76,8 @@
 						Musicians 
 					</h2>
 
-		         
+	         
+
  					<% _.each(artists[artistIndex].musicians, function (musician, index) { %>
 		           	
 		           	<div class ="artistMusician myAccordion"> 
@@ -94,6 +95,9 @@
 		           			<label>Last name : </label>
 		           			<%- musician.last_name %> 
 		           		</p>
+
+
+			          		
 		           		</div>
 		           	
 			           		
@@ -105,7 +109,10 @@
 		        </div>  
 		 	   	<% }); %>
 		 	   	
-		 	   	
+		 	   	<h2>Events : </h2>
+			          		<% _.each(artists[artistIndex].nights, function (night, index) { %>
+					<p>  	<%-  artists[artistIndex].nights[index].title_de %> </p>
+							<% }); %>	
 		 	   	</div>
           
 

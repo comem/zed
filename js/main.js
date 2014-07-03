@@ -30,7 +30,6 @@ var Modal = Backbone.Modal.extend({
         "click  #imageUpload"       : 'uploadImage'
        
     },
-    
     imageSelect:function(event){
         var genreIndex = $(event.target).attr('id');
         var id = $(event.target).attr('id');  
@@ -137,26 +136,25 @@ var ArtistList = MyView.extend({
         return this;
     },
     loadColl:function(){
-
-
-       
+     
     artistNestedCollServer.get('artists').fetch({
 
         success:function(){
 
-   setTimeout(function(){
+          setTimeout(function(){
               $('#artistList').empty();
-        multipleArtists.render().$el.appendTo('#artistList');
+             multipleArtists.render().$el.appendTo('#artistList');
             $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
             $(".buttonsListMusician").click(function(event){
             event.stopPropagation();
-            });
+            }); }, 800)
 
-         }, 800)
 
           
-           
-
+          
+        },
+        error:function(){
+          alert('error');
 
         }
     })
@@ -508,6 +506,21 @@ var EventAdd = MyView.extend({
      var eventType = $('#eventType').val();
      var ticketType = $('#ticketType').val();
 
+//get night type id
+     var nighttypeid = nightTypeNestedColl.get('nighttype').at(0).get('id')-0
+
+       var evento = new EventModel({title_de: eventName, start_date_hour: formatDate(startDate,startTime), ending_date_hour: 
+      formatDate(endDate,endHour), nb_meal : normalMeals, nb_vegans_meal: veganMeals,
+      meal_note: mealNotes, nb_places: placesNumber, followed_by_private: followed, 
+      notes: complementaryNotes ,nighttype_id: nighttypeid, image_id:1});
+
+     if (openingDoorsTime != '') {
+        
+     }else{
+        evento.set({opening_doors:'' })
+     }
+
+
 
      if (followed == "Yes") {
         followed = true
@@ -530,10 +543,7 @@ var EventAdd = MyView.extend({
     }
 
 
-     var evento = new EventModel({title_de: eventName, start_date_hour: formatDate(startDate,startTime), ending_date_hour: 
-      formatDate(endDate,endHour), opening_doors:formatDate(startDate, openingDoorsTime), nb_meal : normalMeals, nb_vegans_meal: veganMeals,
-      meal_note: mealNotes, nb_places: placesNumber, followed_by_private: followed, 
-      notes: complementaryNotes ,nighttype_id: nighttypeid, image_id:1});
+   
 
 console.log(JSON.stringify(evento));
     
@@ -582,25 +592,26 @@ console.log(JSON.stringify(evento));
                                     },
                               }
                             }).append('Die neue Veranstaltung wurde erfolgreich hinzugefügt')
+                              $("#nameEvent").val('')
+                               $("#startDate").val('')
+                               $('#startTime').val('')
+                              $('#openingDoorsTime').val('')
+                                $('#endDate').val('')
+                            $('#endTime').val('')
+                             $('#mealNotes').val('');
+                               $('#normalMeals').val('');
+                             $('#veganMeals').val('');
+                               $('#ticketPrice').val('')
+                                $('#ticketQuantity').val('');
+                              $('#ticketInfo').val('');
+                               $('#veganMeals').val('');
+                               $('#compInfo').val('')
+                              $('#placesNumber').val('')
+                               $("#followed").val('')// 0 or 1
+                              $('#eventType').val('');
+                               $('#ticketType').val('');
 
-                              eventName.val("")
-                              startDate.val("")
-                              startTime.val("")
-                              openingDoorsTime.val("")
-                              endDate.val("")
-                              endHour.val("")
-                              mealNotes.val("")
-                              normalMeals.val("")
-                              veganMeals.val("")
-                              ticketPrice.val("")
-                              ticketQuantity.val("")
-                              ticketNote.val("")
-                              veganMeals.val("")
-                              complementaryNotes.val("")
-                              placesNumber.val("")
-                              followed.val("")
-                              eventType.val("")
-                              ticketType.val("")
+
                               eventTypeField.remove()
                               $("#eventTypesField").hide()
                               artistFieldEvent.remove()
@@ -948,10 +959,7 @@ var addEvent = new EventAdd();
 var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
-var addStuff = new AddStuff();
-var modalView = new Modal();
-
-
+var addStuff = new AddStuff()
 
 
 $(function(){
@@ -972,9 +980,6 @@ $(function(){
     addArtist.render().$el.appendTo('#formsAdd');
     addMusician.render().$el.appendTo('#formsAdd');
     addStuff.render().$el.appendTo('#stuffForm');
-
-   
-
 
 
    
@@ -1041,44 +1046,9 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
 
  $('.open').on('click', function(){
 
-        
-        console.log('AAAAAAAAAAAAAAAAAAAAH');
+        // Render an instance of your modal
+        var modalView = new Modal();
         $('.app').html(modalView.render().el);
-
-          var ImageView = Backbone.View.extend({
-            template : _.template(templates.lists_listImage),
-              initialize: function(attrs, options){
-                   this.listenTo(this.model, 'all', this.render);
-                   //this.listenTo(this.model, 'remove', this.logDelete);
-                   //this.listenTo(this.model, 'add' ,this.logAdd)
-              },
-             
-              render: function() {
-                  this.$el.html(this.template(this.model.toJSON()));
-                  return this;
-              }
-              
-          }); 
-
-          // Render an instance of your modal
-          
-         
-
-          var imageView = new ImageView({model:imagescollnested});
-
-          imagescollnested.get("images").fetch({
-          success:function () {
-          imageView.render().$el.appendTo("#selectable");
-            console.log(imagescollnested.toJSON());
-
-          }
-      })
-
-  });
-
-     
-
-      
 
 
 
@@ -1103,19 +1073,13 @@ $(".buttonsListMusician").click(function(event){
 
 
 
-
 ///EXPORTWORD///
 
 
 $( "#exportTo" ).click(function() {
     var exportDate = $( "#exportDate" ).val();
     exportWord(exportDate);
-    console.log("click");
 });
-
-
-
-
  function formatDate(date){
 
        var euro_date = date;
@@ -1124,21 +1088,9 @@ $( "#exportTo" ).click(function() {
        console.log("format");
        return us_date
      }
-
 function exportWord (exportDate) {
-
-     jQuery.ajax({
-         type: "POST",
-         url: "http://pingouin.heig-vd.ch/gof/api/v1/nights/publish?date="+formatDate(exportDate),
-         dataType: "json",
-         success: function () {
-             console.log("sucess");
-         },
-
-         error: function () {
-            console.log("error");
-         }
-});
+      var  url = "http://pingouin.heig-vd.ch/gof/api/v1/nights/publish?date="+formatDate(exportDate)
+      var win = window.open(url);
    }
 
 
@@ -1147,4 +1099,3 @@ function exportWord (exportDate) {
 
 
 });
-
