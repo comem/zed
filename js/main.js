@@ -98,7 +98,31 @@ var ListNav = MyView.extend({
     render:function(){
         this.$el.html(this.template());
         return this;
+    },
+    events:{
+      'click  #clickEvent':'loadEvent',
+      'click .liArtist':'loadArtist',
+      'click .liMusician':'loadMusician',
+    },
+    loadEvent: function(){
+      var eventList = new EventList();
+      eventList.loadColl()
+      console.log('asda');
+
+    },
+    loadArtist: function(){
+      var artistList = new ArtistList();
+
+      artistList.loadColl()
+console.log('qweq');
+    },
+    loadMusician: function(){
+      musicianList = new MusicianList()
+      musicianList.loadColl()
+      console.log('qiworqr');
+     
     }
+  
 });
 
 var EventList = MyView.extend({
@@ -136,35 +160,30 @@ var ArtistList = MyView.extend({
         return this;
     },
     loadColl:function(){
-
-
-       
+     
     artistNestedCollServer.get('artists').fetch({
 
         success:function(){
 
-   setTimeout(function(){
+          setTimeout(function(){
               $('#artistList').empty();
-        multipleArtists.render().$el.appendTo('#artistList');
+             multipleArtists.render().$el.appendTo('#artistList');
             $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
             $(".buttonsListMusician").click(function(event){
             event.stopPropagation();
-            });
-
-         }, 800)
+            }); }, 800)
 
           
-           
-
+          
+        },
+        error:function(){
+          alert('error');
 
         }
     })
 
     }
 });
-
-
-
 
 var MusicianList = MyView.extend({
     template: _.template(templates.lists_listMusician),
@@ -193,8 +212,6 @@ var MusicianList = MyView.extend({
     }
     
 });
-
-
 
 var StuffList = MyView.extend({
     template: _.template(templates.lists_listStuff),
@@ -508,13 +525,28 @@ var EventAdd = MyView.extend({
      var ticketType = $('#ticketType').val();
 
 
+       var nighttypeid = nightTypeNestedColl.get('nighttype').at(0).get('id')-0
+       
+       var evento = new EventModel({title_de: eventName, start_date_hour: formatDate(startDate,startTime), ending_date_hour: 
+      formatDate(endDate,endHour), nb_meal : normalMeals, nb_vegans_meal: veganMeals,
+      meal_note: mealNotes, nb_places: placesNumber, followed_by_private: followed, 
+      notes: complementaryNotes ,nighttype_id: nighttypeid, image_id:1});
+
+     if (openingDoorsTime != '') {
+        
+     }else{
+        evento.set({opening_doors:'' })
+     }
+
+
+
      if (followed == "Yes") {
         followed = true
      }else{
         followed = false;
      };
      //get night type id
-     var nighttypeid = nightTypeNestedColl.get('nighttype').at(0).get('id')-0
+   
      console.log(nighttypeid);
   
     //convert data to the one used in database, us_format
@@ -529,10 +561,7 @@ var EventAdd = MyView.extend({
     }
 
 
-     var evento = new EventModel({title_de: eventName, start_date_hour: formatDate(startDate,startTime), ending_date_hour: 
-      formatDate(endDate,endHour), opening_doors:formatDate(startDate, openingDoorsTime), nb_meal : normalMeals, nb_vegans_meal: veganMeals,
-      meal_note: mealNotes, nb_places: placesNumber, followed_by_private: followed, 
-      notes: complementaryNotes ,nighttype_id: nighttypeid, image_id:1});
+   
 
 console.log(JSON.stringify(evento));
     
@@ -581,25 +610,26 @@ console.log(JSON.stringify(evento));
                                     },
                               }
                             }).append('Die neue Veranstaltung wurde erfolgreich hinzugefügt')
+                              $("#nameEvent").val('')
+                               $("#startDate").val('')
+                               $('#startTime').val('')
+                              $('#openingDoorsTime').val('')
+                                $('#endDate').val('')
+                            $('#endTime').val('')
+                             $('#mealNotes').val('');
+                               $('#normalMeals').val('');
+                             $('#veganMeals').val('');
+                               $('#ticketPrice').val('')
+                                $('#ticketQuantity').val('');
+                              $('#ticketInfo').val('');
+                               $('#veganMeals').val('');
+                               $('#compInfo').val('')
+                              $('#placesNumber').val('')
+                               $("#followed").val('')// 0 or 1
+                              $('#eventType').val('');
+                               $('#ticketType').val('');
 
-                              eventName.val("")
-                              startDate.val("")
-                              startTime.val("")
-                              openingDoorsTime.val("")
-                              endDate.val("")
-                              endHour.val("")
-                              mealNotes.val("")
-                              normalMeals.val("")
-                              veganMeals.val("")
-                              ticketPrice.val("")
-                              ticketQuantity.val("")
-                              ticketNote.val("")
-                              veganMeals.val("")
-                              complementaryNotes.val("")
-                              placesNumber.val("")
-                              followed.val("")
-                              eventType.val("")
-                              ticketType.val("")
+
                               eventTypeField.remove()
                               $("#eventTypesField").hide()
                               artistFieldEvent.remove()
@@ -935,12 +965,7 @@ var list = new List();
 var addSecondNav = new AddNav();
 var listSecondNav = new ListNav();
 
-var eventList = new EventList();
-eventList.loadColl()
-var artistList = new ArtistList();
-artistList.loadColl()
-var musicianList = new MusicianList();
-musicianList.loadColl()
+
 var stuffList = new StuffList();
 
 var addEvent = new EventAdd();
@@ -948,6 +973,13 @@ var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
 var addStuff = new AddStuff()
+
+    var artistList = new ArtistList();
+    artistList.loadColl()
+    var  musicianList = new MusicianList()
+    musicianList.loadColl()
+    var eventList = new EventList();
+    eventList.loadColl()
 
 
 $(function(){
@@ -970,7 +1002,6 @@ $(function(){
     addStuff.render().$el.appendTo('#stuffForm');
 
 
-   
 /*
 artistNestedCollServer.get('artists').fetch({
     success:function(){
@@ -1067,12 +1098,7 @@ $(".buttonsListMusician").click(function(event){
 $( "#exportTo" ).click(function() {
     var exportDate = $( "#exportDate" ).val();
     exportWord(exportDate);
-    console.log("click");
 });
-
-
-
-
  function formatDate(date){
 
        var euro_date = date;
@@ -1081,21 +1107,9 @@ $( "#exportTo" ).click(function() {
        console.log("format");
        return us_date
      }
-
 function exportWord (exportDate) {
-
-     jQuery.ajax({
-         type: "POST",
-         url: "http://pingouin.heig-vd.ch/gof/api/v1/nights/publish?date="+formatDate(exportDate),
-         dataType: "json",
-         success: function () {
-             console.log("sucess");
-         },
-
-         error: function () {
-            console.log("error");
-         }
-});
+      var  url = "http://pingouin.heig-vd.ch/gof/api/v1/nights/publish?date="+formatDate(exportDate)
+      var win = window.open(url);
    }
 
 

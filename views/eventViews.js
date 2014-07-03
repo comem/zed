@@ -17,7 +17,22 @@ var EventMultipleView = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template(this.model.toJSON()));
         return this;
-    }
+    },
+    events: {
+                'click .deleteEventTemplate': 'delete'
+        }, 
+    delete: function (evt) {
+              
+            var index = $(evt.target).attr("data-index")-0
+          
+            console.log(index);
+            
+             var evento = this.model.get('events').at(index)
+             console.log(evento);
+             evento.destroy();
+             
+             
+            }
 });
 
 

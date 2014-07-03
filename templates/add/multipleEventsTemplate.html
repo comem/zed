@@ -5,10 +5,14 @@
 
      <h1>
       <img class ="imageListe2" src="img/icones/icone_event.png">
+   
       <%- events[eventsIndex].title_de %> 
+      
+                  
+               
         <ul class = "buttonsListMusician">
-                <li><button type="button">
-                  <img src="img/icones/icone_delete.png"/>
+                <li><button type="button" class="deleteEventTemplate">
+                  <img data-index = "<%- eventsIndex %> "src="img/icones/icone_delete.png"/>
                   </button>
                 </li>
                 <li><button type="button">

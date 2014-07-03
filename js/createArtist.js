@@ -16,7 +16,7 @@
      var artist = new Artist({name: artistName, 
      short_description_de: leado, complete_description_de: descriptione })
      //add the links info to the artist
-     artist.get('links').set({url :linkUrl, title_de: linkTitle, name_de: linkName})
+     s.set({url :linkUrl, title_de: linkTitle, name_de: linkName})
 
 
 console.log(JSON.stringify(artist));

@@ -65,7 +65,7 @@
 
     <script src ="js/createMusician.js"></script>
     <script src ="js/createArtist.js"></script> 
-    <script src="js/createEvent.js"></script>
+    
 
     <script src ="lang/jquery.localisation.js"></script> 
     <script src ="js/langChange.js"></script> 

@@ -5,9 +5,9 @@ artistNameLabel = "Name"
 artistLead = "Kurtze Berschreibung"
 artistDesc = "Lange Beschreibung"
 theLinksTitle = "Die Links"
-theLinkName = "Name"
-theLinkUrl = "Das URL"
-theLinkTitleLabel = "Titel"
+theLinkName = "Name*"
+theLinkUrl = "Das URL*"
+theLinkTitleLabel = "Titel*"
 imageHeader = "Die Bilder"
 browseExistingImage = "Bestehende Bilder ansehen"
 uploadNewImage= "Einen neuen Bild einsenden"
@@ -19,7 +19,7 @@ showAllMusicians= "Alle Musiker zeigen"
 artistGenresSelected ="Gewählte Arten"
 noGenreResultInfo ="Keine Art wurde gefunden, Sie können eine neue schaffen"
 deleteGenreButtonArtist = "Art löschen"
-genreLabel ="Eine Art wählen"
+genreLabel ="Eine Art wählen*"
 genreHeader = "Arten"
 musicianHeader ="Musiker"
 deleteMusician = "Musiker löschen"
@@ -30,7 +30,8 @@ noMusicianResultsInfo = "Kein Musiker wurde gefunden, Sie können einen neuen sc
 addToEventArtist = "Ereignis"
 addToEventLabel ="Zum Ereignis hinzufügen"
 artistArrivalHourLabel = "Ankunft"
-
+artistArrivalDateLabel = "Ankunft Datum"
+orderArtist = "ordern*"
 //musician
 addNewMusicianHeader ="Neuen Musiker schaffen"
 newMusicianName ="Vorname"
@@ -41,7 +42,7 @@ newMusicianInstrument = "Instrument"
 instrumentsPlayed = "Gewählte Instrumente"
 noInstrumentResultInfo = "Kein Instrument wurde gefunden, Sie können ein neues schaffen"
 musicianAddToArtist ="Zu einem Künstler hinzufügen"
-createNewMusicianButton = "Neuen Musiker schaffen"
+
 
 //Menu
 addEventMenu = "Ereignis hinzufügen"
@@ -54,3 +55,43 @@ listEventMenu = "Ereignisliste"
 listArtistMenu ="Künstlerliste"
 listMusicianMenu ="Musikerliste"
 listStuffMenu  = "Anderesliste"
+
+//musician add from template
+musicianNameTemplate = "Vorname"
+musicianTitleTemplate ="Musiker"
+
+// addEventMen
+
+addEventTitle = "Event hinzufügen"
+addEventInfo = "Information*"
+addEventStart = "Anfang"
+addEventStartDate = "Datum*"
+addEventStartHour ="Startzeit*"
+addEventOpeningDoors = "Türöffnungszeit"
+addEventEnding = "Ende"
+addEventEndingDate = "Datum*"
+addEventEndingHour = "Endzeit*"
+
+addEventComplementaryInfo = "Weitere Informationen"
+addEventNote = "Note"
+addEventNumberPlace = "Anzahl der Plätze *"
+addEventPrivateEvent = "Privates Ereignis?*"
+addEventContract = "Vertrag"
+
+addEventType = "Art der Veranstaltung*"
+addEventName = "Name*"
+
+addEventImage = "Bild von der Veranstaltung"
+
+addEventMeals = "Mahlzeit"
+addEventMealsNumber = "Anzahl der Mahlzeiten*"
+addEventNumberVegiMeals = "Anzahl der vegetarischen Mahlzeiten*"
+
+addEventTickets = "Tickets*"
+addEventCategory = "Kategorie*"
+addEventQuantity = "Menge*"
+
+addEventPublishing ="Veröffentlichungen"
+addEventArtists = "Künstler"
+
+addEventCreate = "Erstelle eine neue Veranstaltung"

@@ -50,7 +50,7 @@ var ImagesCollNested = MyModelNestedCollection.extend({
             }
 
 });
-/*
+
     var imagescollnested = new ImagesCollNested()
 
     var imagesCollection = new ImagesColl()
@@ -64,7 +64,7 @@ var ImagesCollNested = MyModelNestedCollection.extend({
             $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
         }
         });
-*/
+
 
 var NightType = Backbone.Model.extend({
      defaults: function(){
@@ -98,6 +98,9 @@ var PlatformsColl = Backbone.Collection.extend({
 })
 
 var EventModel = Backbone.Model.extend({
+    comparator: function(m) {
+        return -m.get('start_date_hour')
+    },
     urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 
 
@@ -111,7 +114,8 @@ var EventModel = Backbone.Model.extend({
                     platforms: new PlatformsColl()
      
                 }
-            }/*,
+            }
+            /*,
         validate: function(attrs, options){
             if (!_.isDate(attrs.startDate) || attrs.startDate =='') {
                 alert('event start date has to be a date!')
@@ -138,6 +142,9 @@ var EventModel = Backbone.Model.extend({
 var EventColl = Backbone.Collection.extend({
     url:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
     model:EventModel,
+    comparator: function(m) {
+        return -m.get('start_date_hour')
+    },
     parse: function (response) {
         if (typeof response.data != "undefined") {
             response = response.data;
