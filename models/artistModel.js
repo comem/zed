@@ -1,4 +1,4 @@
-        var MyModelNestedCollection = Backbone.Model.extend({
+var MyModelNestedCollection = Backbone.Model.extend({
             nested: 'collection',
             initialize: function (attrs, options) {
                 this.get(this.nested).on('all', function(eventName) {
@@ -200,18 +200,4 @@ var ImagesColl = Backbone.Collection.extend({
         }})
 
 
-       
-    artistNestedCollServer.get('artists').fetch({
-        success:function(){
-       
-            //ar  artistList = new ArtistMultipleView({model:artistNestedCollServer})
-            multipleArtists.render().$el.appendTo('#artistList');
-            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-            $(".buttonsListMusician").click(function(event){
-            event.stopPropagation();
-            });
-
-
-        }
-    })
     

@@ -98,16 +98,16 @@ var PlatformsColl = Backbone.Collection.extend({
 })
 
 var EventModel = Backbone.Model.extend({
-    url:'http//pingouin.heig-vd.ch/gof/api/v1/nights',
+    urlRoot:'http://pingouin.heig-vd.ch/gof/api/v1/nights',
 
 
             defaults: function(){
                 return{
                     artists: new ArtistColl(),
-                    ticket_categorie: new TicketsColl(),
+                    ticket_categories: new TicketsColl(),
                     title_de:'',
-                    image: new ImagesColl(),
-                   // nighttype: new NightType(),
+                    //image: new ImagesColl(),
+                    nighttype: new NightType(),
                     platforms: new PlatformsColl()
      
                 }
@@ -186,14 +186,4 @@ var EventsNestedColl2 = MyModelNestedCollection.extend({
 eventsNestedColl2 = new EventsNestedColl()
 
 
-eventsNestedColl.get('events').fetch({
-    success: function(){
-
-        listEvent = new EventMultipleView({model:eventsNestedColl})
-        listEvent.render().$el.appendTo("#eventList")
-        $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-
-        console.log(eventsNestedColl.toJSON());
-    }
-})
 

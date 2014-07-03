@@ -22,7 +22,7 @@ var ArtistMultipleView = Backbone.View.extend({
 var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
 
 
-        var ArtistFieldInMusician = Backbone.View.extend({
+var ArtistFieldInMusician = Backbone.View.extend({
           initialize: function(attrs, options) {
               this.listenTo(this.model, 'all', this.render);
              },
@@ -36,33 +36,34 @@ var multipleArtists = new ArtistMultipleView({model:artistNestedCollServer});
             }, 
             delete: function (event) {
               //ARTIST IN MUSICIAN
-              var len = artistNestedList.toJSON().artists.length;
-              if (len == 1)  $('#musicianAddedToArtist').fadeOut("slow");
-            
-             var artistIndex = $(event.target).attr('data-indice');
-             
-             var artistDelete = this.model.get('artists').at(artistIndex);
-             //remove from nested model
-              this.model.get('artists').remove(artistDelete);
+                  console.log('MUSICIAN ARTIST');
+                 var len = artistNestedList.toJSON().artists.length;
+                  if (len == 1)  $('#musicianAddedToArtist').fadeOut("slow");
+                
+                 var artistIndex = $(event.target).attr('data-indice');
+                 
+                 var artistDelete = artistNestedList.get('artists').at(artistIndex);
+                 //remove from nested model
+                  artistNestedList.get('artists').remove(artistDelete);
+                  console.log(artistNestedList.toJSON());
               
-              //console.log(artistNestedList.toJSON());
-
-
               //ARTIST IN EVENT
-               var len2 =artistEventNestedList.toJSON().artists.length
-               console.log(artistEventNestedList.toJSON());
-               if (len2 == 0)  $('#artistInEvent').fadeOut("slow");
-               var artistEventIndex = $(event.target).attr('data-indice');
-             
-             var artistEventDelete = artistEventNestedList.get('artists').at(artistEventIndex);
-             //remove from nested model
-              artistEventNestedList.get('artists').remove(artistEventDelete);
-            
+                   var len2 =artistEventNestedList.toJSON().artists.length
+                   console.log('EVENT ARTIST');
+                   console.log(artistEventNestedList.toJSON());
+
+                   if (len2 == 0)  $('#artistInEvent').fadeOut("slow");
+                   var artistEventIndex = $(event.target).attr('data-indice');
+                 
+                 var artistEventDelete = this.m.get('artists').at(artistEventIndex);
+                 //remove from nested model
+                  artistEventNestedList.get('artists').remove(artistEventDelete);
+                  this.render()
             }
         });
 
 
-        artistField = new ArtistFieldInMusician({model :artistNestedList})
+        artistFieldMusician = new ArtistFieldInMusician({model : artistNestedList})
         artistFieldEvent = new ArtistFieldInMusician({model :artistEventNestedList})
        
        

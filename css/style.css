@@ -379,6 +379,13 @@ body .downNav ul li a:hover {
   font-family: helvetica;
   padding: 20px;
 }
+.ui-autocomplete {
+  
+  border-left: solid 2px gray;
+   border-right: solid 2px gray;
+   border-bottom: solid 2px gray;
+}
+
 #login_form h1 {
   text-align: center;
   margin-bottom: 2px;

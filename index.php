@@ -23,7 +23,7 @@
     <script type="text/javascript" src="lib/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
 
     <script src="js/packJs" type="text/javascript"></script>
-    <script type="text/javascript" src="lib/fancyBox-master/source/jquery.fancybox.pack.js"></script>
+    
     <script src ="js/jquery.timepicker.js"></script>      
        
     <script src="js/modernizr.js" type="text/javascript"></script>
