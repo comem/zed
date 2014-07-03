@@ -51,7 +51,8 @@
                 }
             }
        });
-        var instrumentsNestedColl = new InstrumentsNestedColl();
+
+    var instrumentsNestedColl = new InstrumentsNestedColl();
 
 //*******************//**********SERVER*********//**************
      
@@ -79,30 +80,12 @@
                     instruments : new InstrumentsCollServer()
                 }
             },
-         parse: function (response) {
-                if (typeof response.data != "undefined") {
-                    response = response.data;
+             parse: function (response) {
+                    if (typeof response.data != "undefined") {
+                        response = response.data;
+                    }
+                    return response;
                 }
-                return response;
-            }
-        });
+            });
         var instrumentsNestedCollServer = new InstrumentsNestedCollServer();
 
-        instrumentsNestedCollServer.get('instruments').fetch({
-                success:function(){
-                    console.log('inst nested');
-                console.log(instrumentsNestedCollServer.toJSON());
-            }
-        })
-
-
-//*******************//*******************//**************
-//test
-/*
-
-        instrumentsCollServer.fetch({ success: function(){
-            console.log('istrumentsCollServer');
-           console.log(instrumentsCollServer.toJSON())
-        }})
-
-*/
