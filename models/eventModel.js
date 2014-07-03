@@ -50,21 +50,21 @@ var ImagesCollNested = MyModelNestedCollection.extend({
             }
 
 });
-/*
+
     var imagescollnested = new ImagesCollNested()
 
-    var imagesCollection = new ImagesColl()
-    imagesCollection.fetch({
-        success: function(){
-            console.log('Images:');
-            console.log(imagesCollection.toJSON());
+    // var imagesCollection = new ImagesColl()
+    // imagesCollection.fetch({
+    //     success: function(){
+    //         console.log('Images:');
+    //         console.log(imagesCollection.toJSON());
 
-            musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
-            musicianList.render().$el.appendTo('#musicianList')
-            $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
-        }
-        });
-*/
+    //         musicianList = new MusicianMultipleView({model:musicianNestedCollServer})
+    //         musicianList.render().$el.appendTo('#musicianList')
+    //         $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "content"})
+    //     }
+    //     });
+
 
 var NightType = Backbone.Model.extend({
      defaults: function(){
