@@ -30,10 +30,7 @@ var Modal = Backbone.Modal.extend({
         "click  #imageUpload"       : 'uploadImage'
        
     },
-    render:function(){
-        this.$el.html(this.template());
-        return this;
-    },
+    
     imageSelect:function(event){
         var genreIndex = $(event.target).attr('id');
         var id = $(event.target).attr('id');  
@@ -840,7 +837,8 @@ var addEvent = new EventAdd();
 var addArtist = new ArtistAdd();
 
 var addMusician = new MusicianAdd();
-var addStuff = new AddStuff()
+var addStuff = new AddStuff();
+var modalView = new Modal();
 
 
 
@@ -930,8 +928,8 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
 
  $('.open').on('click', function(){
 
-        var modalView = new Modal();
-
+        
+        console.log('AAAAAAAAAAAAAAAAAAAAH');
         $('.app').html(modalView.render().el);
 
           var ImageView = Backbone.View.extend({
@@ -947,7 +945,7 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
                   return this;
               }
               
-          });
+          }); 
 
           // Render an instance of your modal
           
@@ -957,7 +955,7 @@ $('.myAccordion').accordion({collapsible: true, active: false,heightStyle: "cont
 
           imagescollnested.get("images").fetch({
           success:function () {
-          imageView.render().$el.appendTo(".body");
+          imageView.render().$el.appendTo("#selectable");
             console.log(imagescollnested.toJSON());
 
           }

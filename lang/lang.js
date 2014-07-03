@@ -30,6 +30,8 @@ noMusicianResultsInfo = "Kein Musiker wurde gefunden, Sie können einen neuen sc
 addToEventArtist = "Ereignis"
 addToEventLabel ="Zum Ereignis hinzufügen"
 artistArrivalHourLabel = "Ankunft"
+artistArrivalDateLabel = "Ankunft Datum"
+orderArtist = "ordern*"
 
 //musician
 addNewMusicianHeader ="Neuen Musiker schaffen"
@@ -54,3 +56,39 @@ listEventMenu = "Ereignisliste"
 listArtistMenu ="Künstlerliste"
 listMusicianMenu ="Musikerliste"
 listStuffMenu  = "Anderesliste"
+
+// addEventMen
+
+addEventTitle = "Event hinzufügen"
+addEventInfo = "Information"
+addEventStart = "Beginn"
+addEventStartDate = "Datum"
+addEventStartHour ="Startzeit"
+addEventOpeningDoors = "Türöffnungszeit"
+addEventEnding = "Ende"
+addEventEndingDate = "Datum"
+addEventEndingHour = "Endzeit"
+
+addEventComplementaryInfo = "Weitere Informationen"
+addEventNote = "Note"
+addEventNumberPlace = "Anzahl der Plätze *"
+addEventPrivateEvent = "Privates Ereignis?"
+addEventContract = "Vertrag"
+
+addEventType = "Art der Veranstaltung"
+addEventName = "Name"
+
+addEventImage = "Bild von der Veranstaltung"
+
+addEventMeals = "Mahlzeit"
+addEventMealsNumber = "Anzahl der Mahlzeiten"
+addEventNumberVegiMeals = "Anzahl der vegetarischen Mahlzeiten"
+
+addEventTickets = "Tickets"
+addEventCategory = "Kategorie"
+addEventQuantity = "Menge"
+
+addEventPublishing ="Veröffentlichungen"
+addEventArtists = "Künstler"
+
+addEventCreate = "Erstelle eine neue Veranstaltung"
